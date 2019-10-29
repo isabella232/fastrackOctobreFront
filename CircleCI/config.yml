@@ -1,0 +1,66 @@
+version: 2
+jobs:
+  test:
+    docker:
+      - image: circleci/node:dubnium
+
+    working_directory: ~/fastrackOctobreFront
+    steps:
+      - checkout
+
+      - run:
+          name: Install dependencies
+          command: npm install
+
+      - save_cache:
+          key: fastrackOctobreFront-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+
+      - run: npm test
+
+
+  deploy-staging: &job-deploy
+    docker:
+      - image: circleci/ruby
+        user: root
+
+    environment:
+      HEROKU_APP: fastrack-octobre-front
+
+    working_directory: ~/fastrackOctobreFront
+    steps:
+      - checkout
+
+      - run:
+          name: Install dpl
+          command: |
+            gem install -N dpl
+
+      - deploy:
+          name: Deploy to Heroku
+          command: dpl --provider=heroku --app=$HEROKU_APP --api-key=$HEROKU_API_KEY --skip_cleanup=true
+
+
+filter-staging: &filter-staging
+  filters:
+    branches:
+      only: master
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test:
+          filters:
+            branches:
+              ignore: master
+
+  deploy-staging:
+    jobs:
+#      - test:
+#          <<: *filter-staging
+      - deploy-staging:
+          <<: *filter-staging
+#          requires:
+#            - test
