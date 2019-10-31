@@ -8,7 +8,7 @@ import App from 'src/components/App';
 
 // == Render
 const rootComponent = (
-    <App />
+  <App />
 );
 
 // Le rendu de React => DOM
