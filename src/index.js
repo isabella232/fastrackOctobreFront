@@ -4,11 +4,11 @@ import { render } from 'react-dom';
 
 
 // == Import : local
-import App from 'src/components/App';
+import Nav from 'src/components/Nav';
 
 // == Render
 const rootComponent = (
-    <App />
+  <Nav />
 );
 
 // Le rendu de React => DOM
