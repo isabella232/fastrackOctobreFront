@@ -1,15 +1,12 @@
-// == Import : npm
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-
-// == Import : local
-import Nav from 'src/components/Nav';
-
-// == Render
 const rootComponent = (
-  <Nav />
+  <div>
+    <Router>
+    </Router>
+  </div>
 );
 
-// Le rendu de React => DOM
 render(rootComponent, document.getElementById('root'));
