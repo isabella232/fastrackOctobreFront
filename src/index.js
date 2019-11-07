@@ -10,6 +10,7 @@ import store from 'src/store';
 const rootComponent = (
   <Provider store={store}>
   </Provider>
+
 );
 
 // Le rendu de React => DOM
