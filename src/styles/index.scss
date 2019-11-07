@@ -1,6 +1,13 @@
 @import 'reset';
+@import 'vars';
+
+* {
+  box-sizing: border-box;
+  font-size: 16px;
+}
 
 body {
   font-family: sans-serif;
   background: #2F3640;
+  color: #2F3640;
 }

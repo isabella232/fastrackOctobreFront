@@ -1,12 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
+import store from 'src/store';
 
 const rootComponent = (
-  <div>
+  <Provider store={store}>
     <Router>
     </Router>
-  </div>
+  </Provider>
+
 );
 
 render(rootComponent, document.getElementById('root'));
