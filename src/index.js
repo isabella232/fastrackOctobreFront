@@ -1,17 +1,16 @@
-// == Import : npm
 import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
-// == Import : local
 import store from 'src/store';
 
-// == Render
 const rootComponent = (
   <Provider store={store}>
+    <Router>
+    </Router>
   </Provider>
 
 );
 
-// Le rendu de React => DOM
 render(rootComponent, document.getElementById('root'));
