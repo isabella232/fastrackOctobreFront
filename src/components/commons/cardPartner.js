@@ -1,10 +1,13 @@
 import styled from '@emotion/styled';
+import { keyframes } from '@emotion/core';
+
 
 const CardPartner = styled.div`
   display: flex;
   width: 40%;
-  height: 35vh;
-  margin: 2rem 3rem;
+  height: 34vh;
+  margin: 0rem 3rem;
+  margin-bottom: 8rem;
   background: #DFE4EA;
   border-radius: 45px;
   position: relative;

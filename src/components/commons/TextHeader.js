@@ -6,10 +6,12 @@ const Header = styled.div`
   width: calc(100% - 80px);
   margin-left: 80px;
   display: flex;
+  height: 5vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 2rem 0;
+  padding-top: 2.5rem;
+  padding-bottom: 1.5rem;
 `;
 
 const Title = styled.h2`
