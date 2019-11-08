@@ -2,8 +2,8 @@ import React from 'react';
 
 import TextHeader from '../commons/TextHeader';
 
-const Title = () => (
-  <TextHeader title="PARTNERS" subtitle="Bonos nusquam Philos est omittamus" />
+const Title = (props) => (
+  <TextHeader title={props.title} subtitle={props.subtitle} />
 );
 
 export default Title;
