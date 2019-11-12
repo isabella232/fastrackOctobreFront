@@ -6,8 +6,8 @@ import Nav from '../nav';
 
 expect.addSnapshotSerializer(serializer);
 
-describe('cardPartnerCSS', () => {
-  it('renders with correct styles', () => {
+describe('Nav', () => {
+  it('renders with correct style', () => {
 
     const tree = renderer.create(<Nav />).toJSON();
 

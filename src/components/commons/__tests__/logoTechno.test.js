@@ -6,7 +6,7 @@ import Img from '../logoTechno';
 
 expect.addSnapshotSerializer(serializer);
 
-describe('cardPartnerCSS', () => {
+describe('Logo', () => {
   it('renders with correct styles', () => {
 
     const tree = renderer.create(<Img />).toJSON();

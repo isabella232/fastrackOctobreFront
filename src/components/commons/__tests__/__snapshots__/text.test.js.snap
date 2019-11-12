@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`cardPartnerCSS renders with correct styles 1`] = `
+exports[`Text renders with correct styles 1`] = `
 .emotion-2 {
   font-weight: bold;
   text-transform: uppercase;

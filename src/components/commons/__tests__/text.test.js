@@ -6,7 +6,7 @@ import { H3, P, SpanBold } from '../text';
 
 expect.addSnapshotSerializer(serializer);
 
-describe('cardPartnerCSS', () => {
+describe('Text', () => {
   it('renders with correct styles', () => {
 
     const tree = renderer.create(

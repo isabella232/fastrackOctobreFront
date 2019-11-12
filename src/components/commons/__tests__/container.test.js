@@ -6,7 +6,7 @@ import Container from '../container';
 
 expect.addSnapshotSerializer(serializer);
 
-describe('cardPartnerCSS', () => {
+describe('container', () => {
   it('renders with correct styles', () => {
 
     const tree = renderer.create(<Container />).toJSON();

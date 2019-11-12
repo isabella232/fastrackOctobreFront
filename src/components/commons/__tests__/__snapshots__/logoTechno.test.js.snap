@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`cardPartnerCSS renders with correct styles 1`] = `
+exports[`Logo renders with correct styles 1`] = `
 .emotion-0 {
   height: 66px;
   width: 66px;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`cardPartnerCSS renders with correct styles 1`] = `
+exports[`Nav renders with correct style 1`] = `
 .emotion-0 {
   width: 80px;
   height: 100vh;

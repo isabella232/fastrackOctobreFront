@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`test render without crashing 1`] = `
+exports[`TextHeader render without crashing 1`] = `
 <Styled(div)>
   <Styled(h2)>
     test
