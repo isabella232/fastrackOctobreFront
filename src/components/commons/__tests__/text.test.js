@@ -8,7 +8,6 @@ expect.addSnapshotSerializer(serializer);
 
 describe('Text', () => {
   it('renders with correct styles', () => {
-
     const tree = renderer.create(
       <SpanBold>
         <H3 />
