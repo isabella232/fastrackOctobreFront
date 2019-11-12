@@ -51,7 +51,7 @@ const Card = (props) => (
 
 
 Card.propTypes = {
-  image: PropTypes.string,
+  image: PropTypes.string.isRequired,
   firstname: PropTypes.string.isRequired,
   lastname: PropTypes.string.isRequired,
   jobs: PropTypes.string.isRequired,
