@@ -2,10 +2,10 @@ import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 
-import CardPartner from '../commons/cardPartner';
 import PictureBox from '../commons/picture';
 import Img from '../commons/logoTechno';
 import { H3, P, SpanBold } from '../commons/text';
+import Delayed from '../commons/delayed';
 
 const CustomH3 = styled(H3)`
   padding: 1rem;
@@ -28,7 +28,7 @@ const Logo = styled.div`
 `;
 
 const Card = (props) => (
-  <CardPartner>
+  <Delayed wait={props.wait}>
     <PictureBox image={props.image} />
     <CustomH3>{props.firstname} <SpanBold>{props.lastname}</SpanBold></CustomH3>
     <P>{props.jobs}</P>
@@ -46,7 +46,7 @@ const Card = (props) => (
         <SpanBold><P>{props.thirdTechnoName}</P></SpanBold>
       </Logo>
     </LogoContainer>
-  </CardPartner>
+  </Delayed>
 );
 
 

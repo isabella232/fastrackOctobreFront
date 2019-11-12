@@ -1,26 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import styled from '@emotion/styled';
 
-class Delayed extends React.Component {
+import CardPartner from './cardPartner';
 
-  constructor(props) {
-    super(props);
-    this.state = { hidden: true };
-  }
+const Delay = styled(CardPartner)`
+  transition: transform 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+`;
 
-  componentDidMount() {
+const Delayed = ({ wait, children }) => {
+  const [hidden, setHidden] = useState(true);
+
+  useEffect(() => {
     setTimeout(() => {
-      this.setState({ hidden: false });
-    }, this.props.waitBeforeShow);
-  }
+      setHidden(false);
+    }, wait);
+  });
 
-  render() {
-    return this.state.hidden ? '' : this.props.children;
-  }
-}
+  return hidden ? '' : <Delay>{children}</Delay>;
+};
 
 Delayed.propTypes = {
-  waitBeforeShow: PropTypes.number.isRequired,
+  wait: PropTypes.number.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Delayed;
