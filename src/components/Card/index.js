@@ -27,31 +27,29 @@ const Logo = styled.div`
   flex-direction: column;
 `;
 
-const Test = styled.div`
-  transition: transform 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+const Up = styled.div`
+  text-transform: uppercase;
 `;
 
 const Card = ({ partner }) => (
   <Delayed wait={partner.wait}>
-    <Test>
-      <PictureBox image={partner.image} />
-      <CustomH3>{partner.firstname} <SpanBold>{partner.lastname}</SpanBold></CustomH3>
-      <P>{partner.jobs}</P>
-      <LogoContainer>
-        <Logo>
-          <Img src={partner.firstTechno} alt="" />
-          <SpanBold><P>{partner.firstTechnoName}</P></SpanBold>
-        </Logo>
-        <Logo>
-          <Img src={partner.secondTechno} alt="" />
-          <SpanBold><P>{partner.secondTechnoName}</P></SpanBold>
-        </Logo>
-        <Logo>
-          <Img src={partner.thirdTechno} alt="" />
-          <SpanBold><P>{partner.thirdTechnoName}</P></SpanBold>
-        </Logo>
-      </LogoContainer>
-    </Test>
+    <PictureBox image={partner.image} />
+    <CustomH3>{partner.firstname} <SpanBold>{partner.lastname}</SpanBold></CustomH3>
+    <P>{partner.jobs}</P>
+    <LogoContainer>
+      <Logo>
+        <Img src={partner.firstTechno} alt="" />
+        <Up><P>{partner.firstTechnoName}</P></Up>
+      </Logo>
+      <Logo>
+        <Img src={partner.secondTechno} alt="" />
+        <Up><P>{partner.secondTechnoName}</P></Up>
+      </Logo>
+      <Logo>
+        <Img src={partner.thirdTechno} alt="" />
+        <Up><P>{partner.thirdTechnoName}</P></Up>
+      </Logo>
+    </LogoContainer>
   </Delayed>
 );
 

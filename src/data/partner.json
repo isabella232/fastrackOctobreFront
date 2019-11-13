@@ -1,0 +1,31 @@
+{
+  "Jean": {
+    "wait": 250,
+    "firstname": "Jean",
+    "lastname": "Dupuis",
+    "image": "src/styles/cat1.png",
+    "jobs": "Développeur web front-end",
+    "firstTechnoName": "React",
+    "secondTechnoName": "Vue",
+    "thirdTechnoName": "Angular",
+    "firstTechno": "src/styles/img/react.png",
+    "secondTechno": "src/styles/img/vue.png",
+    "thirdTechno": "src/styles/img/angular.png"
+  },
+
+  "Louis": {
+    "wait": 250,
+    "firstname": "Louis",
+    "lastname": "Dupont",
+    "image": "src/styles/cat1.png",
+    "jobs": "Développeur web front-end",
+    "firstTechnoName": "React",
+    "secondTechnoName": "Vue",
+    "thirdTechnoName": "Angular",
+    "firstTechno": "src/styles/img/react.png",
+    "secondTechno": "src/styles/img/vue.png",
+    "thirdTechno": "src/styles/img/angular.png"
+  }
+}
+
+

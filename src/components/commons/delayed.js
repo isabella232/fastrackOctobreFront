@@ -6,7 +6,7 @@ import CardPartner from './cardPartner';
 
 const Delay = styled(CardPartner)`
   border: 1px solid;
-  transition: opacity 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: opacity 1s cubic-bezier(0.86, 0, 0.07, 1);
   opacity: 0;
 
   ${(props) => props.animate && `
@@ -15,15 +15,15 @@ const Delay = styled(CardPartner)`
 `;
 
 const Delayed = ({ wait, children }) => {
-  const [hidden, setHidden] = useState(true);
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
-      setHidden(false);
+      setHidden(true);
     }, wait);
   });
 
-  return <Delay animate={!hidden}>{children}</Delay>;
+  return <Delay animate={hidden}>{children}</Delay>;
 };
 
 Delayed.propTypes = {
