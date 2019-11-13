@@ -62,7 +62,7 @@ Card.propTypes = {
     firstTechnoName: PropTypes.string.isRequired,
     secondTechnoName: PropTypes.string,
     thirdTechnoName: PropTypes.string,
-    wait: PropTypes.number,
+    wait: PropTypes.number.isRequired,
   }).isRequired,
 };
 
