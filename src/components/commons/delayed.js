@@ -5,7 +5,13 @@ import styled from '@emotion/styled';
 import CardPartner from './cardPartner';
 
 const Delay = styled(CardPartner)`
-  transition: transform 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+  border: 1px solid;
+  transition: opacity 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+  opacity: 0;
+
+  ${(props) => props.animate && `
+    opacity: 1;
+  `}
 `;
 
 const Delayed = ({ wait, children }) => {
@@ -17,7 +23,7 @@ const Delayed = ({ wait, children }) => {
     }, wait);
   });
 
-  return hidden ? '' : <Delay>{children}</Delay>;
+  return <Delay animate={!hidden}>{children}</Delay>;
 };
 
 Delayed.propTypes = {
