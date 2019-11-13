@@ -27,23 +27,23 @@ const Logo = styled.div`
   flex-direction: column;
 `;
 
-const Card = (props) => (
-  <Delayed wait={props.wait}>
-    <PictureBox image={props.image} />
-    <CustomH3>{props.firstname} <SpanBold>{props.lastname}</SpanBold></CustomH3>
-    <P>{props.jobs}</P>
+const Card = ({ partner }) => (
+  <Delayed wait={partner.wait}>
+    <PictureBox image={partner.image} />
+    <CustomH3>{partner.firstname} <SpanBold>{partner.lastname}</SpanBold></CustomH3>
+    <P>{partner.jobs}</P>
     <LogoContainer>
       <Logo>
-        <Img src={props.firstTechno} alt="" />
-        <SpanBold><P>{props.firstTechnoName}</P></SpanBold>
+        <Img src={partner.firstTechno} alt="" />
+        <SpanBold><P>{partner.firstTechnoName}</P></SpanBold>
       </Logo>
       <Logo>
-        <Img src={props.secondTechno} alt="" />
-        <SpanBold><P>{props.secondTechnoName}</P></SpanBold>
+        <Img src={partner.secondTechno} alt="" />
+        <SpanBold><P>{partner.secondTechnoName}</P></SpanBold>
       </Logo>
       <Logo>
-        <Img src={props.thirdTechno} alt="" />
-        <SpanBold><P>{props.thirdTechnoName}</P></SpanBold>
+        <Img src={partner.thirdTechno} alt="" />
+        <SpanBold><P>{partner.thirdTechnoName}</P></SpanBold>
       </Logo>
     </LogoContainer>
   </Delayed>
@@ -51,16 +51,19 @@ const Card = (props) => (
 
 
 Card.propTypes = {
-  image: PropTypes.string.isRequired,
-  firstname: PropTypes.string.isRequired,
-  lastname: PropTypes.string.isRequired,
-  jobs: PropTypes.string.isRequired,
-  firstTechno: PropTypes.string.isRequired,
-  secondTechno: PropTypes.string,
-  thirdTechno: PropTypes.string,
-  firstTechnoName: PropTypes.string.isRequired,
-  secondTechnoName: PropTypes.string,
-  thirdTechnoName: PropTypes.string,
+  partner: PropTypes.shape({
+    image: PropTypes.string,
+    firstname: PropTypes.string.isRequired,
+    lastname: PropTypes.string.isRequired,
+    jobs: PropTypes.string.isRequired,
+    firstTechno: PropTypes.string.isRequired,
+    secondTechno: PropTypes.string,
+    thirdTechno: PropTypes.string,
+    firstTechnoName: PropTypes.string.isRequired,
+    secondTechnoName: PropTypes.string,
+    thirdTechnoName: PropTypes.string,
+    wait: PropTypes.number,
+  }).isRequired,
 };
 
 export default Card;
