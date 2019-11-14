@@ -26,9 +26,11 @@ top: 0;`;
 
 const Nav = () => (
   <Navbar>
-    <Img src="src/styles/img/Logo-LV.png" alt="" />
+    <Link to="/">
+      <Img src="src/styles/img/Logo-LV.png" alt="" />
+    </Link>
     <IconContainer>
-      <Link><FontAwesomeIcon icon={faUser} style={{ color: '#FFF', width: '80px' }} size="2x" /></Link>
+      <Link to="/"><FontAwesomeIcon icon={faUser} style={{ color: '#FFF', width: '80px' }} size="2x" /></Link>
       <Link><FontAwesomeIcon icon={faGraduationCap} style={{ color: '#FFF', width: '80px' }} size="2x" /></Link>
       <Link><FontAwesomeIcon icon={faChartLine} style={{ color: '#FFF', width: '80px' }} size="2x" /></Link>
     </IconContainer>

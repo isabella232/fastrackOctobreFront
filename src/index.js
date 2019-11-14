@@ -10,11 +10,12 @@ import PartnerDetails from 'src/pages/PartnerDetails';
 const rootComponent = (
   <Provider store={store}>
     <Router>
+
       <Switch>
-        <Route path="/partner">
+        <Route exact path="/partner">
           <PartnerDetails />
         </Route>
-        <Route path="/">
+        <Route exact path="/">
           <Home />
         </Route>
       </Switch>
