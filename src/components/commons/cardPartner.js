@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 const CardPartner = styled.div`
   display: flex;
-  width: 35%;
+  width: 100%;
   height: 34vh;
   margin: 0rem 5rem;
   margin-bottom: 8rem;
