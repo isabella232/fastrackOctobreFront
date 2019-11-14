@@ -5,9 +5,11 @@ const Container = styled.div`
   width: calc(100% - 80px);
   height: 95vh;
   margin-left: 80px;
-  padding: 7rem;
+  padding: 3rem;
   position: relative;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
 `;
 
 export default Container;
