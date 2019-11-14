@@ -1,5 +1,6 @@
-{
-  "Jean": {
+[
+
+  {
     "wait": 250,
     "firstname": "Jean",
     "lastname": "Dupuis",
@@ -13,7 +14,7 @@
     "thirdTechno": "src/styles/img/angular.png"
   },
 
-  "Louis": {
+  {
     "wait": 250,
     "firstname": "Louis",
     "lastname": "Dupont",
@@ -26,6 +27,6 @@
     "secondTechno": "src/styles/img/vue.png",
     "thirdTechno": "src/styles/img/angular.png"
   }
-}
+]
 
 
