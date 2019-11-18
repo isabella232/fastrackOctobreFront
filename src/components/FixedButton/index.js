@@ -6,9 +6,11 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import EditButton from '../commons/fixedButton';
 
 const FixedButton = () => (
-  <EditButton>
-    <Link><FontAwesomeIcon icon={faPlus} style={{ color: '#28ABE2' }} size="1x" /></Link>
-  </EditButton>
+  <a href="">
+    <EditButton>
+      <FontAwesomeIcon icon={faPlus} style={{ color: '#28ABE2' }} size="1x" />
+    </EditButton>
+  </a>
 );
 
 // == Export

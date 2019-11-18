@@ -5,13 +5,13 @@ import styled from '@emotion/styled';
 import CardPartner from './cardPartner';
 
 const Delay = styled(CardPartner)`
-  transition: all 0.7s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: 
+    opacity 0.9s cubic-bezier(0.86, 0, 0.07, 1),
+    transform 0.5s cubic-bezier(0.86, 0, 0.07, 1);
   opacity: 0;
 
   &:hover {
     transform: scale(1.04);
-    transition-duration: 500ms;
-    transition-property: transform;
   }
 
   ${(props) => props.animate && `
