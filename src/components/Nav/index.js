@@ -1,15 +1,12 @@
-// == Import : npm
 import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faGraduationCap, faChartLine, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
 
-// Import local
 
 import Navbar from '../commons/nav';
 
-// CSS
 
 const IconContainer = styled.div`width: 80px;
 height: 100vh;
@@ -22,7 +19,6 @@ const Img = styled.img`width: 80px;
 position: absolute;
 top: 0;`;
 
-// == Composant
 
 const Nav = () => (
   <Navbar>
@@ -38,6 +34,5 @@ const Nav = () => (
   </Navbar>
 );
 
-// == Export
 
 export default Nav;

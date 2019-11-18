@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
+import axios from 'axios';
 
 import Nav from 'src/components/Nav';
 import TextHeader from 'src/components/TextHeader';
@@ -8,54 +9,54 @@ import FixedButton from 'src/components/FixedButton';
 import Card from 'src/components/Card';
 import Container from 'src/components/commons/container';
 
-const partner = {
-  wait: 250,
-  firstname: 'Jean',
-  lastname: 'Dupuis',
-  image: 'src/styles/cat1.png',
-  jobs: 'Développeur web front-end',
-  firstTechnoName: 'React',
-  secondTechnoName: 'Vue',
-  thirdTechnoName: 'Angular',
-  firstTechno: 'src/styles/img/react.png',
-  secondTechno: 'src/styles/img/vue.png',
-  thirdTechno: 'src/styles/img/angular.png',
-};
-
-const partner2 = {
-  wait: 700,
-  firstname: 'Jean',
-  lastname: 'Dupuis',
-  image: 'src/styles/cat1.png',
-  jobs: 'Développeur web front-end',
-  firstTechnoName: 'React',
-  secondTechnoName: 'Vue',
-  thirdTechnoName: 'Angular',
-  firstTechno: 'src/styles/img/react.png',
-  secondTechno: 'src/styles/img/vue.png',
-  thirdTechno: 'src/styles/img/angular.png',
-};
-
 const Link2 = styled(Link)`
   display: flex;
-  width: 50%;
-  height: 49vh;
+  margin: 0 5rem;
+  width: 37%;
+  height: 34vh;
   flex-wrap: wrap;
+  margin-bottom: 8rem;
 `;
 
-const Home = () => (
-  <div>
-    <Nav />
-    <TextHeader title="Partners" subtitle="Liste des partnes enregistrés" />
-    <FixedButton />
-    <Container>
-      <Link2 to="/partner"><Card partner={partner} /></Link2>
-      <Link2 to="/partner"><Card partner={partner} /></Link2>
-      <Link2 to="/partner"><Card partner={partner2} /></Link2>
-      <Link2 to="/partner"><Card partner={partner2} /></Link2>
-    </Container>
-  </div>
+const Home = () => {
+  const [list, setList] = useState([]);
 
-);
+  useEffect(() => {
+    axios.get('https://fasttrack-octobre-back.herokuapp.com/api/partner/list')
+      .then((res) => {
+        const { data } = res;
+        setList(data);
+      });
+  }, []);
+
+  return (
+    <>
+      <Nav />
+      <TextHeader title="Partners" subtitle="Liste des partners enregistrés" />
+      <FixedButton />
+      <Container>
+        {list.map((partner) => (
+          <Link2 to={`/${partner.id}`}>
+            <Card partner={{
+              id: partner.id,
+              wait: 700,
+              firstname: partner.firstName,
+              lastname: partner.lastName,
+              image: 'src/styles/cat4.jpg',
+              jobs: partner.job,
+              firstTechnoName: 'Docker',
+              secondTechnoName: 'Jenkins',
+              thirdTechnoName: 'CircleCI',
+              firstTechno: 'src/styles/img/docker.png',
+              secondTechno: 'src/styles/img/jenkins.png',
+              thirdTechno: 'src/styles/img/circleci.png',
+            }}
+            />
+          </Link2>
+        ))}
+      </Container>
+    </>
+  );
+};
 
 export default Home;
