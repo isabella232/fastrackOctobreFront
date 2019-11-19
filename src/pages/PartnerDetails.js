@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router';
+import { getPartner } from '../services/client';
 
 import Nav from 'src/components/Nav';
 import TextHeader from 'src/components/TextHeader';
@@ -8,25 +9,28 @@ import FixedButton from 'src/components/FixedButton';
 
 
 const PartnerDetails = () => {
-  const [partner, setPartner] = useState({});
+  const [partner, setPartner] = useState();
   const { partnerId } = useParams();
 
   useEffect(() => {
     axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${partnerId}`)
       .then((res) => {
-        const { data } = res;
-        setPartner(data);
+        setPartner(res.data);
       });
   }, []);
 
-  if (partner) {
-    return (
-      <>
-        <Nav />
-        <FixedButton />
-        <TextHeader title={`${partner.firstName} ${partner.lastName}`} />
-      </>
-    );
-  }
+  return (
+    <>
+      {partner
+        && (
+          <>
+            <Nav />
+            <FixedButton />
+            <TextHeader title={`${partner.firstName || 'toto'} ${partner.lastName}`} />
+          </>
+        )}
+    </>
+  );
 };
+
 export default PartnerDetails;
