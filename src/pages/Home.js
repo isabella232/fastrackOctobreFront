@@ -35,14 +35,14 @@ const Home = () => {
       <TextHeader title="Partners" subtitle="Liste des partners enregistrés" />
       <FixedButton />
       <Container>
-        {list.map((partner) => (
+        {list.map((partner, index) => (
           <Link2 to={`/${partner.id}`}>
             <Card partner={{
               id: partner.id,
-              wait: 700,
+              wait: (index * 250),
               firstname: partner.firstName,
               lastname: partner.lastName,
-              image: 'src/styles/cat4.jpg',
+              image: `src/styles/${partner.avatar}`,
               jobs: partner.job,
               firstTechnoName: 'Docker',
               secondTechnoName: 'Jenkins',
