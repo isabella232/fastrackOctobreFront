@@ -12,7 +12,6 @@ import Picture from 'src/components/commons/picture';
 import CardPartner from 'src/components/commons/cardPartner';
 import Container from 'src/components/commons/container';
 import { H3, P, SpanBold } from 'src/components/commons/text';
-import { calculate } from 'specificity';
 
 // Styles
 
