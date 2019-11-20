@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router';
-import { getPartner } from '../services/client';
 
 import Nav from 'src/components/Nav';
 import TextHeader from 'src/components/TextHeader';
@@ -26,7 +25,7 @@ const PartnerDetails = () => {
           <>
             <Nav />
             <FixedButton />
-            <TextHeader title={`${partner.firstName || 'toto'} ${partner.lastName}`} />
+            <TextHeader title={`${partner.firstName} ${partner.lastName}`} />
           </>
         )}
     </>

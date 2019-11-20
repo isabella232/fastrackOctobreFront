@@ -35,7 +35,7 @@ const TextHeader = (props) => (
 
 TextHeader.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
 };
 
 export default TextHeader;
