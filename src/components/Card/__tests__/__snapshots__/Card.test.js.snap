@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should render without crashing 1`] = `
+<Delayed>
+  <Styled(div) />
+  <Styled(h3)>
+     
+    <Styled(span) />
+  </Styled(h3)>
+  <Styled(p) />
+  <Styled(div)>
+    <Styled(div)>
+      <Styled(img)
+        alt=""
+      />
+      <Styled(span)>
+        <Styled(p) />
+      </Styled(span)>
+    </Styled(div)>
+    <Styled(div)>
+      <Styled(img)
+        alt=""
+      />
+      <Styled(span)>
+        <Styled(p) />
+      </Styled(span)>
+    </Styled(div)>
+    <Styled(div)>
+      <Styled(img)
+        alt=""
+      />
+      <Styled(span)>
+        <Styled(p) />
+      </Styled(span)>
+    </Styled(div)>
+  </Styled(div)>
+</Delayed>
+`;

@@ -2,6 +2,7 @@ node_modules/
 dist/
 .vs/
 .vs-code/
+coverage/
 
 .DS_Store
 Thumbs.db
