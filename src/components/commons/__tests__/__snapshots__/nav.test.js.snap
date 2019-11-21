@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav renders with correct style 1`] = `
+.emotion-0 {
+  width: 80px;
+  height: 100vh;
+  background: #29AAE2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 10rem 0;
+  position: fixed;
+}
+
+<div
+  className="emotion-0"
+/>
+`;
