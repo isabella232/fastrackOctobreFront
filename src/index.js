@@ -11,8 +11,8 @@ const rootComponent = (
   <Provider store={store}>
     <Router>
       <Switch>
-        <Route path="/:partnerId" component={PartnerDetails} />
-        <Route exact path="/">
+        <Route path="partner/:partnerId" component={PartnerDetails} />
+        <Route exact path="/partner">
           <Home />
         </Route>
       </Switch>
