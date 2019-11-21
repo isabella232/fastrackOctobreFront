@@ -15,8 +15,9 @@ import { H3, P, SpanBold } from 'src/components/commons/text';
 
 // Styles
 
+// <Card></Card>
 const Card = styled(CardPartner)`
-width : 80%;
+width : 90%;
 height : 100%;
 margin-top: 3rem; 
 position: relative; 
@@ -24,24 +25,48 @@ justify-content : flex-start;
 padding-top : 5rem;
 `;
 
+// <PBold></PBold>
 const PBold = styled.p`
 font-weight: bold;
 display: 'inline' 
 
 `;
 
+// <HorizontalFlex></HorizontalFlex>
 const HorizontalFlex = styled.div`
   display: flex;
   justify-content: center; 
 `;
 
+// <VerticalFlex></VerticalFlex>
 const VerticalFlex = styled.div`
   display : flex; 
   flex-direction : column;
   justify-content: center; 
 `;
 
+// <Line />
+const Line = styled.div`
 
+width: 100%;
+height: 5px;
+background: #28ABE2;
+border-radius: 90px;
+`;
+
+// <Ellipse />
+const Ellipse = styled.div`
+
+width: 27px;
+height: 27px;
+background: #28ABE2;
+border-radius: 25px; 
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+`;
+
+// <BoxHead></BoxHead>
 const BoxHead = styled.div`
   border-bottom: 1px solid grey; 
   width : 80%;
@@ -49,7 +74,16 @@ const BoxHead = styled.div`
   padding-bottom: 1rem; 
 `;
 
+// <BoxGoals></BoxGoals>
 const BoxGoals = styled.div`
+  border-bottom: 1px solid grey; 
+  width : 80%;
+  text-align: center; 
+  padding-bottom: 1rem; 
+`;
+
+// <BoxSkills></BoxSkills>
+const BoxSkills = styled.div`
   border-bottom: 1px solid grey; 
   width : 80%;
   text-align: center; 
@@ -113,21 +147,32 @@ const PartnerDetails = () => {
                   <HorizontalFlex>
                     <H3 style={{ fontSize: '2rem' }}>Objectifs</H3>
                   </HorizontalFlex>
+                  <Line style={{ margin: '2rem 0', display: 'flex', justifyContent: 'space-around'}} >
+                    <Ellipse />
+                    <Ellipse style={{ margin: '0 5%' }}/>
+                    <Ellipse />
+                  </Line>
                   <HorizontalFlex style={{ justifyContent: 'space-between', alignItems: 'baseline', width: '100%' }}>
-                    <VerticalFlex style={{ marginRight: '2rem', maxWidth: 'calc(100%/3)' }}>
+                    <VerticalFlex style={{ marginRight: '2rem', width: 'calc(100%/3)' }}>
                       <PBold style={{ margin: '.8rem 0 .8rem .3rem', display: 'block' }}>Court Terme </PBold>
                       <P style={{ margin: '.8rem 0 .8rem .3rem' }}> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet felis at massa varius fringilla. Morbi id est viverra, auctor dui nec, lobortis leo. Maecenas eu fermentum sem, quis rhoncus elit. Proin imperdiet elementum elit, sit amet laoreet metus ornare ac. Pellentesque aliquam at augue quis mattis. Integer porttitor sagittis mauris, id eleifend nisi euismod non. Cras semper pellentesque ipsum.   </P>
                     </VerticalFlex>
-                    <VerticalFlex style={{ marginRight: '2rem', maxWidth: 'calc(100%/3)' }}>
+                    <VerticalFlex style={{ marginRight: '2rem', width: 'calc(100%/3)' }}>
                       <PBold style={{ margin: '.8rem 0 .8rem .3rem' }}>Moyen Terme </PBold>
                       <P style={{ margin: '.8rem 0 .8rem .3rem' }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at semper sapien. Donec sit amet felis at massa varius fringilla. Morbi id est viverra, auctor dui nec, lobortis leo. Maecenas eu fermentum sem, quis rhoncus elit. Proin imperdiet elementum elit, sit amet laoreet metus ornare ac. Pellentesque aliquam at augue quis mattis. Integer porttitor sagittis mauris, id eleifend nisi euismod non. Nulla facilisi. Cras semper pellentesque ipsum. </P>
                     </VerticalFlex>
-                    <VerticalFlex>
+                    <VerticalFlex style={{ width: 'calc(100%/3)' }}>
                       <PBold style={{ margin: '.8rem 0 .8rem .3rem' }}>Long Terme</PBold>
                       <P style={{ margin: '.8rem 0 .8rem .3rem' }}>Lorem ipsum dolor sit amet. Phasellus at semper sapien. Varius fringilla. Morbi id est viverra, auctor dui nec, lobortis leo. Maecenas eu fermentum sem, quis rhoncus elit. Proin imperdiet elementum elit, sit amet laoreet metus ornare ac. Pellentesque aliquam at augue quis mattis. Integer porttitor sagittis mauris, id eleifend nisi euismod non. Nulla facilisi. Cras semper pellentesque ipsum. </P>
                     </VerticalFlex>
                   </HorizontalFlex>
                 </BoxGoals>
+
+                <BoxSkills>
+                  <H3 style={{ fontSize: '2rem' }}>Compètences</H3>
+
+                </BoxSkills>
+
 
 
                 {console.log(partner)}
