@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faBriefcase, faUpload } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
+import axios from 'axios';
 
 import { H3, WhiteP } from '../commons/text';
 
@@ -35,8 +36,8 @@ const FlexColumn = styled(Flex)`
   flex-direction: column;
 `;
 
-const Button = styled.button`
-  padding: 1rem 4rem;
+const Button = styled.input`
+  padding: 0.75rem 3rem;
   background-color: #2F3640;
   border-radius: 30px;
   display: flex;
@@ -44,18 +45,23 @@ const Button = styled.button`
   align-items: center;
   color: #fff;
   border: none;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+  transition: 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
+  &:hover{
+    background-color: #fff;
+    color: #2F3640;
+  }
 `;
 
 const Input = styled.input`
   padding: 0.4rem 1rem;
   border-radius: 15px;
-  border: none;
   margin-left: 0.5rem;
   color: #2F3640;
   font-weight: 400;
   font-size: 0.8rem;
   width: 70%;
+  border: 2px solid #2F3640;
 `;
 
 const InputFile = styled.input`
@@ -67,6 +73,29 @@ const InputNumber = styled(Input)`
   margin: 0;
 `;
 
+const Select = styled.select`
+display: block;
+font-weight: 400;
+color: #757575;
+line-height: 1;
+border: none;
+padding: 0.5rem 1rem;
+width: 70%;
+margin: 0;
+border-radius: 15px;
+appearance: none;
+background-color: #fff;
+font-size: 0.8rem;
+border: 2px solid #2F3640;
+`;
+
+const Step = styled.p`
+  display: flex;
+  position: absolute;
+  top: 90%;
+  left: 90%;
+  color: #fff;
+`;
 
 const Label = styled.label`
   display: flex;
@@ -107,10 +136,25 @@ const Form = () => {
     reader.readAsDataURL(image);
   };
 
-  console.log(file);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(document.getElementById('partner'));
+    axios({
+      method: 'post',
+      url: 'https://httpbin.org/post',
+      data: formData,
+      headers: { 'Content-Type': 'multipart/form-data' },
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((response) => {
+        console.log(response);
+      });
+  };
 
   return (
-    <form>
+    <form id="partner" encType="multipart/form-data" onSubmit={handleSubmit}>
       <Flex>
         <Title>Ajouter un partner</Title>
       </Flex>
@@ -121,7 +165,7 @@ const Form = () => {
             <FontAwesomeIcon icon={faUpload} style={{ color: '#282828' }} size="1x" />
           )}
         </Label>
-        <InputFile type="file" accept="image/png, image/jpeg" id="avatar" onChange={(e) => handleImageChange(e)} />
+        <InputFile name="image" type="file" accept="image/png, image/jpeg, image/jpg, image.svg" id="avatar" onChange={(e) => handleImageChange(e)} />
       </FlexColumn>
       <Flex>
         <FontAwesomeIcon icon={faUser} style={{ color: '#FFF' }} size="1x" />
@@ -130,19 +174,19 @@ const Form = () => {
       <FlexColumn>
         <FlexSpaceBetween>
           <WhiteP>Prénom</WhiteP>
-          <Input placeholder="Jean" />
+          <Input name="firstName" placeholder="Jean" />
         </FlexSpaceBetween>
         <FlexSpaceBetween>
           <WhiteP>Nom</WhiteP>
-          <Input placeholder="Dupuis" />
+          <Input name="lastName" placeholder="Dupuis" />
         </FlexSpaceBetween>
         <FlexSpaceBetween>
           <WhiteP>Tél.</WhiteP>
-          <Input placeholder="0634256172" />
+          <Input name="tel" type="tel" placeholder="0634256172" />
         </FlexSpaceBetween>
         <FlexSpaceBetween>
           <WhiteP>E-mail</WhiteP>
-          <Input placeholder="Jean.dupuis@link-value.fr" />
+          <Input name="mail" type="email" placeholder="Jean.dupuis@link-value.fr" required />
         </FlexSpaceBetween>
       </FlexColumn>
       <Flex>
@@ -152,25 +196,66 @@ const Form = () => {
       <FlexColumn>
         <FlexSpaceBetween>
           <WhiteP>Métier</WhiteP>
-          <Input placeholder="Développeur" />
+          <Input name="job" placeholder="Développeur" />
         </FlexSpaceBetween>
         <FlexSpaceBetween>
           <WhiteP>Exp.</WhiteP>
-          <InputNumber placeholder="3 ans" type="number" min="0" />
+          <InputNumber name="xp" placeholder="3 ans" type="number" min="0" />
         </FlexSpaceBetween>
         <FlexSpaceBetween>
-          <WhiteP>Tél</WhiteP>
-          <Input placeholder="0634256172" />
+          <WhiteP>Client</WhiteP>
+          <Select name="customer">
+            <option>Sélectionnez un client</option>
+            <option>FTV</option>
+            <option>M6</option>
+            <option>Unimédias</option>
+            <option>Meetic</option>
+            <option>Enedis</option>
+            <option>Lizeo</option>
+            <option>Euronews</option>
+            <option>Le Livre Scolaire</option>
+            <option>Arte</option>
+            <option>Canal +</option>
+            <option>TF1</option>
+            <option>Ouicar</option>
+            <option>Marcel</option>
+            <option>Yellow La Poste</option>
+            <option>Pichet</option>
+            <option>Carrus</option>
+            <option>Leroy Merlin</option>
+            <option>Decathlon</option>
+            <option>La Redoute</option>
+            <option>Colisweb</option>
+            <option>Accor</option>
+            <option>L'Etudiant</option>
+            <option>Aramis</option>
+            <option>Oui SNCF</option>
+            <option>Voyage SNCF</option>
+            <option>Alltricks</option>
+            <option>Trigone</option>
+            <option>Pages Jaunes</option>
+            <option>Radio France</option>
+            <option>Megalithe.co</option>
+            <option>NRJ</option>
+            <option>Le Monde</option>
+            <option>Dawex</option>
+            <option>Mandarine</option>
+            <option>Kering</option>
+            <option>Volvo</option>
+            <option>Société Générale</option>
+            <option>BNP</option>
+            <option>Sodexo</option>
+            <option>Keplr</option>
+            <option>Booster</option>
+          </Select>
         </FlexSpaceBetween>
         <FlexSpaceBetween>
-          <WhiteP>Mail</WhiteP>
+          <WhiteP name="project">Mail</WhiteP>
           <Input placeholder="Jean.dupuis@link-value.fr" />
         </FlexSpaceBetween>
       </FlexColumn>
       <Flex>
-        <Button>
-          Suivant
-        </Button>
+        <Button type="submit" value="Suivant" />
       </Flex>
     </form>
   );
