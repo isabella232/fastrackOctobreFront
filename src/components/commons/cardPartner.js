@@ -3,17 +3,16 @@ import styled from '@emotion/styled';
 
 const CardPartner = styled.div`
   display: flex;
-  width: 35%;
+  width: 100%;
   height: 34vh;
-  margin: 0rem 5rem;
   margin-bottom: 8rem;
   background: #DFE4EA;
   border-radius: 45px;
   position: relative;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 4rem 0;
+  padding-top: 3rem;
 `;
 
 export default CardPartner;

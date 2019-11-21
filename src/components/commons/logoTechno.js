@@ -1,8 +1,8 @@
 import styled from '@emotion/styled';
 
 const Img = styled.img`
-  height: 44px;
-  width: 44px;
+  height: 35%;
+  width: 35%;
   margin-bottom: 1rem;
 `;
 
