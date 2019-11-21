@@ -13,5 +13,4 @@ const FixedButton = () => (
   </Link>
 );
 
-// == Export
 export default FixedButton;
