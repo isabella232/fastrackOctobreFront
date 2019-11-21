@@ -7,7 +7,7 @@ import EditButton from '../commons/fixedButton';
 
 const FixedButton = () => (
   <EditButton>
-    <Link><FontAwesomeIcon icon={faSearch} style={{ color: '#28ABE2' }} size="1x" /></Link>
+    <Link to="/"><FontAwesomeIcon icon={faSearch} style={{ color: '#28ABE2' }} size="1x" /></Link>
   </EditButton>
 );
 

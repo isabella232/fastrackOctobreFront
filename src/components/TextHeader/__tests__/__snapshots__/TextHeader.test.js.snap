@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TextHeader render without crashing 1`] = `
+<TextHeader
+  subtitle="test"
+  title="test"
+/>
+`;
