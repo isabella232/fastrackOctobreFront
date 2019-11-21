@@ -16,7 +16,6 @@ const CardContainer = () => {
 
   return (
     <div>
-      {console.log(data)}
     </div>
   );
 };
