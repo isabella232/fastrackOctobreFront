@@ -1,8 +1,10 @@
 {
   "extends": "airbnb",
   "parser": "babel-eslint",
+  "plugins": ["jest"],
   "env": {
-    "browser": true
+    "browser": true,
+    "jest/globals": true
   },
   "rules": {
     "brace-style": ["error", "stroustrup"],
@@ -26,5 +28,5 @@
   },
   "settings": {
     "import/resolver": "webpack"
-  }
+  },
 }

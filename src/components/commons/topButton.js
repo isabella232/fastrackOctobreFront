@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import EditButton from '../commons/fixedButton';
+import EditButton from './fixedButton';
 
 const TopButton = styled(EditButton)`
   top: calc(100% - 60px);
