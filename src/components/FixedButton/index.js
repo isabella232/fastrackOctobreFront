@@ -7,7 +7,6 @@ import styled from '@emotion/styled';
 import EditButton from '../commons/fixedButton';
 import Form from '../Form';
 
-<<<<<<< HEAD
 const FormContainer = styled.div`
 width: 30%;
 top: 0;
@@ -90,14 +89,5 @@ const FixedButton = () => {
     </>
   );
 };
-=======
-const FixedButton = () => (
-  <Link to="">
-    <EditButton>
-      <FontAwesomeIcon icon={faPlus} style={{ color: '#28ABE2' }} size="1x" />
-    </EditButton>
-  </Link>
-);
->>>>>>> master
 
 export default FixedButton;
