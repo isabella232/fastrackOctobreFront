@@ -10,10 +10,15 @@ import TextHeader from 'src/components/commons/TextHeader';
 import FixedButton from 'src/components/FixedButton';
 import Picture from 'src/components/commons/picture';
 import CardPartner from 'src/components/commons/cardPartner';
-import Container from 'src/components/commons/container';
+import ContainerCommon from 'src/components/commons/container';
 import { H3, P, SpanBold } from 'src/components/commons/text';
 
 // Styles
+
+const Container = styled(ContainerCommon)`
+height: 100%;
+`;
+
 
 // <Card></Card>
 const Card = styled(CardPartner)`
@@ -66,6 +71,20 @@ top: 50%;
 transform: translateY(-50%);
 `;
 
+// <Button ></Button>
+const Button = styled.button`
+background: #28ABE2;
+border-radius: 90px;
+padding: .5rem 1rem;
+margin : 0.5rem;
+color : #FFFFFF;
+border : none; 
+  &:hover {
+    opacity : .8; 
+  }
+  
+`;
+
 // <BoxHead></BoxHead>
 const BoxHead = styled.div`
   border-bottom: 1px solid grey; 
@@ -90,15 +109,35 @@ const BoxSkills = styled.div`
   padding-bottom: 1rem; 
 `;
 
+// Données :
+
+const categoriesDatas = [
+  'Front',
+  'Back',
+  'Mobile',
+  'Infra Admin',
+  'IASS',
+  'Intégration',
+  'Conteneur',
+  'Virtualisation',
+  'Scripting',
+  'Monitoring',
+  'Infra as',
+  'Méthodologie',
+  'Data Sience',
+  'Data Ingé',
+  'BDD',
+];
+
 
 // Component :
 
 const PartnerDetails = () => {
-
   // Hooks :
   const [partner, setPartner] = useState();
   const { partnerId } = useParams();
   const baseUrl = "/src/styles/";
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${partnerId}`)
@@ -147,9 +186,9 @@ const PartnerDetails = () => {
                   <HorizontalFlex>
                     <H3 style={{ fontSize: '2rem' }}>Objectifs</H3>
                   </HorizontalFlex>
-                  <Line style={{ margin: '2rem 0', display: 'flex', justifyContent: 'space-around'}} >
+                  <Line style={{ margin: '2rem 0', display: 'flex', justifyContent: 'space-around' }} >
                     <Ellipse />
-                    <Ellipse style={{ margin: '0 5%' }}/>
+                    <Ellipse style={{ margin: '0 5%' }} />
                     <Ellipse />
                   </Line>
                   <HorizontalFlex style={{ justifyContent: 'space-between', alignItems: 'baseline', width: '100%' }}>
@@ -170,10 +209,10 @@ const PartnerDetails = () => {
 
                 <BoxSkills>
                   <H3 style={{ fontSize: '2rem' }}>Compètences</H3>
-
+                  {categoriesDatas.map((categorie) => (
+                    <Button>{categorie}</Button>
+                  ))}
                 </BoxSkills>
-
-
 
                 {console.log(partner)}
               </Card>
