@@ -121,7 +121,6 @@ const Label = styled.label`
 
 const Form = () => {
   const [imageURL, setImageURL] = useState();
-  const [file, setFile] = useState();
 
   const handleImageChange = (e) => {
     e.preventDefault();
@@ -129,7 +128,6 @@ const Form = () => {
     const image = e.target.files[0];
 
     reader.onloadend = () => {
-      setFile(image);
       setImageURL(reader.result);
     };
 
@@ -139,6 +137,8 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(document.getElementById('partner'));
+
+    // J'attends d'avoir l'url pour la postRequest avant d'externaliser dans le dossier service :)
     axios({
       method: 'post',
       url: 'https://httpbin.org/post',
@@ -205,45 +205,10 @@ const Form = () => {
         <FlexSpaceBetween>
           <WhiteP>Client</WhiteP>
           <Select name="customer">
+            {/* J'attends d'avoir les clients en bdd pour map */ }
             <option>Sélectionnez un client</option>
             <option>FTV</option>
             <option>M6</option>
-            <option>Unimédias</option>
-            <option>Meetic</option>
-            <option>Enedis</option>
-            <option>Lizeo</option>
-            <option>Euronews</option>
-            <option>Le Livre Scolaire</option>
-            <option>Arte</option>
-            <option>Canal +</option>
-            <option>TF1</option>
-            <option>Ouicar</option>
-            <option>Marcel</option>
-            <option>Yellow La Poste</option>
-            <option>Pichet</option>
-            <option>Carrus</option>
-            <option>Leroy Merlin</option>
-            <option>Decathlon</option>
-            <option>La Redoute</option>
-            <option>Colisweb</option>
-            <option>Accor</option>
-            <option>L'Etudiant</option>
-            <option>Aramis</option>
-            <option>Oui SNCF</option>
-            <option>Voyage SNCF</option>
-            <option>Alltricks</option>
-            <option>Trigone</option>
-            <option>Pages Jaunes</option>
-            <option>Radio France</option>
-            <option>Megalithe.co</option>
-            <option>NRJ</option>
-            <option>Le Monde</option>
-            <option>Dawex</option>
-            <option>Mandarine</option>
-            <option>Kering</option>
-            <option>Volvo</option>
-            <option>Société Générale</option>
-            <option>BNP</option>
             <option>Sodexo</option>
             <option>Keplr</option>
             <option>Booster</option>
