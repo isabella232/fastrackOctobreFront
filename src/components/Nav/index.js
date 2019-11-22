@@ -23,7 +23,7 @@ top: 0;`;
 const Nav = () => (
   <Navbar>
     <Link to="/">
-      <Img src="src/styles/img/Logo-LV.png" alt="" />
+      <Img src="./styles/img/Logo-LV.png" alt="" />
     </Link>
     <IconContainer>
       <Link to="/"><FontAwesomeIcon icon={faUser} style={{ color: '#FFF', width: '80px' }} size="2x" /></Link>
