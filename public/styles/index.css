@@ -1,5 +1,4 @@
-@import 'reset';
-@import 'vars';
+@import './_reset.css';
 
 * {
   box-sizing: border-box;

@@ -3,14 +3,14 @@ import axios from 'axios';
 import { useParams } from 'react-router';
 import styled from '@emotion/styled';
 
-import Nav from 'src/components/Nav';
-import TextHeader from 'src/components/commons/TextHeader';
-import FixedButton from 'src/components/FixedButton';
-import Picture from 'src/components/commons/picture';
-import CardPartner from 'src/components/commons/cardPartner';
-import ContainerCommon from 'src/components/commons/container';
-import { H3, P } from 'src/components/commons/text';
-import { PBold, HorizontalFlex, VerticalFlex, Line, Ellipse, Button, BoxHead, BoxGoals, BoxSkills } from 'src/pages/styles';
+import Nav from '../components/Nav';
+import TextHeader from '../components/commons/TextHeader';
+import FixedButton from '../components/FixedButton';
+import Picture from '../components/commons/picture';
+import CardPartner from '../components/commons/cardPartner';
+import ContainerCommon from '../components/commons/container';
+import { H3, P } from '../components/commons/text';
+import { PBold, HorizontalFlex, VerticalFlex, Line, Ellipse, Button, BoxHead, BoxGoals, BoxSkills } from './styles';
 
 // Overloaded Styles
 
@@ -67,7 +67,7 @@ const PartnerDetails = () => {
 
   // Varibales :
 
-  const baseUrl = "/src/styles/";
+  const baseUrl = "../styles/";
 
   // Functions :
 
@@ -87,7 +87,7 @@ const PartnerDetails = () => {
         && (
           <>
             <Nav />
-            <TextHeader title={`${partner.firstName || 'toto'} ${partner.lastName}`} />
+            <TextHeader title={`${partner.firstName} ${partner.lastName}`} />
             <FixedButton />
             <Container>
               <Card>

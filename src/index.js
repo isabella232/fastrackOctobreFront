@@ -4,15 +4,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import store from './store';
-import Nav from './components/Nav';
-import TextHeader from './components/TextHeader';
-import FixedButton from './components/FixedButton';
-import Card from './components/Card';
-
-const partner = {
-  firstname: 'test',
-  wait: 3000,
-};
+import PartnerDetails from './pages/PartnerDetails';
+import Home from './pages/Home';
+import css from '../src/styles/index.css';
 
 const rootComponent = (
   <Provider store={store}>
