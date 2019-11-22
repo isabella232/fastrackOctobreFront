@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 import PartnerDetails from './pages/PartnerDetails';
 import Home from './pages/Home';
-import css from '../src/styles/index.css';
+import css from './index.css';
 
 const rootComponent = (
   <Provider store={store}>
