@@ -2,7 +2,7 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 
 // == Import : local
-import reducer from 'src/store/reducer';
+import reducer from '../store/reducer';
 import logMiddleware from './logMiddleware';
 
 // == Store
