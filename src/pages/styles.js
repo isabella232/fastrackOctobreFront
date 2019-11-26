@@ -1,7 +1,8 @@
 import styled from '@emotion/styled';
 
 // You can use this list to import one or all element below
-// { Rect, HorizontalFlex, VerticalFlex, Line, Ellipse, Button, BoxHead, BoxGoals, BoxSkills }
+// eslint-disable-next-line max-len
+// { Cursor, Rect, HorizontalFlex, VerticalFlex, Line, Ellipse, Button, BoxHead, BoxGoals, BoxSkills }
 
 
 // <HorizontalFlex></HorizontalFlex>
@@ -11,15 +12,17 @@ export const HorizontalFlex = styled.div`
 
   justify-content: ${(props) => props.justifyContent};
   align-items: ${(props) => props.alignItems};
+  position: ${(props) => props.position};
 `;
 
 // <VerticalFlex></VerticalFlex>
 export const VerticalFlex = styled.div`
   display : flex; 
   flex-direction : column;
-  justify-content: center; 
 
+  position: ${(props) => props.position};
   margin: ${(props) => props.margin};
+  margin-top: ${(props) => props.marginTop};
   width: ${(props) => props.width};
   align-items: ${(props) => props.alignItems};
   justify-content: ${(props) => props.justifyContent};
@@ -41,8 +44,8 @@ justify-content: ${(props) => props.justifyContent};
 // <Ellipse />
 export const Ellipse = styled.div`
 
-width: 27px;
-height: 27px;
+width: 1rem;
+height: 1rem;
 background: #28ABE2;
 border-radius: 25px; 
 top: 50%;
@@ -98,8 +101,18 @@ export const Rect = styled.div`
   border-bottom-width: 3px;
   border-left-width: 3px;
   border-color: #2F3640;
-
+ 
   background: ${(props) => props.background};
 `;
 
+// export const Cursor = styled.div `
+//   width: 0;
+//   height: 0;
+//   border-style: solid;
+//   border-width: 0 .5rem 1rem .5rem;
+//   top: 2rem;
+//   left: 0;
+//   border-color: transparent transparent #28ABE2 transparent;
+//   position : absolute
+// `;
 
