@@ -2,8 +2,8 @@
 
 exports[`Logo renders with correct styles 1`] = `
 .emotion-0 {
-  height: 66px;
-  width: 66px;
+  height: 35%;
+  width: 35%;
   margin-bottom: 1rem;
 }
 

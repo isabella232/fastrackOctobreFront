@@ -14,6 +14,7 @@
     "emotion": "^10.0.23",
     "enzyme": "^3.10.0",
     "eslint-plugin-jest": "^23.0.4",
+    "emotion-theming": "^10.0.19",
     "jest": "^24.9.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -58,6 +59,9 @@
     "eslint-plugin-react": "^7.16.0",
     "jest-emotion": "^10.0.17",
     "lint": "^0.7.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "jest-emotion": "^10.0.17",
     "react-test-renderer": "^16.12.0"
   }
 }
