@@ -8,9 +8,7 @@ configure({ adapter: new Adapter() });
 
 describe('Card', () => {
   it('should render without crashing', () => {
-    const render = shallow(<Card
-        
-      />);
+    const render = shallow(<Card />);
     expect(render).toMatchSnapshot();
   });
 });
