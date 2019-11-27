@@ -11,14 +11,15 @@ const RangeTxt = styled(P)`
 
 `;
 
-export const SlideContainer = styled.div`
+const SlideContainer = styled.div`
   width: 16rem;
   position: absolute;
   left: calc(-0.6rem + -2px);
   top: calc(2rem - 2px);
 `;
 
-export const Slider = styled.input`
+
+const Slider = styled.input`
   width: 17.2rem;
   background: none;
   justify-self : center;
@@ -56,23 +57,26 @@ export const Slider = styled.input`
   }
 `;
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
 const RangeCursor = () => {
-  const [value, setValue] = useState(75);
+  const [value, setValue] = useState(getRandomInt(100));
   const handleChange = (e) => setValue(e.target.value);
 
   return (
     <>
-      <Rect background="#C7ECEE" />
-      <Rect background="#7ED6DF" />
-      <Rect background="#22A6B3" />
-      <Rect background="#3C6382" />
+      <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#C7ECEE" />
+      <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#7ED6DF" />
+      <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#22A6B3" />
+      <Rect BorderTop="1.5" BorderRight="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#3C6382" />
       <RangeTxt> {value} </RangeTxt>
       <SlideContainer>
         <Slider type="range" min="0" max="100" value={value} onChange={handleChange} />
       </SlideContainer>
     </>
   );
-
 }
 
 export default RangeCursor;

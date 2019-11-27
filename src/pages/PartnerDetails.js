@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useParams } from 'react-router';
 import styled from '@emotion/styled';
 
+import ConvertToTime from '../helpers/ConvertToTime';
+import { categoriesDatas, logoTec, nameTec } from './ProvisionalData';
 import RangeCursor from '../components/commons/RangeCursor';
 import Nav from '../components/Nav';
 import TextHeader from '../components/commons/TextHeader';
@@ -13,7 +15,7 @@ import ContainerCommon from '../components/commons/container';
 import { H3, P } from '../components/commons/text';
 import Img from '../components/commons/logoTechno';
 import {
-  Rect, HorizontalFlex, VerticalFlex, Line, Ellipse, Button, BoxHead, BoxGoals, BoxSkills,
+  SkillsSlideContainer, HorizontalFlex, VerticalFlex, Line, Ellipse, Button, BoxHead, BoxGoals, BoxSkills,
 } from './styles';
 // Overloaded Styles
 
@@ -30,26 +32,6 @@ position: relative;
 justify-content : flex-start;
 padding-top : 5rem;
 `;
-
-// Données :
-
-const categoriesDatas = [
-  'Front',
-  'Back',
-  'Mobile',
-  'Infra Admin',
-  'IASS',
-  'Intégration',
-  'Conteneur',
-  'Virtualisation',
-  'Scripting',
-  'Monitoring',
-  'Infra as',
-  'Méthodologie',
-  'Data Sience',
-  'Data Ingé',
-  'BDD',
-];
 
 
 // Component :
@@ -69,17 +51,11 @@ const PartnerDetails = () => {
 
   // Varibales :
 
-  const baseUrl = "../styles/";
+  const baseUrl = '../styles/';
 
   // Functions :
 
-  const ConvertToTime = (initialTime) => {
-    const years = Math.floor(initialTime / 12);
-    const months = initialTime % 12;
-    return [
-      `Depuis ${years} ans et ${months} mois.`,
-    ];
-  };
+
 
 
   // Display :
@@ -111,11 +87,27 @@ const PartnerDetails = () => {
                   <HorizontalFlex>
                     <H3 fontSize="2rem">Objectifs</H3>
                   </HorizontalFlex>
-                  <Line margin="2rem 0" display="flex" justifyContent="space-around">
-                    <Ellipse />
-                    <Ellipse margin="0 5%" />
-                    <Ellipse />
-                  </Line>
+
+                  <HorizontalFlex width="100%">
+                    <HorizontalFlex width="calc(100%/3)">
+                      <Line margin="2rem 0" display="flex" justifyContent="center">
+                        <Ellipse />
+                      </Line>
+                    </HorizontalFlex>
+
+                    <HorizontalFlex width="calc(100%/3)">
+                      <Line margin="2rem 0" display="flex" justifyContent="center">
+                        <Ellipse />
+                      </Line>
+                    </HorizontalFlex>
+
+                    <HorizontalFlex width="calc(100%/3)">
+                      <Line margin="2rem 0" display="flex" justifyContent="center">
+                        <Ellipse />
+                      </Line>
+                    </HorizontalFlex>
+                  </HorizontalFlex>
+
                   <HorizontalFlex justifyContent="space-between" alignItems="baseline" width="100%">
                     <VerticalFlex margin=".8rem 2rem .8rem .3rem" width="calc(100%/3)">
                       <P fontWeight="bold" margin=".8rem 0 .8rem .3rem" display="block">Court Terme </P>
@@ -138,28 +130,51 @@ const PartnerDetails = () => {
                     <Button>{categorie}</Button>
                   ))}
 
-                  <P fontWeight="bold" margin=".8rem 0 .8rem .3rem" display="block"> Liste des technologies acquises </P>
+                  <P fontWeight="bold" margin="2rem 0 2rem .3rem" display="block"> Niveau des technologies acquises </P>
 
-                  <VerticalFlex marginTop="2rem">
-                    <HorizontalFlex width="100%" justifyContent="center">
-                      <Img height="2rem" margin="0 2rem 0 0" src="./styles/img/angular.png" alt="techno-Logo" />
+                  <SkillsSlideContainer>
+                    <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
+                      <HorizontalFlex width="100%" justifyContent="flex-start">
+                        <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${logoTec[7]}.png`} alt="techno-Logo" />
+                        <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{nameTec[7]}</P>
+                      </HorizontalFlex>
                       <HorizontalFlex position="relative">
                         <RangeCursor />
                       </HorizontalFlex>
                     </HorizontalFlex>
-                  </VerticalFlex>
 
-                  <VerticalFlex margin="2rem 0">
-                    <HorizontalFlex width="100%" justifyContent="center">
-                      <Img height="2rem" margin="0 2rem 0 0" src="./styles/img/angular.png" alt="techno-Logo" />
+                    <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" margin="2rem auto">
+                      <HorizontalFlex width="100%" justifyContent="flex-start">
+                        <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${logoTec[4]}.png`} alt="techno-Logo" />
+                        <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{nameTec[4]}</P>
+                      </HorizontalFlex>
                       <HorizontalFlex position="relative">
                         <RangeCursor />
                       </HorizontalFlex>
                     </HorizontalFlex>
-                  </VerticalFlex>
+
+                    <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" margin="2rem auto">
+                      <HorizontalFlex width="100%" justifyContent="flex-start">
+                        <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${logoTec[3]}.png`} alt="techno-Logo" />
+                        <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{nameTec[3]}</P>
+                      </HorizontalFlex>
+                      <HorizontalFlex position="relative">
+                        <RangeCursor />
+                      </HorizontalFlex>
+                    </HorizontalFlex>
+
+                    <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" margin="2rem auto">
+                      <HorizontalFlex width="100%" justifyContent="flex-start">
+                        <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${logoTec[8]}.png`} alt="techno-Logo" />
+                        <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{nameTec[8]}</P>
+                      </HorizontalFlex>
+                      <HorizontalFlex position="relative">
+                        <RangeCursor />
+                      </HorizontalFlex>
+                    </HorizontalFlex>
+                  </SkillsSlideContainer>
 
                 </BoxSkills>
-
 
                 {console.log(partner)}
               </Card>

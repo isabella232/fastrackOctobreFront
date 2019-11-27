@@ -22,7 +22,7 @@ const Home = () => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    axios.get('https://fasttrack-octobre-back.herokuapp.com/api/partner/list')
+    axios.get('https://fasttrack-octobre-back.herokuapp.com/api/partner')
       .then((res) => {
         const { data } = res;
         setList(data);

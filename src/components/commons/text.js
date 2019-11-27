@@ -13,8 +13,10 @@ fontSize: ${(props) => props.fontSize};
 export const P = styled.p`
 font-size: 1rem;
 
+width: ${(props) => props.width};
 font-weight: ${(props) => props.fontWeight};
 margin: ${(props) => props.margin};
+padding: ${(props) => props.padding};
 
 `;
 

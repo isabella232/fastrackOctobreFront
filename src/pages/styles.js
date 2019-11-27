@@ -4,15 +4,22 @@ import styled from '@emotion/styled';
 // eslint-disable-next-line max-len
 // { Cursor, Rect, HorizontalFlex, VerticalFlex, Line, Ellipse, Button, BoxHead, BoxGoals, BoxSkills }
 
+export const SkillsSlideContainer = styled.div`
+  width: 1000px;
+  min-width: 800px
+`;
 
 // <HorizontalFlex></HorizontalFlex>
 export const HorizontalFlex = styled.div`
   display: flex;
   justify-content: center; 
 
+  margin: ${(props) => props.margin};
+  margin-right: ${(props) => props.marginR};
   justify-content: ${(props) => props.justifyContent};
   align-items: ${(props) => props.alignItems};
   position: ${(props) => props.position};
+  width: ${(props) => props.width};
 `;
 
 // <VerticalFlex></VerticalFlex>
@@ -96,10 +103,10 @@ export const BoxSkills = styled.div`
 export const Rect = styled.div`
   height: 2rem; 
   width : 4rem;
-  border-top-width: 3px;
-  border-right-width: ${(props) => props.BorderRight};
-  border-bottom-width: 3px;
-  border-left-width: 3px;
+  border-top: ${(props) => props.BorderTop}px solid #2F3640;
+  border-right: ${(props) => props.BorderRight}px solid #2F3640;
+  border-bottom: ${(props) => props.BorderBottom}px solid #2F3640;
+  border-left: ${(props) => props.BorderLeft}px solid #2F3640;
   border-color: #2F3640;
  
   background: ${(props) => props.background};
