@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 
 import ConvertToTime from '../helpers/ConvertToTime';
 import { categoriesDatas, logoTec, nameTec } from './ProvisionalData';
+import ChronoLine from '../components/commons/chronoLine';
 import RangeCursor from '../components/commons/RangeCursor';
 import Nav from '../components/Nav';
 import TextHeader from '../components/commons/TextHeader';
@@ -87,27 +88,7 @@ const PartnerDetails = () => {
                   <HorizontalFlex>
                     <H3 fontSize="2rem">Objectifs</H3>
                   </HorizontalFlex>
-
-                  <HorizontalFlex width="100%">
-                    <HorizontalFlex width="calc(100%/3)">
-                      <Line margin="2rem 0" display="flex" justifyContent="center">
-                        <Ellipse />
-                      </Line>
-                    </HorizontalFlex>
-
-                    <HorizontalFlex width="calc(100%/3)">
-                      <Line margin="2rem 0" display="flex" justifyContent="center">
-                        <Ellipse />
-                      </Line>
-                    </HorizontalFlex>
-
-                    <HorizontalFlex width="calc(100%/3)">
-                      <Line margin="2rem 0" display="flex" justifyContent="center">
-                        <Ellipse />
-                      </Line>
-                    </HorizontalFlex>
-                  </HorizontalFlex>
-
+                  <ChronoLine />
                   <HorizontalFlex justifyContent="space-between" alignItems="baseline" width="100%">
                     <VerticalFlex margin=".8rem 2rem .8rem .3rem" width="calc(100%/3)">
                       <P fontWeight="bold" margin=".8rem 0 .8rem .3rem" display="block">Court Terme </P>

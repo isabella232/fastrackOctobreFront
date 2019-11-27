@@ -35,30 +35,7 @@ export const VerticalFlex = styled.div`
   justify-content: ${(props) => props.justifyContent};
 `;
 
-// <Line />
-export const Line = styled.div`
 
-width: 100%;
-height: 5px;
-background: #28ABE2;
-border-radius: 90px;
-
-margin: ${(props) => props.margin};
-display: ${(props) => props.display};
-justify-content: ${(props) => props.justifyContent};
-`;
-
-// <Ellipse />
-export const Ellipse = styled.div`
-
-width: 1rem;
-height: 1rem;
-background: #28ABE2;
-border-radius: 25px; 
-top: 50%;
--ms-transform: translateY(-50%);
-transform: translateY(-50%);
-`;
 
 // <Button ></Button>
 export const Button = styled.button`
