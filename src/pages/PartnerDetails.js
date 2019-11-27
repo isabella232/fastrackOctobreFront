@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router';
 import styled from '@emotion/styled';
 
+import RangeCursor from '../components/commons/RangeCursor';
 import Nav from '../components/Nav';
 import TextHeader from '../components/commons/TextHeader';
 import FixedButton from '../components/FixedButton';
@@ -10,6 +11,7 @@ import Picture from '../components/commons/picture';
 import CardPartner from '../components/commons/cardPartner';
 import ContainerCommon from '../components/commons/container';
 import { H3, P } from '../components/commons/text';
+import Img from '../components/commons/logoTechno';
 import {
   Rect, HorizontalFlex, VerticalFlex, Line, Ellipse, Button, BoxHead, BoxGoals, BoxSkills,
 } from './styles';
@@ -18,8 +20,6 @@ import {
 const Container = styled(ContainerCommon)`
 height: 100%;
 `;
-
-
 
 // <Card></Card>
 const Card = styled(CardPartner)`
@@ -57,6 +57,7 @@ const categoriesDatas = [
 const PartnerDetails = () => {
   // Hooks :
   const [partner, setPartner] = useState();
+
   const { partnerId } = useParams();
 
   useEffect(() => {
@@ -138,16 +139,25 @@ const PartnerDetails = () => {
                   ))}
 
                   <P fontWeight="bold" margin=".8rem 0 .8rem .3rem" display="block"> Liste des technologies acquises </P>
-                
-                  <VerticalFlex>
-                  <HorizontalFlex>
-                  <Rect background="#C7ECEE" />
-                  <Rect background="#7ED6DF"/>
-                  <Rect background="#22A6B3"/>
-                  <Rect background="#3C6382"/>
-                  </HorizontalFlex>
+
+                  <VerticalFlex marginTop="2rem">
+                    <HorizontalFlex width="100%" justifyContent="center">
+                      <Img height="2rem" margin="0 2rem 0 0" src="./styles/img/angular.png" alt="techno-Logo" />
+                      <HorizontalFlex position="relative">
+                        <RangeCursor />
+                      </HorizontalFlex>
+                    </HorizontalFlex>
                   </VerticalFlex>
-  
+
+                  <VerticalFlex margin="2rem 0">
+                    <HorizontalFlex width="100%" justifyContent="center">
+                      <Img height="2rem" margin="0 2rem 0 0" src="./styles/img/angular.png" alt="techno-Logo" />
+                      <HorizontalFlex position="relative">
+                        <RangeCursor />
+                      </HorizontalFlex>
+                    </HorizontalFlex>
+                  </VerticalFlex>
+
                 </BoxSkills>
 
 
