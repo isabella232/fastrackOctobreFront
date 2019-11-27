@@ -8,7 +8,7 @@ configure({ adapter: new Adapter() });
 
 describe('TextHeader', () => {
   it('render without crashing', () => {
-    const test = shallow(<TextHeader title="test" subtitle="test"/>);
+    const test = shallow(<TextHeader title="test" subtitle="test" />);
     expect(test).toMatchSnapshot();
   });
 });

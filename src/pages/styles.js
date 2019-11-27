@@ -1,15 +1,8 @@
 import styled from '@emotion/styled';
 
 // You can use this list to import one or all element below
-// { PBold, HorizontalFlex, VerticalFlex, Line, Ellipse, Button, BoxHead, BoxGoals, BoxSkills }
+// { Rect, HorizontalFlex, VerticalFlex, Line, Ellipse, Button, BoxHead, BoxGoals, BoxSkills }
 
-// <PBold></PBold>
-export const PBold = styled.p`
-font-weight: bold;
-display: 'inline'
-font-weight=${(props) => props.fontWeight};
-margin: ${(props) => props.margin};
-`;
 
 // <HorizontalFlex></HorizontalFlex>
 export const HorizontalFlex = styled.div`
@@ -94,3 +87,19 @@ export const BoxSkills = styled.div`
   text-align: center; 
   padding-bottom: 1rem; 
 `;
+
+// <Rect/>
+// Colors : #C7ECEE (lightBlue) / #7ED6DF (LightBlue2) / #22A6B3 (Blue) / #3C6382 (DarkBlue)
+export const Rect = styled.div`
+  height: 2rem; 
+  width : 4rem;
+  border-top-width: 3px;
+  border-right-width: ${(props) => props.BorderRight};
+  border-bottom-width: 3px;
+  border-left-width: 3px;
+  border-color: #2F3640;
+
+  background: ${(props) => props.background};
+`;
+
+

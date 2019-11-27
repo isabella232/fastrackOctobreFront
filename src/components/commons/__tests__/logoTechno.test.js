@@ -8,7 +8,6 @@ expect.addSnapshotSerializer(serializer);
 
 describe('Logo', () => {
   it('renders with correct styles', () => {
-
     const tree = renderer.create(<Img />).toJSON();
 
     expect(tree).toMatchSnapshot();

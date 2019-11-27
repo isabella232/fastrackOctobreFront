@@ -10,8 +10,9 @@ import Picture from '../components/commons/picture';
 import CardPartner from '../components/commons/cardPartner';
 import ContainerCommon from '../components/commons/container';
 import { H3, P } from '../components/commons/text';
-import { PBold, HorizontalFlex, VerticalFlex, Line, Ellipse, Button, BoxHead, BoxGoals, BoxSkills } from './styles';
-
+import {
+  Rect, HorizontalFlex, VerticalFlex, Line, Ellipse, Button, BoxHead, BoxGoals, BoxSkills,
+} from './styles';
 // Overloaded Styles
 
 const Container = styled(ContainerCommon)`
@@ -136,8 +137,19 @@ const PartnerDetails = () => {
                     <Button>{categorie}</Button>
                   ))}
 
-                  <P margin=".8rem 0 .8rem .3rem" display="block"> Liste des technologies acquises </P>
+                  <P fontWeight="bold" margin=".8rem 0 .8rem .3rem" display="block"> Liste des technologies acquises </P>
+                
+                  <VerticalFlex>
+                  <HorizontalFlex>
+                  <Rect background="#C7ECEE" />
+                  <Rect background="#7ED6DF"/>
+                  <Rect background="#22A6B3"/>
+                  <Rect background="#3C6382"/>
+                  </HorizontalFlex>
+                  </VerticalFlex>
+  
                 </BoxSkills>
+
 
                 {console.log(partner)}
               </Card>

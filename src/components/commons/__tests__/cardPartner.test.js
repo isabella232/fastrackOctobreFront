@@ -8,7 +8,6 @@ expect.addSnapshotSerializer(serializer);
 
 describe('cardPartnerCSS', () => {
   it('renders with correct styles', () => {
-
     const tree = renderer.create(<CardPartner />).toJSON();
 
     expect(tree).toMatchSnapshot();

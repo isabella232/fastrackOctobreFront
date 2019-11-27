@@ -15,8 +15,7 @@ const CardContainer = () => {
   }, []);
 
   return (
-    <div>
-    </div>
+    <div />
   );
 };
 

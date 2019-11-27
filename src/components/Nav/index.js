@@ -2,7 +2,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faGraduationCap, faChartLine, faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import {
+  faUser, faGraduationCap, faChartLine, faDoorOpen,
+} from '@fortawesome/free-solid-svg-icons';
 
 
 import Navbar from '../commons/nav';
@@ -30,7 +32,14 @@ const Nav = () => (
       <Link to="/"><FontAwesomeIcon icon={faGraduationCap} style={{ color: '#FFF', width: '80px' }} size="2x" /></Link>
       <Link to="/"><FontAwesomeIcon icon={faChartLine} style={{ color: '#FFF', width: '80px' }} size="2x" /></Link>
     </IconContainer>
-    <Link to="/"><FontAwesomeIcon icon={faDoorOpen} style={{ color: '#FFF', width: '80px', position: 'absolute', top: 'calc(100% - 48px)' }} size="1x" /></Link>
+    <Link to="/"><FontAwesomeIcon
+      icon={faDoorOpen}
+      style={{
+        color: '#FFF', width: '80px', position: 'absolute', top: 'calc(100% - 48px)',
+      }}
+      size="1x"
+    />
+    </Link>
   </Navbar>
 );
 

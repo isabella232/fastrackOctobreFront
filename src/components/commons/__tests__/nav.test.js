@@ -8,7 +8,6 @@ expect.addSnapshotSerializer(serializer);
 
 describe('Nav', () => {
   it('renders with correct style', () => {
-
     const tree = renderer.create(<Nav />).toJSON();
 
     expect(tree).toMatchSnapshot();
