@@ -3,11 +3,14 @@ import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import axios from 'axios';
 
+import { faSortAlphaDownAlt, faSortAlphaDown } from '@fortawesome/free-solid-svg-icons';
 import Nav from '../components/Nav';
 import TextHeader from '../components/TextHeader';
 import FixedButton from '../components/FixedButton';
+import SearchBar from '../components/commons/searchBar';
 import Card from '../components/Card';
 import Container from '../components/commons/container';
+import FiltredButton from '../components/commons/filterButton';
 
 const Link2 = styled(Link)`
   display: flex;
@@ -22,7 +25,7 @@ const Home = () => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    axios.get('https://fasttrack-octobre-back.herokuapp.com/api/partner/list')
+    axios.get('https://fasttrack-octobre-back.herokuapp.com/api/partner')
       .then((res) => {
         const { data } = res;
         setList(data);
@@ -33,7 +36,10 @@ const Home = () => {
     <>
       <Nav />
       <TextHeader title="Partners" subtitle="Liste des partners enregistrés" />
+      <FiltredButton top="2.5rem" left="96%" icon={faSortAlphaDown} />
+      <FiltredButton top="2.5rem" left="98%" icon={faSortAlphaDownAlt} />
       <FixedButton />
+      <SearchBar top="2rem" left="81%" />
       <Container>
         {list.map((partner, index) => (
           <Link2 to={`/${partner.id}`}>

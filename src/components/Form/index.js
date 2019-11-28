@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faBriefcase, faUpload } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faBriefcase, faUpload, faSortAlphaDown, faSortAlphaDownAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import axios from 'axios';
@@ -121,6 +121,7 @@ const Label = styled.label`
 
 const Form = () => {
   const [imageURL, setImageURL] = useState();
+  const [data, setData] = useState({});
 
   const handleImageChange = (e) => {
     e.preventDefault();
@@ -134,23 +135,27 @@ const Form = () => {
     reader.readAsDataURL(image);
   };
 
+  const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+    console.log(data);
+  };
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData(document.getElementById('partner'));
+    const formData = new FormData();
+    formData.append('image', imageURL);
+    Object.keys(data).map((objectKey) => {
+      formData.append(objectKey, data[objectKey]);
+    });
 
     // J'attends d'avoir l'url pour la postRequest avant d'externaliser dans le dossier service :)
     axios({
       method: 'post',
-      url: 'https://httpbin.org/post',
+      url: 'https://fasttrack-octobre-back.herokuapp.com/api/partner',
       data: formData,
       headers: { 'Content-Type': 'multipart/form-data' },
-    })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((response) => {
-        console.log(response);
-      });
+    });
   };
 
   return (
@@ -174,19 +179,19 @@ const Form = () => {
       <FlexColumn>
         <FlexSpaceBetween>
           <WhiteP>Prénom</WhiteP>
-          <Input name="firstName" placeholder="Jean" />
+          <Input name="firstName" placeholder="Jean" onChange={handleChange} />
         </FlexSpaceBetween>
         <FlexSpaceBetween>
           <WhiteP>Nom</WhiteP>
-          <Input name="lastName" placeholder="Dupuis" />
+          <Input name="lastName" placeholder="Dupuis" onChange={handleChange} />
         </FlexSpaceBetween>
         <FlexSpaceBetween>
           <WhiteP>Tél.</WhiteP>
-          <Input name="tel" type="tel" placeholder="0634256172" />
+          <Input name="phoneNumber" type="tel" placeholder="0634256172" onChange={handleChange} />
         </FlexSpaceBetween>
         <FlexSpaceBetween>
           <WhiteP>E-mail</WhiteP>
-          <Input name="mail" type="email" placeholder="Jean.dupuis@link-value.fr" required />
+          <Input name="email" type="email" placeholder="Jean.dupuis@link-value.fr" onChange={handleChange} required />
         </FlexSpaceBetween>
       </FlexColumn>
       <Flex>
@@ -196,16 +201,16 @@ const Form = () => {
       <FlexColumn>
         <FlexSpaceBetween>
           <WhiteP>Métier</WhiteP>
-          <Input name="job" placeholder="Développeur" />
+          <Input name="job" placeholder="Développeur" onChange={handleChange} required />
         </FlexSpaceBetween>
         <FlexSpaceBetween>
           <WhiteP>Exp.</WhiteP>
-          <InputNumber name="xp" placeholder="3 ans" type="number" min="0" />
+          <InputNumber name="experience" placeholder="3 ans" type="number" min="0" onChange={handleChange} />
         </FlexSpaceBetween>
         <FlexSpaceBetween>
           <WhiteP>Client</WhiteP>
-          <Select name="customer">
-            {/* J'attends d'avoir les clients en bdd pour map */ }
+          <Select name="customer" onChange={handleChange}>
+            {/* J'attends d'avoir les clients en bdd pour map */}
             <option>Sélectionnez un client</option>
             <option>FTV</option>
             <option>M6</option>
@@ -215,14 +220,19 @@ const Form = () => {
           </Select>
         </FlexSpaceBetween>
         <FlexSpaceBetween>
-          <WhiteP name="project">Mail</WhiteP>
-          <Input placeholder="Jean.dupuis@link-value.fr" />
+          {data.customer === 'Booster'
+            && (
+              <>
+                <WhiteP> Projet</WhiteP>
+                <Input name="project" placeholder="Mister Aslphalt" onChange={handleChange} />
+              </>
+            )}
         </FlexSpaceBetween>
       </FlexColumn>
       <Flex>
         <Button type="submit" value="Suivant" />
       </Flex>
-    </form>
+    </form >
   );
 };
 
