@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useParams } from 'react-router';
 import styled from '@emotion/styled';
 
-import { useTheme } from 'emotion-theming';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMobileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ConvertToTime from '../helpers/ConvertToTime';
 import { categoriesDatas, logoTec, nameTec } from './ProvisionalData';
 import ChronoLine from '../components/commons/chronoLine';
@@ -19,6 +20,8 @@ import Img from '../components/commons/logoTechno';
 import {
   SkillsSlideContainer, HorizontalFlex, VerticalFlex, Button, BoxHead, BoxGoals, BoxSkills,
 } from './styles';
+
+
 // Overloaded Styles
 
 const Container = styled(ContainerCommon)`
@@ -35,8 +38,35 @@ justify-content : flex-start;
 padding-top : 5rem;
 `;
 
+const Pphone = styled(P)`
+width: 50%;
+left: 0;
+text-align: center; 
+top: -2rem;
+margin: 0;
+color: ${(props) => props.theme.colors.white};
+position: absolute;
+`;
+
+const Pmail = styled(P)`
+width: 50%;
+right: 0;
+text-align: center; 
+top: -2rem;
+margin: 0;
+color: ${(props) => props.theme.colors.white};
+position: absolute;
+
+`;
+
+const Icon = styled(FontAwesomeIcon)`
+  margin : 0 1em;
+  color: ${(props) => props.theme.colors.white};
+`;
+
 
 // Component :
+
 
 const PartnerDetails = () => {
   // Hooks :
@@ -67,6 +97,14 @@ const PartnerDetails = () => {
             <FixedButton />
             <Container>
               <Card>
+                <Pphone>
+                  {`${partner.phoneNumber}`}
+                  <Icon icon={faMobileAlt} size="1x" />
+                </Pphone>
+                <Pmail>
+                  <Icon icon={faEnvelope} size="1x" />
+                  {`${partner.email}`}
+                </Pmail>
                 <Picture image={`${baseUrl}${partner.avatar}`} />
                 <BoxHead>
                   <H3 fontSize="2rem">{`${partner.job}`}</H3>

@@ -15,7 +15,7 @@ const Header = styled.div`
 `;
 
 const Title = styled.h2`
-  color: ${(props) => props.theme.colors.accentExtraLight};
+  color: ${(props) => props.theme.colors.white};
   font-size: 2rem;
   font-weight: bold;
 `;

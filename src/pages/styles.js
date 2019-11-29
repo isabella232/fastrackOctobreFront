@@ -44,7 +44,7 @@ background: ${(props) => props.theme.colors.primary};
 border-radius: 90px;
 padding: .5rem 1rem;
 margin : 0.5rem;
-color : #FFFFFF;
+color : ${(props) => props.theme.colors.white};
 border : none; 
   &:hover {
     opacity : .8; 
@@ -86,4 +86,12 @@ export const Rect = styled.div`
   border-color: ${(props) => props.theme.colors.black};
  
   background: ${(props) => props.background};
+`;
+
+export const Infos = styled.div`
+
+color: ${(props) => props.theme.colors.white};
+position: absolute;
+
+
 `;
