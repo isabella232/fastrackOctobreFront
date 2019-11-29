@@ -36,7 +36,7 @@ const FlexColumn = styled(Flex)`
   flex-direction: column;
 `;
 
-const Button = styled.input`
+const Button = styled.button`
   text-align: center;
   padding: 0.75rem 3rem;
   width: 70%;
@@ -187,7 +187,7 @@ const Form = (props) => (
       </FlexSpaceBetween>
     </FlexColumn>
     <Flex>
-      <Button onClick={props.click} value="Suivant" />
+      <Button onClick={props.click}>Suivant</Button>
     </Flex>
   </>
 );

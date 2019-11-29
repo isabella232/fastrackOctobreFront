@@ -31,7 +31,7 @@ const FlexColumn = styled(Flex)`
   flex-direction: column;
 `;
 
-const Button = styled.input`
+const Button = styled.button`
   text-align: center;
   padding: 0.75rem 3rem;
   width: 70%;
@@ -83,24 +83,24 @@ const Form = (props) => (
 
       <FlexColumn>
         <WhiteP>Court terme</WhiteP>
-        <TextArea name="shortObjectif" placeholder="Voici le premier objectif" onChange={props.change} />
+        <TextArea name="shortObjectif" placeholder="Voici le premier objectif" onChange={props.change} required />
       </FlexColumn>
 
       <FlexColumn>
         <WhiteP>Moyen terme</WhiteP>
-        <TextArea name="mediumObjectif" placeholder="Voici le deuxième objectif" onChange={props.change} />
+        <TextArea name="mediumObjectif" placeholder="Voici le deuxième objectif" onChange={props.change} required />
       </FlexColumn>
 
       <FlexColumn>
         <WhiteP>Long terme</WhiteP>
-        <TextArea name="largeObjectif" type="tel" placeholder="Voici le troisième objectif" onChange={props.change} />
+        <TextArea name="largeObjectif" type="tel" placeholder="Voici le troisième objectif" onChange={props.change} required />
       </FlexColumn>
 
     </FlexColumn>
 
     <FlexColumn>
-      <Button onClick={props.click} value="Précédent" />
-      <Button type="submit" value="Valider" />
+      <Button onClick={props.click}>Précédent</Button>
+      <Button type="submit">Envoyer</Button>
     </FlexColumn>
   </>
 );

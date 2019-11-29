@@ -7,4 +7,7 @@ export const submitForm = (imageURL, currentPartner) => {
     formData.append(objectKey, currentPartner[objectKey]);
   });
   dataSender(formData);
+  for (var pair of formData.entries()) {
+    console.log(pair[0]+ ', ' + pair[1]); 
+}
 };
