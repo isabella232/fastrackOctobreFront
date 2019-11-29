@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Bar = styled.input`
   position: absolute;

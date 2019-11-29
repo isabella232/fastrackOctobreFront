@@ -19,7 +19,7 @@ const Icon = styled(FontAwesomeIcon)`
 const FiltredButton = (props) => (
   <>
     <Link to={props.link}>
-      <Button top={props.top} left={props.left} >
+      <Button top={props.top} left={props.left}>
         <Icon icon={props.icon} size="1x" />
       </Button>
     </Link>

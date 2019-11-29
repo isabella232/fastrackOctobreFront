@@ -101,5 +101,3 @@ export const Rect = styled.div`
 
   background: ${(props) => props.background};
 `;
-
-

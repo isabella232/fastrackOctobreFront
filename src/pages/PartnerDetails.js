@@ -19,8 +19,6 @@ const Container = styled(ContainerCommon)`
 height: 100%;
 `;
 
-
-
 // <Card></Card>
 const Card = styled(CardPartner)`
 width : 90%;
@@ -68,7 +66,7 @@ const PartnerDetails = () => {
 
   // Varibales :
 
-  const baseUrl = "../styles/";
+  const baseUrl = '../styles/';
 
   // Functions :
 
@@ -98,11 +96,11 @@ const PartnerDetails = () => {
                   <P> {ConvertToTime(partner.experience)} </P>
                   <HorizontalFlex>
                     <P fontWeight="bold" margin=".8rem 0 .8rem .3rem">Société actuelle : </P>
-                    <P margin=".8rem 0 .8rem .3rem" >{`${partner.customer}`}</P>
+                    <P margin=".8rem 0 .8rem .3rem">{`${partner.customer}`}</P>
                   </HorizontalFlex>
                   <HorizontalFlex>
                     <P fontWeight="bold" margin=".8rem 0 .8rem .3rem">Projet : </P>
-                    <P margin=".8rem 0 .8rem .3rem" >{`${partner.project}`}</P>
+                    <P margin=".8rem 0 .8rem .3rem">{`${partner.project}`}</P>
                   </HorizontalFlex>
                 </BoxHead>
 
@@ -138,16 +136,16 @@ const PartnerDetails = () => {
                   ))}
 
                   <P fontWeight="bold" margin=".8rem 0 .8rem .3rem" display="block"> Liste des technologies acquises </P>
-                
+
                   <VerticalFlex>
-                  <HorizontalFlex>
-                  <Rect background="#C7ECEE" />
-                  <Rect background="#7ED6DF"/>
-                  <Rect background="#22A6B3"/>
-                  <Rect background="#3C6382"/>
-                  </HorizontalFlex>
+                    <HorizontalFlex>
+                      <Rect background="#C7ECEE" />
+                      <Rect background="#7ED6DF" />
+                      <Rect background="#22A6B3" />
+                      <Rect background="#3C6382" />
+                    </HorizontalFlex>
                   </VerticalFlex>
-  
+
                 </BoxSkills>
 
 
