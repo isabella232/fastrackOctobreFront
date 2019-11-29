@@ -5,7 +5,7 @@ import { Rect } from '../../pages/styles';
 
 const RangeTxt = styled(P)`
   position : absolute; 
-  color: white; 
+  color: ${(props) => props.theme.colors.accentExtraLight}; 
   left: 88%;
   margin-top: 0.5rem;
 
@@ -35,7 +35,7 @@ const Slider = styled.input`
     height: 0;
     border-style: solid;
     border-width: 0 .60rem 1.2rem .60rem;
-    border-color: transparent transparent #007bff transparent;
+    border-color: transparent transparent ${(props) => props.theme.colors.primary} transparent;
     cursor: pointer; 
   }
   &::-moz-focus-outer {
@@ -47,7 +47,7 @@ const Slider = styled.input`
     background: none;
     border-style: solid;
     border-width: 0 .60rem 1.2rem .60rem;
-    border-color: transparent transparent #007bff transparent;
+    border-color: transparent transparent ${(props) => props.theme.colors.primary} transparent;
     cursor: pointer;
   }
 
@@ -57,9 +57,9 @@ const Slider = styled.input`
   }
 `;
 
-function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
+const getRandomInt = (max) => (
+  Math.floor(Math.random() * Math.floor(max))
+);
 
 const RangeCursor = () => {
   const [value, setValue] = useState(getRandomInt(100));

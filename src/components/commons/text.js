@@ -26,7 +26,7 @@ text-transform: uppercase;
 `;
 
 export const WhiteP = styled.p`
-  color: #fff;
+  color: ${(props) => props.theme.colors.accentExtraLight};
   font-weight: 300;
   font-size: 1rem;
   margin-left: 0.5rem;

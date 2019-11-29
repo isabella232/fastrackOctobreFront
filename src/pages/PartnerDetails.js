@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useParams } from 'react-router';
 import styled from '@emotion/styled';
 
+import { useTheme } from 'emotion-theming';
 import ConvertToTime from '../helpers/ConvertToTime';
 import { categoriesDatas, logoTec, nameTec } from './ProvisionalData';
 import ChronoLine from '../components/commons/chronoLine';
@@ -16,7 +17,7 @@ import ContainerCommon from '../components/commons/container';
 import { H3, P } from '../components/commons/text';
 import Img from '../components/commons/logoTechno';
 import {
-  SkillsSlideContainer, HorizontalFlex, VerticalFlex, Line, Ellipse, Button, BoxHead, BoxGoals, BoxSkills,
+  SkillsSlideContainer, HorizontalFlex, VerticalFlex, Button, BoxHead, BoxGoals, BoxSkills,
 } from './styles';
 // Overloaded Styles
 
@@ -39,25 +40,21 @@ padding-top : 5rem;
 
 const PartnerDetails = () => {
   // Hooks :
-  const [partner, setPartner] = useState();
-
+  const [partner, setPartner] = useState({});
+  const [time, setTime] = useState(0);
   const { partnerId } = useParams();
 
   useEffect(() => {
     axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${partnerId}`)
       .then((res) => {
         setPartner(res.data);
+        setTime(ConvertToTime(res.data.experience));
       });
   }, []);
 
   // Varibales :
 
   const baseUrl = '../styles/';
-
-  // Functions :
-
-
-
 
   // Display :
   return (
@@ -73,14 +70,14 @@ const PartnerDetails = () => {
                 <Picture image={`${baseUrl}${partner.avatar}`} />
                 <BoxHead>
                   <H3 fontSize="2rem">{`${partner.job}`}</H3>
-                  <P> {ConvertToTime(partner.experience)} </P>
+                  <P> {`Depuis ${time.years} ans et ${time.months} mois.`} </P>
                   <HorizontalFlex>
                     <P fontWeight="bold" margin=".8rem 0 .8rem .3rem">Société actuelle : </P>
-                    <P margin=".8rem 0 .8rem .3rem" >{`${partner.customer}`}</P>
+                    <P margin=".8rem 0 .8rem .3rem">{`${partner.customer}`}</P>
                   </HorizontalFlex>
                   <HorizontalFlex>
                     <P fontWeight="bold" margin=".8rem 0 .8rem .3rem">Projet : </P>
-                    <P margin=".8rem 0 .8rem .3rem" >{`${partner.project}`}</P>
+                    <P margin=".8rem 0 .8rem .3rem">{`${partner.project}`}</P>
                   </HorizontalFlex>
                 </BoxHead>
 
@@ -113,7 +110,7 @@ const PartnerDetails = () => {
 
                   <P fontWeight="bold" margin="2rem 0 2rem .3rem" display="block"> Niveau des technologies acquises </P>
 
-                  <SkillsSlideContainer>
+                  <SkillsSlideContainer justifyContent="center">
                     <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
                       <HorizontalFlex width="100%" justifyContent="flex-start">
                         <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${logoTec[7]}.png`} alt="techno-Logo" />

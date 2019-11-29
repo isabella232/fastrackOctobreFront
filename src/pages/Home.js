@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from '@emotion/styled';
 import axios from 'axios';
+import { useTheme } from 'emotion-theming';
 
 import Nav from '../components/Nav';
 import TextHeader from '../components/TextHeader';
@@ -20,6 +21,7 @@ const Link2 = styled(Link)`
 
 const Home = () => {
   const [list, setList] = useState([]);
+  const theme = useTheme();
 
   useEffect(() => {
     axios.get('https://fasttrack-octobre-back.herokuapp.com/api/partner')

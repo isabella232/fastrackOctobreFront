@@ -6,7 +6,10 @@ import styled from '@emotion/styled';
 
 export const SkillsSlideContainer = styled.div`
   width: 1000px;
-  min-width: 800px
+  min-width: 800px;
+  margin : 0 auto;
+
+  justify-content: ${(props) => props.justifyContent};
 `;
 
 // <HorizontalFlex></HorizontalFlex>
@@ -35,11 +38,9 @@ export const VerticalFlex = styled.div`
   justify-content: ${(props) => props.justifyContent};
 `;
 
-
-
 // <Button ></Button>
 export const Button = styled.button`
-background: #28ABE2;
+background: ${(props) => props.theme.colors.primary};
 border-radius: 90px;
 padding: .5rem 1rem;
 margin : 0.5rem;
@@ -75,8 +76,6 @@ export const BoxSkills = styled.div`
   padding-bottom: 1rem; 
 `;
 
-// <Rect/>
-// Colors : #C7ECEE (lightBlue) / #7ED6DF (LightBlue2) / #22A6B3 (Blue) / #3C6382 (DarkBlue)
 export const Rect = styled.div`
   height: 2rem; 
   width : 4rem;
@@ -84,19 +83,7 @@ export const Rect = styled.div`
   border-right: ${(props) => props.BorderRight}px solid #2F3640;
   border-bottom: ${(props) => props.BorderBottom}px solid #2F3640;
   border-left: ${(props) => props.BorderLeft}px solid #2F3640;
-  border-color: #2F3640;
+  border-color: ${(props) => props.theme.colors.black};
  
   background: ${(props) => props.background};
 `;
-
-// export const Cursor = styled.div `
-//   width: 0;
-//   height: 0;
-//   border-style: solid;
-//   border-width: 0 .5rem 1rem .5rem;
-//   top: 2rem;
-//   left: 0;
-//   border-color: transparent transparent #28ABE2 transparent;
-//   position : absolute
-// `;
-

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled';
+import { useTheme } from 'emotion-theming';
 
 import EditButton from '../commons/fixedButton';
 import Form from '../Form';
@@ -14,7 +15,7 @@ height: 150vh;
 left: 100%;
 position: fixed;
 z-index: 10;
-background-color: #28ABE2;
+background-color: ${(props) => props.theme.colors.primary};
 transition: left 1s;
 display: flex;
 justify-content: flex-start;
@@ -37,12 +38,12 @@ transition: left 1s;
 
 ${(props) => props.animate && `
 left: calc(70% - 40px);
-background-color: #28ABE2;
+background-color: ${props.theme.colors.primary};
 `}
 
 ${(props) => !props.animate && `
 left: calc(100% - 40px);
-background-color: #28ABE2;
+background-color: ${props.theme.colors.primary};
 `}
 
 `;
@@ -63,6 +64,8 @@ const FixedButton = () => {
     setAnimate(false);
   };
 
+  const theme = useTheme();
+
   return (
     <>
       <FormContainer animate={animate}>
@@ -70,7 +73,7 @@ const FixedButton = () => {
           ? (
             <Link to="">
               <AddButton onClick={handleClick} animate={animate}>
-                <FontAwesomeIcon icon={faPlus} style={{ color: '#DFE4EA' }} size="1x" />
+                <FontAwesomeIcon icon={faPlus} style={{ color: theme.colors.white }} size="1x" />
               </AddButton>
               <Form />
             </Link>
