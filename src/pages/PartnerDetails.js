@@ -145,7 +145,6 @@ const PartnerDetails = () => {
                   {categoriesDatas.map((categorie) => (
                     <Button>{categorie}</Button>
                   ))}
-
                   <P fontWeight="bold" margin="2rem 0 2rem .3rem" display="block"> Niveau des technologies acquises </P>
 
                   <SkillsSlideContainer justifyContent="center">
