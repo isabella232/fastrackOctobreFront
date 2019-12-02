@@ -15,13 +15,13 @@ const Header = styled.div`
 `;
 
 const Title = styled.h2`
-  color: #FFF;
+  color: ${(props) => props.theme.colors.white};
   font-size: 2rem;
   font-weight: bold;
 `;
 
 const Subtitle = styled.h3`
-  color: #FFF;
+  color: ${(props) => props.theme.colors.white};
   font-size: 1rem;
   font-weight: 300;
 `;

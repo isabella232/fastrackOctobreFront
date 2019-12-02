@@ -7,8 +7,9 @@ import { ThemeProvider } from 'emotion-theming';
 import store from './store';
 import PartnerDetails from './pages/PartnerDetails';
 import Home from './pages/Home';
-import { theme } from './services/theme';
-import css from './index.css';
+import theme from './services/theme';
+import './index.css';
+
 
 const rootComponent = (
   <Provider store={store}>

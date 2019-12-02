@@ -13,8 +13,10 @@ fontSize: ${(props) => props.fontSize};
 export const P = styled.p`
 font-size: 1rem;
 
+width: ${(props) => props.width};
 font-weight: ${(props) => props.fontWeight};
 margin: ${(props) => props.margin};
+padding: ${(props) => props.padding};
 
 `;
 
@@ -24,7 +26,7 @@ text-transform: uppercase;
 `;
 
 export const WhiteP = styled.p`
-  color: #fff;
+  color: ${(props) => props.theme.colors.accentExtraLight};
   font-weight: 300;
   font-size: 1rem;
   margin-left: 0.5rem;

@@ -8,7 +8,7 @@ import axios from 'axios';
 import { H3, WhiteP } from '../commons/text';
 
 const Title = styled(H3)`
-  color: #FFF;
+  color: ${(props) => props.theme.colors.font};
   font-weight: 400;
   text-transform: uppercase;
   text-align: center;
@@ -38,17 +38,17 @@ const FlexColumn = styled(Flex)`
 
 const Button = styled.input`
   padding: 0.75rem 3rem;
-  background-color: #2F3640;
+  background-color: ${(props) => props.theme.colors.font};
   border-radius: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #fff;
+  color: ${(props) => props.theme.colors.white};
   border: none;
   margin-top: 1.5rem;
   transition: 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
   &:hover{
-    background-color: #fff;
+    background-color: ${(props) => props.theme.colors.white};
     color: #2F3640;
   }
 `;

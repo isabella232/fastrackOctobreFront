@@ -51,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.6.0",
     "eslint-config-airbnb": "^18.0.1",
@@ -59,7 +60,6 @@
     "eslint-plugin-react": "^7.16.0",
     "jest-emotion": "^10.0.17",
     "lint": "^0.7.0",
-    "enzyme": "^3.10.0",
     "react-test-renderer": "^16.12.0"
   }
 }

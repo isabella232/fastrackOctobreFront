@@ -4,15 +4,25 @@ import styled from '@emotion/styled';
 // eslint-disable-next-line max-len
 // { Cursor, Rect, HorizontalFlex, VerticalFlex, Line, Ellipse, Button, BoxHead, BoxGoals, BoxSkills }
 
+export const SkillsSlideContainer = styled.div`
+  width: 1000px;
+  min-width: 800px;
+  margin : 0 auto;
+
+  justify-content: ${(props) => props.justifyContent};
+`;
 
 // <HorizontalFlex></HorizontalFlex>
 export const HorizontalFlex = styled.div`
   display: flex;
   justify-content: center; 
 
+  margin: ${(props) => props.margin};
+  margin-right: ${(props) => props.marginR};
   justify-content: ${(props) => props.justifyContent};
   align-items: ${(props) => props.alignItems};
   position: ${(props) => props.position};
+  width: ${(props) => props.width};
 `;
 
 // <VerticalFlex></VerticalFlex>
@@ -28,38 +38,13 @@ export const VerticalFlex = styled.div`
   justify-content: ${(props) => props.justifyContent};
 `;
 
-// <Line />
-export const Line = styled.div`
-
-width: 100%;
-height: 5px;
-background: #28ABE2;
-border-radius: 90px;
-
-margin: ${(props) => props.margin};
-display: ${(props) => props.display};
-justify-content: ${(props) => props.justifyContent};
-`;
-
-// <Ellipse />
-export const Ellipse = styled.div`
-
-width: 1rem;
-height: 1rem;
-background: #28ABE2;
-border-radius: 25px; 
-top: 50%;
--ms-transform: translateY(-50%);
-transform: translateY(-50%);
-`;
-
 // <Button ></Button>
 export const Button = styled.button`
-background: #28ABE2;
+background: ${(props) => props.theme.colors.primary};
 border-radius: 90px;
 padding: .5rem 1rem;
 margin : 0.5rem;
-color : #FFFFFF;
+color : ${(props) => props.theme.colors.white};
 border : none; 
   &:hover {
     opacity : .8; 
@@ -91,28 +76,22 @@ export const BoxSkills = styled.div`
   padding-bottom: 1rem; 
 `;
 
-// <Rect/>
-// Colors : #C7ECEE (lightBlue) / #7ED6DF (LightBlue2) / #22A6B3 (Blue) / #3C6382 (DarkBlue)
 export const Rect = styled.div`
   height: 2rem; 
   width : 4rem;
-  border-top-width: 3px;
-  border-right-width: ${(props) => props.BorderRight};
-  border-bottom-width: 3px;
-  border-left-width: 3px;
-  border-color: #2F3640;
+  border-top: ${(props) => props.BorderTop}px solid #2F3640;
+  border-right: ${(props) => props.BorderRight}px solid #2F3640;
+  border-bottom: ${(props) => props.BorderBottom}px solid #2F3640;
+  border-left: ${(props) => props.BorderLeft}px solid #2F3640;
+  border-color: ${(props) => props.theme.colors.black};
  
   background: ${(props) => props.background};
 `;
 
-// export const Cursor = styled.div `
-//   width: 0;
-//   height: 0;
-//   border-style: solid;
-//   border-width: 0 .5rem 1rem .5rem;
-//   top: 2rem;
-//   left: 0;
-//   border-color: transparent transparent #28ABE2 transparent;
-//   position : absolute
-// `;
+export const Infos = styled.div`
 
+color: ${(props) => props.theme.colors.white};
+position: absolute;
+
+
+`;
