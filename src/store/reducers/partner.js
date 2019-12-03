@@ -1,9 +1,9 @@
+import CHANGE_VALUE from '../actions';
+
 const initialState = {
   list: [],
   currentPartner: {},
 };
-
-const CHANGE_VALUE = 'CHANGE_VALUE';
 
 const partnerReducer = (state = initialState, action = {}) => {
   switch (action.type) {

@@ -1,12 +1,12 @@
-const CHANGE_VALUE = 'CHANGE_VALUE';
-const SUBMIT_FORM = 'SUBMIT_FORM';
+export const CHANGE_VALUE = 'CHANGE_VALUE';
+export const GET_SKILLS = 'CHANGE_VALUE';
 
 export const formSubmit = (payload) => ({
   type: CHANGE_VALUE,
   payload,
 });
 
-export const sendForm = (payload) => ({
-  type: SUBMIT_FORM,
+export const getSkills = (payload) => ({
+  type: GET_SKILLS,
   payload,
 });

@@ -8,3 +8,12 @@ export const dataSender = (formData) => {
     headers: { 'Content-Type': 'multipart/form-data' },
   });
 };
+
+export const skillsReciever = () => {
+
+  axios.get('/skills')
+    .then = (res) => {
+      console.log(res);
+      return res.data;
+    };
+};
