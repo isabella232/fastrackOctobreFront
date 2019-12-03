@@ -2,13 +2,13 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import serializer from 'jest-emotion';
 
-import CardPartner from '../cardPartner';
+import Img from '../logoTechno';
 
 expect.addSnapshotSerializer(serializer);
 
-describe('cardPartnerCSS', () => {
+describe('Logo', () => {
   it('renders with correct styles', () => {
-    const tree = renderer.create(<CardPartner />).toJSON();
+    const tree = renderer.create(<Img />).toJSON();
 
     expect(tree).toMatchSnapshot();
   });

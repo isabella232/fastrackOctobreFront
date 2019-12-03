@@ -1,4 +1,3 @@
-
 const theme = {
   colors: {
     primary: '#28ABE2',
