@@ -74,6 +74,7 @@ const Icon = styled(FontAwesomeIcon)`
 const PartnerDetails = () => {
   // Hooks :
   const [partner, setPartner] = useState({});
+  const 
   const [time, setTime] = useState(0);
   const { partnerId } = useParams();
   const dispatch = useDispatch();
@@ -85,7 +86,9 @@ const PartnerDetails = () => {
         setPartner(res.data);
         setTime(ConvertToTime(res.data.experience));
       });
-    skillsReciever().then((data) => console.log(data));
+    skillsReciever().then((data) => 
+    
+    );
  //    dispatch(/*getSkills(skillsReciever.then((data) => console.log('LA BELETTE', data)))*/);
   }, []);
 
