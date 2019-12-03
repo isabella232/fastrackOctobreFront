@@ -1,4 +1,5 @@
 import axios from 'axios';
+import data from './ProvisionalDatasSkills.json';
 
 export const dataSender = (formData) => {
   axios({
@@ -9,11 +10,14 @@ export const dataSender = (formData) => {
   });
 };
 
-export const skillsReciever = () => {
+export const skillsReciever = async () => {
+  
+  return data;
 
-  axios.get('/skills')
+  /*axios.get(result)
     .then = (res) => {
-      console.log(res);
-      return res.data;
-    };
+      console.log('LE RES', res);
+      const { data } = res;
+      return data;
+    };*/
 };

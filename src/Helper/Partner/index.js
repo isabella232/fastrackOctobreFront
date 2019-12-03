@@ -7,9 +7,6 @@ const submitForm = (imageURL, currentPartner) => {
     formData.append(objectKey, currentPartner[objectKey]);
   });
   dataSender(formData);
-  for (let pair of formData.entries()) {
-    console.log(pair[0]+ ', ' + pair[1]); 
-}
 };
 
 export default submitForm;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { useParams } from 'react-router';
 import styled from '@emotion/styled';
@@ -20,6 +21,8 @@ import Img from '../components/commons/logoTechno';
 import {
   SkillsSlideContainer, HorizontalFlex, VerticalFlex, Button, BoxHead, BoxGoals, BoxSkills,
 } from './styles';
+import { skillsReciever } from '../services/client';
+import { getSkills } from '../store/actions';
 
 
 // Overloaded Styles
@@ -73,16 +76,20 @@ const PartnerDetails = () => {
   const [partner, setPartner] = useState({});
   const [time, setTime] = useState(0);
   const { partnerId } = useParams();
+  const dispatch = useDispatch();
 
-
-  //Sortir la requette du fichier. 
+  // Todo : Sortir la requette du fichier.
   useEffect(() => {
     axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${partnerId}`)
       .then((res) => {
         setPartner(res.data);
         setTime(ConvertToTime(res.data.experience));
       });
+    skillsReciever().then((data) => console.log(data));
+ //    dispatch(/*getSkills(skillsReciever.then((data) => console.log('LA BELETTE', data)))*/);
   }, []);
+
+
 
   // Varibales :
 

@@ -1,4 +1,4 @@
-import CHANGE_VALUE from '../actions';
+import { CHANGE_VALUE } from '../actions';
 
 const initialState = {
   list: [],
