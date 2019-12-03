@@ -28,6 +28,7 @@
     "webpack": "^4.41.0"
   },
   "scripts": {
+    "test:nowatch": "react-scripts test --watchAll=false",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
