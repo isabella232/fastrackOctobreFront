@@ -77,6 +77,6 @@ const RangeCursor = () => {
       </SlideContainer>
     </>
   );
-}
+};
 
 export default RangeCursor;

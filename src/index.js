@@ -7,7 +7,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 
 import PartnerDetails from './pages/PartnerDetails';
 import Home from './pages/Home';
-import { theme } from './services/theme';
+import theme from './services/theme';
 import './index.css';
 import combineReducer from './store/index';
 import logMiddleware from './store/logMiddleware';
