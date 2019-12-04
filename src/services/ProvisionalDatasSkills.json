@@ -9,17 +9,17 @@
           "icon": "angular"
         },
         {
-          "id": 0,
+          "id": 1,
           "name": "React",
           "icon": "react"
         },
         {
-          "id": 0,
+          "id": 2,
           "name": "JavaScript",
           "icon": "js"
         },
         {
-          "id": 0,
+          "id": 3,
           "name": "vueJS",
           "icon": "vue"
         }

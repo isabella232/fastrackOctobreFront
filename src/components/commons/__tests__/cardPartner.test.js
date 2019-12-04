@@ -8,7 +8,6 @@ expect.addSnapshotSerializer(serializer);
 
 describe('cardPartnerCSS', () => {
   it('renders with correct styles', () => {
-
     const mock = {
       colors: { partnerBg: '#111' },
     };

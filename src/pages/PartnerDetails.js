@@ -24,13 +24,10 @@ import {
 import { skillsReciever } from '../services/client';
 import { getSkills } from '../store/actions';
 
-
 // Overloaded Styles
-
 const Container = styled(ContainerCommon)`
 height: 100%;
 `;
-
 // <Card></Card>
 const Card = styled(CardPartner)`
 width : 90%;
@@ -40,7 +37,6 @@ position: relative;
 justify-content : flex-start;
 padding-top : 5rem;
 `;
-
 const Pphone = styled(P)`
 width: 50%;
 left: 0;
@@ -50,7 +46,6 @@ margin: 0;
 color: ${(props) => props.theme.colors.white};
 position: absolute;
 `;
-
 const Pmail = styled(P)`
 width: 50%;
 right: 0;
@@ -59,14 +54,11 @@ top: -2rem;
 margin: 0;
 color: ${(props) => props.theme.colors.white};
 position: absolute;
-
 `;
-
 const Icon = styled(FontAwesomeIcon)`
   margin : 0 1em;
   color: ${(props) => props.theme.colors.white};
 `;
-
 
 // Component :
 
@@ -74,7 +66,6 @@ const Icon = styled(FontAwesomeIcon)`
 const PartnerDetails = () => {
   // Hooks :
   const [partner, setPartner] = useState({});
-  const 
   const [time, setTime] = useState(0);
   const { partnerId } = useParams();
   const dispatch = useDispatch();
@@ -86,13 +77,10 @@ const PartnerDetails = () => {
         setPartner(res.data);
         setTime(ConvertToTime(res.data.experience));
       });
-    skillsReciever().then((data) => 
-    
-    );
- //    dispatch(/*getSkills(skillsReciever.then((data) => console.log('LA BELETTE', data)))*/);
+      
+      skillsReciever().then((data) => dispatch(getSkills(data)));
+
   }, []);
-
-
 
   // Varibales :
 
@@ -202,8 +190,7 @@ const PartnerDetails = () => {
                   </SkillsSlideContainer>
 
                 </BoxSkills>
-
-                {console.log(partner)}
+                {/* console.log(partner) */}
               </Card>
             </Container>
           </>

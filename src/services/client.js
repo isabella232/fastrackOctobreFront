@@ -10,14 +10,6 @@ export const dataSender = (formData) => {
   });
 };
 
-export const skillsReciever = async () => {
-  
-  return data;
+export const skillsReciever = async () => data;
 
-  /*axios.get(result)
-    .then = (res) => {
-      console.log('LE RES', res);
-      const { data } = res;
-      return data;
-    };*/
-};
+skillsReciever().then((value) => console.log( 'LOG de value dans client.js', value));
