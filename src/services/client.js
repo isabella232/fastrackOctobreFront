@@ -11,5 +11,3 @@ export const dataSender = (formData) => {
 };
 
 export const skillsReciever = async () => data;
-
-skillsReciever().then((value) => console.log( 'LOG de value dans client.js', value));

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { useParams } from 'react-router';
 import styled from '@emotion/styled';
@@ -21,8 +21,8 @@ import Img from '../components/commons/logoTechno';
 import {
   SkillsSlideContainer, HorizontalFlex, VerticalFlex, Button, BoxHead, BoxGoals, BoxSkills,
 } from './styles';
-import { skillsReciever } from '../services/client';
-import { getSkills } from '../store/actions';
+import convertSkills from '../Helper/Skills';
+import { getSkills, initSkills } from '../store/actions';
 
 // Overloaded Styles
 const Container = styled(ContainerCommon)`
@@ -70,6 +70,7 @@ const PartnerDetails = () => {
   const { partnerId } = useParams();
   const dispatch = useDispatch();
 
+
   // Todo : Sortir la requette du fichier.
   useEffect(() => {
     axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${partnerId}`)
@@ -77,10 +78,16 @@ const PartnerDetails = () => {
         setPartner(res.data);
         setTime(ConvertToTime(res.data.experience));
       });
-      
-      skillsReciever().then((data) => dispatch(getSkills(data)));
 
+    convertSkills().then((data) => dispatch(initSkills(data)));
   }, []);
+
+
+  // const skillsCat = (skills) => {
+  //   skills.map(skill, i) (
+  //     skill[i].name,
+  //   )
+  // }
 
   // Varibales :
 
@@ -89,6 +96,7 @@ const PartnerDetails = () => {
   // Display :
   return (
     <>
+      {/*console.log('TEST dans PartnerDetails', skills)*/}
       {partner
         && (
           <>
@@ -142,9 +150,6 @@ const PartnerDetails = () => {
 
                 <BoxSkills>
                   <H3 fontSize="2rem">Compètences</H3>
-                  {categoriesDatas.map((categorie) => (
-                    <Button>{categorie}</Button>
-                  ))}
                   <P fontWeight="bold" margin="2rem 0 2rem .3rem" display="block"> Niveau des technologies acquises </P>
 
                   <SkillsSlideContainer justifyContent="center">
@@ -190,7 +195,6 @@ const PartnerDetails = () => {
                   </SkillsSlideContainer>
 
                 </BoxSkills>
-                {/* console.log(partner) */}
               </Card>
             </Container>
           </>

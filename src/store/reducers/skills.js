@@ -1,14 +1,21 @@
-const initialState = {
-};
+import { INIT_SKILLS, GET_SKILLS } from '../actions';
 
-const GET_SKILLS = 'GET_SKILLS';
+const initialState = {
+  categoriesList: [],
+  skillsList: {},
+};
 
 const skillsReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case GET_SKILLS:
-      //console.log ("I'm the skillsReducer, and i run  - GET_SKILLS - action"),
       return { skills: action.payload };
-      
+    case INIT_SKILLS:
+      console.log(action.payload);
+      return {
+        ...state,
+        categoriesList: action.payload.categories,
+        skillsList: action.payload.skills,
+      };
     default:
       return state;
   }
