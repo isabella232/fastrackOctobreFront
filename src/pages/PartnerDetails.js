@@ -82,21 +82,11 @@ const PartnerDetails = () => {
     convertSkills().then((data) => dispatch(initSkills(data)));
   }, []);
 
-
-  // const skillsCat = (skills) => {
-  //   skills.map(skill, i) (
-  //     skill[i].name,
-  //   )
-  // }
-
-  // Varibales :
-
   const baseUrl = '../styles/';
 
   // Display :
   return (
     <>
-      {/*console.log('TEST dans PartnerDetails', skills)*/}
       {partner
         && (
           <>

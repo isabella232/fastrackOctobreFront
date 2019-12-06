@@ -10,7 +10,6 @@ const skillsReducer = (state = initialState, action = {}) => {
     case GET_SKILLS:
       return { skills: action.payload };
     case INIT_SKILLS:
-      console.log(action.payload);
       return {
         ...state,
         categoriesList: action.payload.categories,
