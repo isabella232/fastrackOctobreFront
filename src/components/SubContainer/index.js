@@ -7,14 +7,19 @@ const SubContainer = (props) => {
   const [isActive, setIsActive] = useState(false);
 
   const handleClick = (e) => {
-    isActive ? setIsActive(false) : setIsActive(true);
-    props.setTechno(e);
+    e.preventDefault();
+    isActive ? setIsActive(false) && props.setTechno(e) : setIsActive(true) && props.setTechno(e);
   };
+
+  const handleChangeTechno = (e) => {
+    e.preventDefault();
+    props.setTechno(e);
+  }
 
   return (
     <>
       <Skills name={props.category.name} click={handleClick} />
-      {isActive && <SubSkills subCategories={props.category.subCategories} click={handleClick} />}
+      {isActive && <SubSkills subCategories={props.category.subCategories} click={handleChangeTechno} />}
     </>
   );
 };
