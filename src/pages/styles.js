@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 // You can use this list to import one or all element below
 // eslint-disable-next-line max-len
-// { Cursor, Rect, HorizontalFlex, VerticalFlex, Line, Ellipse, Button, BoxHead, BoxGoals, BoxSkills }
+// { Cursor, Rect, HorizontalFlex, VerticalFlex, Line, Ellipse, BoxHead, BoxGoals, BoxSkills }
 
 export const SkillsSlideContainer = styled.div`
   width: 1000px;
@@ -36,20 +36,6 @@ export const VerticalFlex = styled.div`
   width: ${(props) => props.width};
   align-items: ${(props) => props.alignItems};
   justify-content: ${(props) => props.justifyContent};
-`;
-
-// <Button ></Button>
-export const Button = styled.button`
-background: ${(props) => props.theme.colors.primary};
-border-radius: 90px;
-padding: .5rem 1rem;
-margin : 0.5rem;
-color : ${(props) => props.theme.colors.white};
-border : none; 
-  &:hover {
-    opacity : .8; 
-  }
-  
 `;
 
 // <BoxHead></BoxHead>

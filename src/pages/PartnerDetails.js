@@ -19,10 +19,12 @@ import ContainerCommon from '../components/commons/container';
 import { H3, P } from '../components/commons/text';
 import Img from '../components/commons/logoTechno';
 import {
-  SkillsSlideContainer, HorizontalFlex, VerticalFlex, Button, BoxHead, BoxGoals, BoxSkills,
+  SkillsSlideContainer, HorizontalFlex, VerticalFlex, BoxHead, BoxGoals, BoxSkills,
 } from './styles';
 import convertSkills from '../Helper/Skills';
-import { getSkills, initSkills } from '../store/actions';
+import { initSkills } from '../store/actions';
+import SubSkills from '../components/SubSkills/SubSkills';
+import SubContainer from '../components/SubContainer';
 
 // Overloaded Styles
 const Container = styled(ContainerCommon)`
@@ -59,7 +61,9 @@ const Icon = styled(FontAwesomeIcon)`
   margin : 0 1em;
   color: ${(props) => props.theme.colors.white};
 `;
-
+const SubButton = styled(Button)`
+  background: #FF408C;
+`;
 // Component :
 
 
@@ -67,11 +71,12 @@ const PartnerDetails = () => {
   // Hooks :
   const [partner, setPartner] = useState({});
   const [time, setTime] = useState(0);
+  const [techno, setTechno] = useState('Front');
   const { partnerId } = useParams();
   const dispatch = useDispatch();
+  const skills = useSelector(({ skillsReducer }) => skillsReducer.skillsList);
+  const categorys = useSelector(({ skillsReducer }) => skillsReducer.categoriesList);
 
-
-  // Todo : Sortir la requette du fichier.
   useEffect(() => {
     axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${partnerId}`)
       .then((res) => {
@@ -140,48 +145,30 @@ const PartnerDetails = () => {
 
                 <BoxSkills>
                   <H3 fontSize="2rem">Compètences</H3>
+
+                  {categorys.map((category) => (
+                    <SubContainer category={category} />
+                  ))}
+
                   <P fontWeight="bold" margin="2rem 0 2rem .3rem" display="block"> Niveau des technologies acquises </P>
-
                   <SkillsSlideContainer justifyContent="center">
-                    <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
-                      <HorizontalFlex width="100%" justifyContent="flex-start">
-                        <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${logoTec[7]}.png`} alt="techno-Logo" />
-                        <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{nameTec[7]}</P>
-                      </HorizontalFlex>
-                      <HorizontalFlex position="relative">
-                        <RangeCursor />
-                      </HorizontalFlex>
-                    </HorizontalFlex>
 
-                    <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" margin="2rem auto">
-                      <HorizontalFlex width="100%" justifyContent="flex-start">
-                        <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${logoTec[4]}.png`} alt="techno-Logo" />
-                        <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{nameTec[4]}</P>
-                      </HorizontalFlex>
-                      <HorizontalFlex position="relative">
-                        <RangeCursor />
-                      </HorizontalFlex>
-                    </HorizontalFlex>
+                    {Object.getOwnPropertyNames(skills).length === 0
+                      || skills[techno].map((res) => (
+                        <>
 
-                    <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" margin="2rem auto">
-                      <HorizontalFlex width="100%" justifyContent="flex-start">
-                        <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${logoTec[3]}.png`} alt="techno-Logo" />
-                        <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{nameTec[3]}</P>
-                      </HorizontalFlex>
-                      <HorizontalFlex position="relative">
-                        <RangeCursor />
-                      </HorizontalFlex>
-                    </HorizontalFlex>
 
-                    <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" margin="2rem auto">
-                      <HorizontalFlex width="100%" justifyContent="flex-start">
-                        <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${logoTec[8]}.png`} alt="techno-Logo" />
-                        <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{nameTec[8]}</P>
-                      </HorizontalFlex>
-                      <HorizontalFlex position="relative">
-                        <RangeCursor />
-                      </HorizontalFlex>
-                    </HorizontalFlex>
+                          <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
+                            <HorizontalFlex width="100%" justifyContent="flex-start">
+                              <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${res.icon}.png`} alt="techno-Logo" />
+                              <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
+                            </HorizontalFlex>
+                            <HorizontalFlex position="relative">
+                              <RangeCursor />
+                            </HorizontalFlex>
+                          </HorizontalFlex>
+                        </>
+                      ))}
                   </SkillsSlideContainer>
 
                 </BoxSkills>
