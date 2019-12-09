@@ -1,8 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faUser, faBriefcase, faUpload,
-} from '@fortawesome/free-solid-svg-icons';
+import {faUser} from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled';
 
 import { H3, WhiteP } from '../../commons/text';

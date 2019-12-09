@@ -7,7 +7,6 @@ import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMobileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ConvertToTime from '../Helper/ConvertToTime';
-import { categoriesDatas, logoTec, nameTec } from './ProvisionalData';
 import ChronoLine from '../components/commons/chronoLine';
 import RangeCursor from '../components/commons/RangeCursor';
 import Nav from '../components/Nav';
@@ -23,8 +22,8 @@ import {
 } from './styles';
 import convertSkills from '../Helper/Skills';
 import { initSkills } from '../store/actions';
-import SubSkills from '../components/SubSkills/SubSkills';
 import SubContainer from '../components/SubContainer';
+import keyGenerator from '../Helper/KeyGenerator';
 
 // Overloaded Styles
 const Container = styled(ContainerCommon)`
@@ -61,9 +60,7 @@ const Icon = styled(FontAwesomeIcon)`
   margin : 0 1em;
   color: ${(props) => props.theme.colors.white};
 `;
-const SubButton = styled(Button)`
-  background: #FF408C;
-`;
+
 // Component :
 
 
@@ -88,6 +85,10 @@ const PartnerDetails = () => {
   }, []);
 
   const baseUrl = '../styles/';
+
+  const handleSet = (e) => {
+    setTechno(e.target.innerText);
+  };
 
   // Display :
   return (
@@ -147,7 +148,7 @@ const PartnerDetails = () => {
                   <H3 fontSize="2rem">Compètences</H3>
 
                   {categorys.map((category) => (
-                    <SubContainer category={category} />
+                    <SubContainer key={keyGenerator(category.name)} category={category} setTechno={handleSet} />
                   ))}
 
                   <P fontWeight="bold" margin="2rem 0 2rem .3rem" display="block"> Niveau des technologies acquises </P>
@@ -156,8 +157,6 @@ const PartnerDetails = () => {
                     {Object.getOwnPropertyNames(skills).length === 0
                       || skills[techno].map((res) => (
                         <>
-
-
                           <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
                             <HorizontalFlex width="100%" justifyContent="flex-start">
                               <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${res.icon}.png`} alt="techno-Logo" />
