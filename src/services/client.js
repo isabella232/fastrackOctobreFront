@@ -1,5 +1,4 @@
 import axios from 'axios';
-import data from './ProvisionalDatasSkills.json';
 
 export const dataSender = (formData) => {
   axios({
@@ -10,4 +9,6 @@ export const dataSender = (formData) => {
   });
 };
 
-export const skillsReciever = async () => data;
+export const skillsReciever = async () => {
+  return axios.get('https://fasttrack-octobre-back.herokuapp.com/api/skill').then((res) => res.data);
+};
