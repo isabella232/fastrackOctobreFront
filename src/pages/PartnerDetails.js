@@ -24,6 +24,7 @@ import { initSkills } from '../store/actions';
 import SubContainer from '../components/SubContainer';
 import keyGenerator from '../Helper/KeyGenerator';
 import { partnerReciever } from '../services/client';
+import filterSkillsPartner from '../Helper/Partner/filterSkillsPartner';
 
 // Overloaded Styles
 const Container = styled(ContainerCommon)`
@@ -69,20 +70,47 @@ const PartnerDetails = () => {
   const [partner, setPartner] = useState({});
   const [time, setTime] = useState(0);
   const [techno, setTechno] = useState('Front');
+  const [editMode, setEditMode] = useState(false);
   const { partnerId } = useParams();
   const dispatch = useDispatch();
   const skills = useSelector(({ skillsReducer }) => skillsReducer.skillsList);
   const categorys = useSelector(({ skillsReducer }) => skillsReducer.categoriesList);
+
 
   useEffect(() => {
     partnerReciever(partnerId)
       .then((response) => {
         setPartner(response.data);
         setTime(response.convertedTime);
-      });
-
-    convertSkills().then((data) => dispatch(initSkills(data)));
+      }).then(() => convertSkills())
+      .then((data) => dispatch(initSkills(data)))
+      .then(() => filterSkillsPartner(skills, partner))
+      .then(() => console.log('skills => ', skills, '// Partner => ', partner) )
   }, []);
+
+  // const isEditing = () => {
+  //   editMode === false && filterSkillsPartner(skills, partner); 
+  // }
+  // isEditing();
+
+  // ;console.log('skills => ', skills, '// Partner => ', partner)
+
+/*
+  useEffect(() => {
+    partnerReciever(partnerId)
+      .then((response) => {
+        setPartner(response.data);
+        setTime(response.convertedTime);
+      })
+      .then(() => {
+        convertSkills().then((data) => dispatch(initSkills(data)));
+      })
+      .then(() => console.log('skills => ', skills, '// Partner => ', partner))
+      .then(() => {
+        filterSkillsPartner(skills, partner);
+      });
+  }, []);
+*/
 
   const baseUrl = '../styles/';
 
