@@ -1,8 +1,9 @@
-import { INIT_SKILLS, GET_SKILLS } from '../actions';
+import { INIT_SKILLS, GET_SKILLS, SET_TECHNO } from '../actions';
 
 const initialState = {
   categoriesList: [],
   skillsList: {},
+  currentTechno: 'Front',
 };
 
 const skillsReducer = (state = initialState, action = {}) => {
@@ -14,6 +15,11 @@ const skillsReducer = (state = initialState, action = {}) => {
         ...state,
         categoriesList: action.payload.categories,
         skillsList: action.payload.skills,
+      };
+    case SET_TECHNO:
+      return {
+        ...state,
+        currentTechno: action.payload,
       };
     default:
       return state;

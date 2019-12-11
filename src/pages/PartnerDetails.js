@@ -19,7 +19,7 @@ import {
   SkillsSlideContainer, HorizontalFlex, VerticalFlex, BoxHead, BoxGoals, BoxSkills,
 } from '../components/commons/otherStyles';
 import convertSkills from '../Helper/Skills';
-import { initSkills } from '../store/actions';
+import { initSkills, setTechno } from '../store/actions';
 import SubContainer from '../components/SubContainer';
 import keyGenerator from '../Helper/KeyGenerator';
 import { partnerReciever } from '../services/client';
@@ -67,11 +67,11 @@ const PartnerDetails = () => {
   // Hooks :
   const [partner, setPartner] = useState({});
   const [time, setTime] = useState(0);
-  const [techno, setTechno] = useState('Front');
   const { partnerId } = useParams();
   const dispatch = useDispatch();
   const skills = useSelector(({ skillsReducer }) => skillsReducer.skillsList);
   const categorys = useSelector(({ skillsReducer }) => skillsReducer.categoriesList);
+  const techno = useSelector(({ skillsReducer }) => skillsReducer.currentTechno);
 
   useEffect(() => {
     partnerReciever(partnerId)
@@ -85,8 +85,8 @@ const PartnerDetails = () => {
 
   const baseUrl = '../styles/';
 
-  const handleSet = (e) => {
-    setTechno(e.target.innerText);
+  const handleSet = (text) => {
+    dispatch(setTechno(text));
   };
 
   // Display :
@@ -147,7 +147,7 @@ const PartnerDetails = () => {
                   <H3 fontSize="2rem">Compètences</H3>
 
                   {categorys.map((category) => (
-                    <SubContainer key={keyGenerator(category.name)} category={category} setTechno={handleSet} />
+                    <SubContainer key={keyGenerator(category.name)} category={category} handleSet={handleSet} />
                   ))}
 
                   <P fontWeight="bold" margin="2rem 0 2rem .3rem" display="block"> Niveau des technologies acquises </P>
