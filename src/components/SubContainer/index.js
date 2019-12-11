@@ -11,18 +11,21 @@ const SubContainer = (props) => {
   const [currentTechno, setCurrentTechno] = useState('Front');
   const dispatch = useDispatch();
 
-  useEffect(() => {dispatch(setTechno(currentTechno))}, [currentTechno]);
-  // useEffect(() => setIsActive(!isActive), [currentTechno]);
-
-  const handleChangeTechno = (e) => {
+  const toggleIsActive = (e) => {
     e.preventDefault();
-    props.setTechno(e);
+    setIsActive(!isActive);
+    dispatch(setTechno(e.target.innerText));
+  };
+
+  const dispatchTechno = (e) => {
+    e.preventDefault();
+    dispatch(setTechno(e.target.innerText));
   };
 
   return (
     <>
-      <Button onClick={(e) => setCurrentTechno(e.target.innerText)}>{props.category.name}</Button>
-      {isActive && <SubSkills subCategories={props.category.subCategories} click={(e) => dispatch(setTechno(e.target.innerText))} />}
+      <Button onClick={(e) => toggleIsActive(e)}>{props.category.name}</Button>
+      {isActive && <SubSkills subCategories={props.category.subCategories} click={dispatchTechno} />}
     </>
   );
 };

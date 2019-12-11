@@ -5,19 +5,20 @@ import Button from '../commons/button';
 import keyGenerator from '../../Helper/KeyGenerator';
 
 const SubButton = styled(Button)`
-   background: ${(props) => props.theme.colors.subCat};
+   background: #FF408C;
 `;
-const SubSkills = ({ subCategories, click }) => (
-  <>
-    {subCategories.map((subCategory) => (
-      <SubButton key={keyGenerator(subCategory.name)} onClick={click}>{subCategory.name}</SubButton>
-    ))}
-  </>
-);
+const SubSkills = (props) => {
+  return (
+    <>
+      {props.subCategories.map((subCategory) => (
+        <SubButton key={keyGenerator(subCategory.name)} onClick={(e) => props.click(e)}>{subCategory.name}</SubButton>
+      ))}
+    </>
+  );
+};
 
 SubSkills.propTypes = {
   subCategories: PropTypes.array.isRequired,
-  click: PropTypes.func.isRequired,
 };
 
 export default SubSkills;
