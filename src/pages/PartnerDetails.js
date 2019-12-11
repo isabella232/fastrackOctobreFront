@@ -14,7 +14,6 @@ import Picture from '../components/commons/picture';
 import CardPartner from '../components/commons/cardPartner';
 import ContainerCommon from '../components/commons/container';
 import { H3, P } from '../components/commons/text';
-import Img from '../components/commons/logoTechno';
 import {
   SkillsSlideContainer, HorizontalFlex, VerticalFlex, BoxHead, BoxGoals, BoxSkills,
 } from '../components/commons/otherStyles';
@@ -24,11 +23,10 @@ import SubContainer from '../components/SubContainer';
 import keyGenerator from '../Helper/KeyGenerator';
 import { partnerReciever } from '../services/client';
 
-// Overloaded Styles
 const Container = styled(ContainerCommon)`
 height: 100%;
 `;
-// <Card></Card>
+
 const Card = styled(CardPartner)`
 width : 90%;
 height : 100%;
@@ -60,11 +58,7 @@ const Icon = styled(FontAwesomeIcon)`
   color: ${(props) => props.theme.colors.white};
 `;
 
-// Component :
-
-
 const PartnerDetails = () => {
-  // Hooks :
   const [partner, setPartner] = useState({});
   const [time, setTime] = useState(0);
   const [techno, setTechno] = useState('Front');
@@ -89,11 +83,10 @@ const PartnerDetails = () => {
     setTechno(e.target.innerText);
   };
 
-  // Display :
   return (
     <>
-      {partner
-        && (
+      {Object.getOwnPropertyNames(partner).length === 0
+        || (
           <>
             <Nav />
             <TextHeader title={`${partner.firstName} ${partner.lastName}`} />
