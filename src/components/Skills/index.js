@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../commons/button';
 
-const Skills = (props) => (
-  <>
-    <Button onClick={props.click}>{props.name}</Button>
-  </>
+const Skills = ( {click, name } ) => (
+  <Button onClick={click}> {name} </Button>
 );
 
 Skills.propTypes = {
