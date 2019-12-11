@@ -1,13 +1,13 @@
 import { skillsReciever } from '../../services/client';
 
 const convertSkills = () => skillsReciever().then((data) => {
-  console.log(data);
+  console.log("RES in ConvertSliss Method ==>", data);
   const formatedSkills = { categories: [], skills: {} };
   data.map((res) => {
     formatedSkills.categories.push({
       id: res.id,
       name: res.name,
-      subCategories: res.subCategories.map((subCategorie) => {
+      subCategories: res.subCategory.map((subCategorie) => {
         formatedSkills.skills[subCategorie.name] = subCategorie.skills;
         return {
           id: subCategorie.id,

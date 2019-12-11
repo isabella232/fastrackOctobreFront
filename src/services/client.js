@@ -9,6 +9,4 @@ export const dataSender = (formData) => {
   });
 };
 
-export const skillsReciever = async () => {
-  return axios.get('https://fasttrack-octobre-back.herokuapp.com/api/skill').then((res) => res.data);
-};
+export const skillsReciever = async () => axios.get('https://fasttrack-octobre-back.herokuapp.com/api/skill').then((res) => res.data);
