@@ -11,6 +11,7 @@ import SearchBar from '../components/commons/searchBar';
 import Card from '../components/Card';
 import Container from '../components/commons/container';
 import FiltredButton from '../components/commons/filterButton';
+import Loading from '../components/Loading';
 
 const Link2 = styled(Link)`
   display: flex;
