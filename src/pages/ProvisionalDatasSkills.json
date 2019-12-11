@@ -1,0 +1,131 @@
+[
+  {
+    "id": 0,
+    "name": "front",
+    "skills": [
+      {
+        "id": 0,
+        "name": "Angular",
+        "icon": "angular"
+      },
+      {
+        "id": 0,
+        "name": "React",
+        "icon": "react"
+      },
+      {
+        "id": 0,
+        "name": "JavaScript",
+        "icon": "js"
+      },
+      {
+        "id": 0,
+        "name": "vueJS",
+        "icon": "vue"
+      }
+    ],
+    "subCategories": []
+  },
+  {
+    "id": 0,
+    "name": "Mobile",
+    "skills": [
+      {
+        "id": 0,
+        "name": "Archi MVC",
+        "icon": "angular"
+      },
+      {
+        "id": 1,
+        "name": "Archi MVP",
+        "icon": "react"
+      },
+      {
+        "id": 2,
+        "name": "Archi MVVM",
+        "icon": "js"
+      },
+      {
+        "id": 3,
+        "name": "VIPER",
+        "icon": "vue"
+      }
+    ],
+    "subCategories": [
+      {
+        "id": 0,
+        "name": "Android",
+        "skills": [
+          {
+            "id": 0,
+            "name": "Java",
+            "icon": "java"
+          },
+          {
+            "id": 1,
+            "name": "Koltin",
+            "icon": "koltin"
+          },
+          {
+            "id": 2,
+            "name": "Android Studio",
+            "icon": "js"
+          },
+          {
+            "id": 3,
+            "name": "Test Roboelectric",
+            "icon": "vue"
+          },
+          {
+            "id": 4,
+            "name": "Test Espresso",
+            "icon": "vue"
+          }
+        ],
+        "subCategories": []
+      },
+      {
+        "id": 2,
+        "name": "iOS",
+        "skills": [
+          {
+            "id": 0,
+            "name": "ObjectivC",
+            "icon": "objectivc"
+          },
+          {
+            "id": 1,
+            "name": "Swift",
+            "icon": "swift"
+          },
+          {
+            "id": 2,
+            "name": "SwiftServer",
+            "icon": "swiftserver"
+          },
+          {
+            "id": 3,
+            "name": "Xcode",
+            "icon": "xcode"
+          },
+          {
+            "id": 4,
+            "name": "Tests",
+            "icon": "tests"
+          }
+        ],
+        "subCategories": []
+      }
+    ]
+  }
+]
+
+
+
+
+
+
+
+
+
+

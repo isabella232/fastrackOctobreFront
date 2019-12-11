@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import { useParams } from 'react-router';
 import styled from '@emotion/styled';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMobileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import ConvertToTime from '../helpers/ConvertToTime';
-import { categoriesDatas, logoTec, nameTec } from './ProvisionalData';
+import ConvertToTime from '../Helper/ConvertToTime';
 import ChronoLine from '../components/commons/chronoLine';
 import RangeCursor from '../components/commons/RangeCursor';
 import Nav from '../components/Nav';
@@ -18,16 +18,17 @@ import ContainerCommon from '../components/commons/container';
 import { H3, P } from '../components/commons/text';
 import Img from '../components/commons/logoTechno';
 import {
-  SkillsSlideContainer, HorizontalFlex, VerticalFlex, Button, BoxHead, BoxGoals, BoxSkills,
+  SkillsSlideContainer, HorizontalFlex, VerticalFlex, BoxHead, BoxGoals, BoxSkills,
 } from './styles';
-
+import convertSkills from '../Helper/Skills';
+import { initSkills } from '../store/actions';
+import SubContainer from '../components/SubContainer';
+import keyGenerator from '../Helper/KeyGenerator';
 
 // Overloaded Styles
-
 const Container = styled(ContainerCommon)`
 height: 100%;
 `;
-
 // <Card></Card>
 const Card = styled(CardPartner)`
 width : 90%;
@@ -37,7 +38,6 @@ position: relative;
 justify-content : flex-start;
 padding-top : 5rem;
 `;
-
 const Pphone = styled(P)`
 width: 50%;
 left: 0;
@@ -47,7 +47,6 @@ margin: 0;
 color: ${(props) => props.theme.colors.white};
 position: absolute;
 `;
-
 const Pmail = styled(P)`
 width: 50%;
 right: 0;
@@ -56,14 +55,11 @@ top: -2rem;
 margin: 0;
 color: ${(props) => props.theme.colors.white};
 position: absolute;
-
 `;
-
 const Icon = styled(FontAwesomeIcon)`
   margin : 0 1em;
   color: ${(props) => props.theme.colors.white};
 `;
-
 
 // Component :
 
@@ -72,7 +68,11 @@ const PartnerDetails = () => {
   // Hooks :
   const [partner, setPartner] = useState({});
   const [time, setTime] = useState(0);
+  const [techno, setTechno] = useState('Front');
   const { partnerId } = useParams();
+  const dispatch = useDispatch();
+  const skills = useSelector(({ skillsReducer }) => skillsReducer.skillsList);
+  const categorys = useSelector(({ skillsReducer }) => skillsReducer.categoriesList);
 
   useEffect(() => {
     axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${partnerId}`)
@@ -80,11 +80,15 @@ const PartnerDetails = () => {
         setPartner(res.data);
         setTime(ConvertToTime(res.data.experience));
       });
+
+    convertSkills().then((data) => dispatch(initSkills(data)));
   }, []);
 
-  // Varibales :
-
   const baseUrl = '../styles/';
+
+  const handleSet = (e) => {
+    setTechno(e.target.innerText);
+  };
 
   // Display :
   return (
@@ -142,56 +146,31 @@ const PartnerDetails = () => {
 
                 <BoxSkills>
                   <H3 fontSize="2rem">Compètences</H3>
-                  {categoriesDatas.map((categorie) => (
-                    <Button>{categorie}</Button>
+
+                  {categorys.map((category) => (
+                    <SubContainer key={keyGenerator(category.name)} category={category} setTechno={handleSet} />
                   ))}
+
                   <P fontWeight="bold" margin="2rem 0 2rem .3rem" display="block"> Niveau des technologies acquises </P>
-
                   <SkillsSlideContainer justifyContent="center">
-                    <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
-                      <HorizontalFlex width="100%" justifyContent="flex-start">
-                        <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${logoTec[7]}.png`} alt="techno-Logo" />
-                        <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{nameTec[7]}</P>
-                      </HorizontalFlex>
-                      <HorizontalFlex position="relative">
-                        <RangeCursor />
-                      </HorizontalFlex>
-                    </HorizontalFlex>
 
-                    <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" margin="2rem auto">
-                      <HorizontalFlex width="100%" justifyContent="flex-start">
-                        <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${logoTec[4]}.png`} alt="techno-Logo" />
-                        <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{nameTec[4]}</P>
-                      </HorizontalFlex>
-                      <HorizontalFlex position="relative">
-                        <RangeCursor />
-                      </HorizontalFlex>
-                    </HorizontalFlex>
-
-                    <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" margin="2rem auto">
-                      <HorizontalFlex width="100%" justifyContent="flex-start">
-                        <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${logoTec[3]}.png`} alt="techno-Logo" />
-                        <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{nameTec[3]}</P>
-                      </HorizontalFlex>
-                      <HorizontalFlex position="relative">
-                        <RangeCursor />
-                      </HorizontalFlex>
-                    </HorizontalFlex>
-
-                    <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" margin="2rem auto">
-                      <HorizontalFlex width="100%" justifyContent="flex-start">
-                        <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${logoTec[8]}.png`} alt="techno-Logo" />
-                        <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{nameTec[8]}</P>
-                      </HorizontalFlex>
-                      <HorizontalFlex position="relative">
-                        <RangeCursor />
-                      </HorizontalFlex>
-                    </HorizontalFlex>
+                    {Object.getOwnPropertyNames(skills).length === 0
+                      || skills[techno].map((res) => (
+                        <>
+                          <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
+                            <HorizontalFlex width="100%" justifyContent="flex-start">
+                              <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${res.icon}.png`} alt="techno-Logo" />
+                              <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
+                            </HorizontalFlex>
+                            <HorizontalFlex position="relative">
+                              <RangeCursor />
+                            </HorizontalFlex>
+                          </HorizontalFlex>
+                        </>
+                      ))}
                   </SkillsSlideContainer>
 
                 </BoxSkills>
-
-                {console.log(partner)}
               </Card>
             </Container>
           </>

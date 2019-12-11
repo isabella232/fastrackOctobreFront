@@ -1,4 +1,5 @@
 import axios from 'axios';
+import data from './ProvisionalDatasSkills.json';
 
 export const dataSender = (formData) => {
   axios({
@@ -8,3 +9,5 @@ export const dataSender = (formData) => {
     headers: { 'Content-Type': 'multipart/form-data' },
   });
 };
+
+export const skillsReciever = async () => data;

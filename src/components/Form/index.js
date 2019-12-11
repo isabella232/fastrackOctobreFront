@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { formSubmit } from '../../store/actions/index';
-import { submitForm } from '../../Helper/Partner';
+import submitForm from '../../Helper/Partner';
 import Step1 from './steps/Step1';
 import Step2 from './steps/Step2';
 
