@@ -14,7 +14,7 @@ const SubContainer = (props) => {
   const handleChangeTechno = (e) => {
     e.preventDefault();
     props.setTechno(e);
-  }
+  };
 
   return (
     <>

@@ -1,5 +1,4 @@
 const keyGenerator = (name) => {
-
   const getRandomInt = () => (
 
     Math.floor(Math.random() * Math.floor(10000))
@@ -10,6 +9,6 @@ const keyGenerator = (name) => {
 
   const key = `${Date.now()}${name}${getRandomInt()}${getRandomInt2()}`;
   return key;
-}
+};
 
 export default keyGenerator;

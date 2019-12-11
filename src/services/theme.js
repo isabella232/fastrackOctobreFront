@@ -11,6 +11,7 @@ const theme = {
     black: '#2F3640',
     white: '#fff',
     logo: '#DFE4EA',
+    subCat: '#FF408C',
   },
 };
 

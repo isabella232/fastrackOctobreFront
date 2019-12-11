@@ -9,8 +9,8 @@ const Skills = (props) => (
 );
 
 Skills.propTypes = {
-    click: PropTypes.func.isRequired,
-    name: PropTypes.string.isRequired,
+  click: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
 };
 
 
