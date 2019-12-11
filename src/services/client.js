@@ -14,9 +14,7 @@ export const skillsReciever = async () => axios.get('https://fasttrack-octobre-b
 
 
 export const partnerReciever = async (partnerId) => axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${partnerId}`)
-  .then((res) => {
-    return {
-      data: res.data,
-      convertedTime: ConvertToTime(res.data.experience),
-    };
-  });
+  .then((res) => ({
+    data: res.data,
+    convertedTime: ConvertToTime(res.data.experience),
+  }));

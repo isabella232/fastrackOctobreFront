@@ -17,7 +17,7 @@ import { H3, P } from '../components/commons/text';
 import Img from '../components/commons/logoTechno';
 import {
   SkillsSlideContainer, HorizontalFlex, VerticalFlex, BoxHead, BoxGoals, BoxSkills,
-} from './styles';
+} from '../components/commons/otherStyles';
 import convertSkills from '../Helper/Skills';
 import { initSkills } from '../store/actions';
 import SubContainer from '../components/SubContainer';
@@ -155,17 +155,7 @@ const PartnerDetails = () => {
 
                     {Object.getOwnPropertyNames(skills).length === 0
                       || skills[techno].map((res) => (
-                        <>
-                          <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
-                            <HorizontalFlex width="100%" justifyContent="flex-start">
-                              <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${res.icon}.png`} alt="techno-Logo" />
-                              <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
-                            </HorizontalFlex>
-                            <HorizontalFlex position="relative">
-                              <RangeCursor />
-                            </HorizontalFlex>
-                          </HorizontalFlex>
-                        </>
+                        <RangeCursor key={keyGenerator(res.name)} name={res.name} icon={res.icon} />
                       ))}
                   </SkillsSlideContainer>
 

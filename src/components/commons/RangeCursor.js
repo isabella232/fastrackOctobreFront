@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { P } from './text';
-import { Rect } from '../../pages/styles';
+import { HorizontalFlex, Rect } from './otherStyles';
+import Img from './logoTechno';
 
 const RangeTxt = styled(P)`
   position : absolute; 
@@ -61,22 +63,36 @@ const getRandomInt = (max) => (
   Math.floor(Math.random() * Math.floor(max))
 );
 
-const RangeCursor = () => {
+const RangeCursor = ({ name, icon }) => {
   const [value, setValue] = useState(getRandomInt(100));
   const handleChange = (e) => setValue(e.target.value);
 
   return (
     <>
-      <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#C7ECEE" />
-      <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#7ED6DF" />
-      <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#22A6B3" />
-      <Rect BorderTop="1.5" BorderRight="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#3C6382" />
-      <RangeTxt> {value} </RangeTxt>
-      <SlideContainer>
-        <Slider type="range" min="0" max="100" value={value} onChange={handleChange} />
-      </SlideContainer>
+      <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
+        <HorizontalFlex width="100%" justifyContent="flex-start">
+          <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${icon}.png`} alt="techno-Logo" />
+          <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{name}</P>
+        </HorizontalFlex>
+        <HorizontalFlex position="relative">
+          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#C7ECEE" />
+          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#7ED6DF" />
+          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#22A6B3" />
+          <Rect BorderTop="1.5" BorderRight="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#3C6382" />
+          <RangeTxt> {value} </RangeTxt>
+          <SlideContainer>
+            <Slider type="range" min="0" max="100" value={value} onChange={handleChange} />
+          </SlideContainer>
+        </HorizontalFlex>
+      </HorizontalFlex>
+
     </>
   );
+};
+
+RangeCursor.propTypes = {
+  name: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
 };
 
 export default RangeCursor;
