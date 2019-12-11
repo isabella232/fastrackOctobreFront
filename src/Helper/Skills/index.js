@@ -6,7 +6,7 @@ const convertSkills = () => skillsReciever().then((data) => {
     formatedSkills.categories.push({
       id: res.id,
       name: res.name,
-      subCategories: res.subCategories.map((subCategorie) => {
+      subCategories: res.subCategory.map((subCategorie) => {
         formatedSkills.skills[subCategorie.name] = subCategorie.skills;
         return {
           id: subCategorie.id,
