@@ -1,7 +1,6 @@
 import { skillsReciever } from '../../services/client';
 
 const convertSkills = () => skillsReciever().then((data) => {
-  console.log("RES in ConvertSliss Method ==>", data);
   const formatedSkills = { categories: [], skills: {} };
   data.map((res) => {
     formatedSkills.categories.push({

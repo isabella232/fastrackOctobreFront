@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
 import { useParams } from 'react-router';
 import styled from '@emotion/styled';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMobileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import ConvertToTime from '../Helper/ConvertToTime';
 import ChronoLine from '../components/commons/chronoLine';
 import RangeCursor from '../components/commons/RangeCursor';
 import Nav from '../components/Nav';
@@ -24,6 +22,7 @@ import convertSkills from '../Helper/Skills';
 import { initSkills } from '../store/actions';
 import SubContainer from '../components/SubContainer';
 import keyGenerator from '../Helper/KeyGenerator';
+import { partnerReciever } from '../services/client';
 
 // Overloaded Styles
 const Container = styled(ContainerCommon)`
@@ -75,10 +74,10 @@ const PartnerDetails = () => {
   const categorys = useSelector(({ skillsReducer }) => skillsReducer.categoriesList);
 
   useEffect(() => {
-    axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${partnerId}`)
-      .then((res) => {
-        setPartner(res.data);
-        setTime(ConvertToTime(res.data.experience));
+    partnerReciever(partnerId)
+      .then((response) => {
+        setPartner(response.data);
+        setTime(response.convertedTime);
       });
 
     convertSkills().then((data) => dispatch(initSkills(data)));
