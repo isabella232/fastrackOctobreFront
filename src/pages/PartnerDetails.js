@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios';
 import { useParams } from 'react-router';
 import styled from '@emotion/styled';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMobileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import ConvertToTime from '../Helper/ConvertToTime';
 import ChronoLine from '../components/commons/chronoLine';
 import RangeCursor from '../components/commons/RangeCursor';
 import Nav from '../components/Nav';
@@ -20,10 +22,8 @@ import {
   SkillsSlideContainer, HorizontalFlex, VerticalFlex, BoxHead, BoxGoals, BoxSkills,
 } from '../components/commons/otherStyles';
 import convertSkills from '../Helper/Skills';
-import { initSkills } from '../store/actions';
+import { initSkills, setTechno } from '../store/actions';
 import SubContainer from '../components/SubContainer';
-import keyGenerator from '../Helper/KeyGenerator';
-import { partnerReciever } from '../services/client';
 
 // Overloaded Styles
 const Container = styled(ContainerCommon)`
@@ -68,17 +68,17 @@ const PartnerDetails = () => {
   // Hooks :
   const [partner, setPartner] = useState({});
   const [time, setTime] = useState(0);
-  const [techno, setTechno] = useState('Front');
   const { partnerId } = useParams();
   const dispatch = useDispatch();
   const skills = useSelector(({ skillsReducer }) => skillsReducer.skillsList);
   const categorys = useSelector(({ skillsReducer }) => skillsReducer.categoriesList);
+  const techno = useSelector(({ skillsReducer }) => skillsReducer.currentTechno);
 
   useEffect(() => {
-    partnerReciever(partnerId)
-      .then((response) => {
-        setPartner(response.data);
-        setTime(response.convertedTime);
+    axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${partnerId}`)
+      .then((res) => {
+        setPartner(res.data);
+        setTime(ConvertToTime(res.data.experience));
       });
 
     convertSkills().then((data) => dispatch(initSkills(data)));
@@ -86,8 +86,8 @@ const PartnerDetails = () => {
 
   const baseUrl = '../styles/';
 
-  const handleSet = (e) => {
-    setTechno(e.target.innerText);
+  const handleSet = (text) => {
+    dispatch(setTechno(text));
   };
 
   // Display :
@@ -149,7 +149,7 @@ const PartnerDetails = () => {
                   <H3 fontSize="2rem">Compètences</H3>
 
                   {categorys.map((category) => (
-                    <SubContainer key={keyGenerator(category.name)} category={category} setTechno={handleSet} />
+                    <SubContainer key={`${category.name}_${category.id}`} category={category} handleSet={handleSet} />
                   ))}
 
                   <P fontWeight="bold" margin="2rem 0 2rem .3rem" display="block"> Niveau des technologies acquises </P>
@@ -157,7 +157,17 @@ const PartnerDetails = () => {
 
                     {Object.getOwnPropertyNames(skills).length === 0
                       || skills[techno].map((res) => (
-                        <RangeCursor key={keyGenerator(res.name)} name={res.name} icon={res.icon} />
+                        <>
+                          <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
+                            <HorizontalFlex width="100%" justifyContent="flex-start">
+                              <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${res.icon}.png`} alt="techno-Logo" />
+                              <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
+                            </HorizontalFlex>
+                            <HorizontalFlex position="relative">
+                              <RangeCursor />
+                            </HorizontalFlex>
+                          </HorizontalFlex>
+                        </>
                       ))}
                   </SkillsSlideContainer>
 
