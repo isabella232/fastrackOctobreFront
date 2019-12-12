@@ -14,6 +14,7 @@ import Picture from '../components/commons/picture';
 import CardPartner from '../components/commons/cardPartner';
 import ContainerCommon from '../components/commons/container';
 import { H3, P } from '../components/commons/text';
+import Loading from '../components/Loading';
 import Img from '../components/commons/logoTechno';
 import {
   SkillsSlideContainer, HorizontalFlex, VerticalFlex, BoxHead, BoxGoals, BoxSkills,
@@ -92,8 +93,9 @@ const PartnerDetails = () => {
   // Display :
   return (
     <>
-      {partner
-        && (
+      {Object.getOwnPropertyNames(partner).length === 0
+        ? <Loading />
+        : (
           <>
             <Nav />
             <TextHeader title={`${partner.firstName} ${partner.lastName}`} />
@@ -163,7 +165,9 @@ const PartnerDetails = () => {
               </Card>
             </Container>
           </>
-        )}
+        )
+
+      }
     </>
   );
 };

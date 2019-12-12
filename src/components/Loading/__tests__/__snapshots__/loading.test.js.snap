@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading renders with correct styles 1`] = `
+@keyframes animation-0 {
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.emotion-0 {
+  width: 2.5em;
+  height: 2.5em;
+  pointer-events: none;
+  position: fixed;
+  left: calc(50% + 1.25em);
+  top: calc(50%);
+  border: 0.4em solid transparent;
+  border-color: #eee;
+  border-top-color: #3E67EC;
+  border-radius: 50%;
+  -webkit-animation: animation-0 1s linear infinite;
+  animation: animation-0 1s linear infinite;
+}
+
+<div
+  className="emotion-0"
+/>
+`;
