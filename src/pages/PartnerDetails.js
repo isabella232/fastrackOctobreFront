@@ -14,13 +14,15 @@ import Picture from '../components/commons/picture';
 import CardPartner from '../components/commons/cardPartner';
 import ContainerCommon from '../components/commons/container';
 import { H3, P } from '../components/commons/text';
+import OnFlyForm from '../components/OnFlyForm/OnFlyForm';
+import NoEditingForm from '../components/OnFlyForm/NoEditingForm';
 import Loading from '../components/Loading';
 import Img from '../components/commons/logoTechno';
 import {
   SkillsSlideContainer, HorizontalFlex, VerticalFlex, BoxHead, BoxGoals, BoxSkills,
 } from '../components/commons/otherStyles';
 import convertSkills from '../Helper/Skills';
-import { initSkills } from '../store/actions';
+import { initSkills, getPartnerDetails } from '../store/actions';
 import SubContainer from '../components/SubContainer';
 import keyGenerator from '../Helper/KeyGenerator';
 import { partnerReciever } from '../services/client';
@@ -67,52 +69,29 @@ const Icon = styled(FontAwesomeIcon)`
 
 const PartnerDetails = () => {
   // Hooks :
-  const [partner, setPartner] = useState({});
   const [time, setTime] = useState(0);
-  const [techno, setTechno] = useState('Front');
+  const [techno, setTechno] = useState('Back');
   const [editMode, setEditMode] = useState(false);
   const { partnerId } = useParams();
   const dispatch = useDispatch();
   const skills = useSelector(({ skillsReducer }) => skillsReducer.skillsList);
+  const partner = useSelector(({ partnerReducer }) => partnerReducer.partnerDetails);
   const categorys = useSelector(({ skillsReducer }) => skillsReducer.categoriesList);
 
 
-  useEffect(() => {
-    partnerReciever(partnerId)
+  useEffect(async () => {
+    await partnerReciever(partnerId)
       .then((response) => {
-        setPartner(response.data);
+        dispatch(getPartnerDetails(response.data));
         setTime(response.convertedTime);
-      }).then(() => convertSkills())
-      .then((data) => dispatch(initSkills(data)))
-      .then(() => filterSkillsPartner(skills, partner))
-      .then(() => console.log('skills => ', skills, '// Partner => ', partner));
-  }, []);
-
-  // const isEditing = () => {
-  //   editMode === false && filterSkillsPartner(skills, partner);
-  // }
-  // isEditing();
-
-  // ;console.log('skills => ', skills, '// Partner => ', partner)
-
-  /*
-  useEffect(() => {
-    partnerReciever(partnerId)
-      .then((response) => {
-        setPartner(response.data);
-        setTime(response.convertedTime);
-      })
-      .then(() => {
-        convertSkills().then((data) => dispatch(initSkills(data)));
-      })
-      .then(() => console.log('skills => ', skills, '// Partner => ', partner))
-      .then(() => {
-        filterSkillsPartner(skills, partner);
+        console.log("apres setTime genre pouet")
       });
+    console.log("juste avant converSkill")
+    await convertSkills().then((data) => dispatch(initSkills(data)));
   }, []);
-*/
 
   const baseUrl = '../styles/';
+
 
   const handleSet = (e) => {
     setTechno(e.target.innerText);
@@ -121,7 +100,7 @@ const PartnerDetails = () => {
   // Display :
   return (
     <>
-      {Object.getOwnPropertyNames(partner).length === 0
+      {Object.getOwnPropertyNames(partner).length < 1
         ? <Loading />
         : (
           <>
@@ -157,20 +136,8 @@ const PartnerDetails = () => {
                     <H3 fontSize="2rem">Objectifs</H3>
                   </HorizontalFlex>
                   <ChronoLine />
-                  <HorizontalFlex justifyContent="space-between" alignItems="baseline" width="100%">
-                    <VerticalFlex margin=".8rem 2rem .8rem .3rem" width="calc(100%/3)">
-                      <P fontWeight="bold" margin=".8rem 0 .8rem .3rem" display="block">Court Terme </P>
-                      <P margin=".8rem 0 .8rem .3rem"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet felis at massa varius fringilla. Morbi id est viverra, auctor dui nec, lobortis leo. Maecenas eu fermentum sem, quis rhoncus elit. Proin imperdiet elementum elit, sit amet laoreet metus ornare ac. Pellentesque aliquam at augue quis mattis. Integer porttitor sagittis mauris, id eleifend nisi euismod non. Cras semper pellentesque ipsum.   </P>
-                    </VerticalFlex>
-                    <VerticalFlex margin=".8rem 2rem .8rem .3rem" width="calc(100%/3)">
-                      <P fontWeight="bold" margin=".8rem 0 .8rem .3rem">Moyen Terme</P>
-                      <P margin=".8rem 0 .8rem .3rem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at semper sapien. Donec sit amet felis at massa varius fringilla. Morbi id est viverra, auctor dui nec, lobortis leo. Maecenas eu fermentum sem, quis rhoncus elit. Proin imperdiet elementum elit, sit amet laoreet metus ornare ac. Pellentesque aliquam at augue quis mattis. Integer porttitor sagittis mauris, id eleifend nisi euismod non. Nulla facilisi. Cras semper pellentesque ipsum. </P>
-                    </VerticalFlex>
-                    <VerticalFlex width="calc(100%/3)">
-                      <P fontWeight="bold" margin=".8rem 0 .8rem .3rem">Long Terme</P>
-                      <P margin=".8rem 0 .8rem .3rem">Lorem ipsum dolor sit amet. Phasellus at semper sapien. Varius fringilla. Morbi id est viverra, auctor dui nec, lobortis leo. Maecenas eu fermentum sem, quis rhoncus elit. Proin imperdiet elementum elit, sit amet laoreet metus ornare ac. Pellentesque aliquam at augue quis mattis. Integer porttitor sagittis mauris, id eleifend nisi euismod non. Nulla facilisi. Cras semper pellentesque ipsum. </P>
-                    </VerticalFlex>
-                  </HorizontalFlex>
+                  {editMode === false && <NoEditingForm />}
+                  {editMode === true && <OnFlyForm />}
                 </BoxGoals>
 
                 <BoxSkills>
@@ -184,18 +151,19 @@ const PartnerDetails = () => {
                   <SkillsSlideContainer justifyContent="center">
 
                     {Object.getOwnPropertyNames(skills).length === 0
-                      || skills[techno].map((res) => (
-                        <RangeCursor key={keyGenerator(res.name)} name={res.name} icon={res.icon} />
-                      ))}
+                      || skills[techno]
+                        .filter((skill) => filterSkillsPartner(skill, partner.skills))
+                        .map((res) => (
+                          <RangeCursor key={keyGenerator(res.name)} name={res.name} icon={res.icon} />
+                        ))}
                   </SkillsSlideContainer>
 
                 </BoxSkills>
               </Card>
             </Container>
+            );
           </>
-        )
-
-      }
+        )}
     </>
   );
 };
