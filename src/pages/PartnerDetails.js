@@ -85,17 +85,17 @@ const PartnerDetails = () => {
       }).then(() => convertSkills())
       .then((data) => dispatch(initSkills(data)))
       .then(() => filterSkillsPartner(skills, partner))
-      .then(() => console.log('skills => ', skills, '// Partner => ', partner) )
+      .then(() => console.log('skills => ', skills, '// Partner => ', partner));
   }, []);
 
   // const isEditing = () => {
-  //   editMode === false && filterSkillsPartner(skills, partner); 
+  //   editMode === false && filterSkillsPartner(skills, partner);
   // }
   // isEditing();
 
   // ;console.log('skills => ', skills, '// Partner => ', partner)
 
-/*
+  /*
   useEffect(() => {
     partnerReciever(partnerId)
       .then((response) => {
