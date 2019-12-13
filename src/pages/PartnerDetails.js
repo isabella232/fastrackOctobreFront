@@ -61,7 +61,6 @@ const Icon = styled(FontAwesomeIcon)`
 `;
 
 const PartnerDetails = () => {
-  const [partner, setPartner] = useState({});
   const [time, setTime] = useState(0);
   const { partnerId } = useParams();
   const dispatch = useDispatch();
