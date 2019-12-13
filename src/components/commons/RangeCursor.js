@@ -63,8 +63,7 @@ const getRandomInt = (max) => (
   Math.floor(Math.random() * Math.floor(max))
 );
 
-const RangeCursor = ({ res }) => {
-  const [value, setValue] = useState(getRandomInt(100));
+const RangeCursor = ({ res, value }) => {
   //const handleChange = (e) => setValue(e.target.value);
 
   return (
@@ -79,7 +78,7 @@ const RangeCursor = ({ res }) => {
           <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#7ED6DF" />
           <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#22A6B3" />
           <Rect BorderTop="1.5" BorderRight="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#3C6382" />
-          <RangeTxt> {res.level} </RangeTxt>
+          <RangeTxt> {value} </RangeTxt>
           <SlideContainer>
             <Slider type="range" min="0" max="100" value={value} />
           </SlideContainer>
