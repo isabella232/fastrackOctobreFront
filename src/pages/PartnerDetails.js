@@ -25,11 +25,10 @@ import convertSkills from '../Helper/Skills';
 import { initSkills, setTechno } from '../store/actions';
 import SubContainer from '../components/SubContainer';
 
-// Overloaded Styles
 const Container = styled(ContainerCommon)`
 height: 100%;
 `;
-// <Card></Card>
+
 const Card = styled(CardPartner)`
 width : 90%;
 height : 100%;
@@ -61,11 +60,7 @@ const Icon = styled(FontAwesomeIcon)`
   color: ${(props) => props.theme.colors.white};
 `;
 
-// Component :
-
-
 const PartnerDetails = () => {
-  // Hooks :
   const [partner, setPartner] = useState({});
   const [time, setTime] = useState(0);
   const { partnerId } = useParams();
@@ -90,7 +85,6 @@ const PartnerDetails = () => {
     dispatch(setTechno(text));
   };
 
-  // Display :
   return (
     <>
       {Object.getOwnPropertyNames(partner).length === 0
