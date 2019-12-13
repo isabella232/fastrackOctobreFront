@@ -135,7 +135,7 @@ const PartnerDetails = () => {
                   <H3 fontSize="2rem">Compètences</H3>
 
                   {categorys.map((category) => (
-                    <SubContainer key={keyGenerator(category.name)} category={category} setTechno={handleSet} />
+                    <SubContainer key={`${category.name}_${category.id}`} category={category} setTechno={handleSet} />
                   ))}
 
                   <P fontWeight="bold" margin="2rem 0 2rem .3rem" display="block"> Niveau des technologies acquises </P>
@@ -147,6 +147,7 @@ const PartnerDetails = () => {
                         .map((res) => (
                           <RangeCursor key={keyGenerator(res.name)} name={res.name} icon={res.icon} />
                         ))}
+
                   </SkillsSlideContainer>
 
                 </BoxSkills>
