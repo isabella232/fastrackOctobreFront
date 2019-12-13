@@ -1,25 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import SubSkills from '../SubSkills';
 import Skills from '../Skills';
+import Button from '../commons/button';
+import { setTechno } from '../../store/actions';
 
 const SubContainer = (props) => {
   const [isActive, setIsActive] = useState(false);
+  const [currentTechno, setCurrentTechno] = useState('Front');
+  const dispatch = useDispatch();
 
-  const handleClick = (e) => {
+  const toggleIsActive = (e) => {
     e.preventDefault();
-    isActive ? setIsActive(false) && props.setTechno(e) : setIsActive(true) && props.setTechno(e);
+    setIsActive(!isActive);
+    dispatch(setTechno(e.target.innerText));
   };
 
-  const handleChangeTechno = (e) => {
+  const dispatchTechno = (e) => {
     e.preventDefault();
-    props.setTechno(e);
+    dispatch(setTechno(e.target.innerText));
   };
 
   return (
     <>
-      <Skills name={props.category.name} click={handleClick} />
-      {isActive && <SubSkills subCategories={props.category.subCategories} click={handleChangeTechno} />}
+      <Button onClick={(e) => toggleIsActive(e)}>{props.category.name}</Button>
+      {isActive && <SubSkills subCategories={props.category.subCategories} click={dispatchTechno} />}
     </>
   );
 };
