@@ -23,7 +23,8 @@ import { initSkills, getPartnerDetails, setTechno } from '../store/actions';
 import SubContainer from '../components/SubContainer';
 import keyGenerator from '../Helper/KeyGenerator';
 import { partnerReciever } from '../services/client';
-import filterSkillsPartner from '../Helper/Partner/filterSkillsPartner';
+import { filterSkillsPartnerActive, filterSkillsPartnerUnactive } from '../Helper/Partner/filterSkillsPartner';
+import Button from '../components/commons/button';
 
 const Container = styled(ContainerCommon)`
 height: 100%;
@@ -46,6 +47,12 @@ margin: 0;
 color: ${(props) => props.theme.colors.white};
 position: absolute;
 `;
+const DarkButton = styled(Button)`
+  background: ${((props) => props.theme.colors.bodyBg)};
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+`;
+
 const Pmail = styled(P)`
 width: 50%;
 right: 0;
@@ -61,7 +68,9 @@ const Icon = styled(FontAwesomeIcon)`
 `;
 
 const PartnerDetails = () => {
+
   const [time, setTime] = useState(0);
+  const [skillEdit, setSkillsEdit] = useState(false);
   const { partnerId } = useParams();
   const dispatch = useDispatch();
   const skills = useSelector(({ skillsReducer }) => skillsReducer.skillsList);
@@ -80,6 +89,10 @@ const PartnerDetails = () => {
   }, []);
 
   const baseUrl = '../styles/';
+
+  const switchEdit = () => {
+    setSkillsEdit(!skillEdit);
+  };
 
   const handleSet = (text) => {
     dispatch(setTechno(text));
@@ -137,17 +150,27 @@ const PartnerDetails = () => {
 
                     {Object.getOwnPropertyNames(skills).length === 0
                       || skills[techno]
-                        .filter((skill) => filterSkillsPartner(skill, partner.skills))
+                        .filter((skill) => filterSkillsPartnerActive(skill, partner.skills))
                         .map((res) => (
-                          <RangeCursor key={keyGenerator(res.name)} name={res.name} icon={res.icon} />
+                          <RangeCursor key={keyGenerator(res.name)} name={res.name} icon={res.icon} res={res} />
                         ))}
-
+                    {skillEdit
+                      && skills[techno]
+                        .filter((skill) => filterSkillsPartnerUnactive(skill, partner.skills))
+                        .map((res) => (
+                          <RangeCursor key={keyGenerator(res.name)} name={res.name} icon={res.icon} res={res} />
+                        ))
+                    }
+                    {skillEdit ?
+                      <DarkButton onClick={switchEdit}>Terminer l'évaluation</DarkButton>
+                      :
+                      <DarkButton onClick={switchEdit}>Lancer une évaluation</DarkButton>
+                    }
                   </SkillsSlideContainer>
 
                 </BoxSkills>
               </Card>
             </Container>
-            );
           </>
         )}
     </>
