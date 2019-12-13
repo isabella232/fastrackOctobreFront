@@ -25,6 +25,7 @@
     "react/jsx-props-no-spreading": "off",
     "react/state-in-constructor": "off",
     "no-underscore-dangle": "off",
+    "max-len": [2, {"code": 200, "tabWidth": 2, "ignoreUrls": true}],
     "import/no-unresolved": [
       2, 
       { "caseSensitive": false }

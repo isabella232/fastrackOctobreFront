@@ -152,22 +152,22 @@ const PartnerDetails = () => {
                       || skills[techno]
                         .filter((skill) => filterSkillsPartnerActive(skill, partner.skills))
                         .map((res) => (
-                          <RangeCursor key={keyGenerator(res.name)} name={res.name} icon={res.icon} res={res} />
+                          <RangeCursor key={`${keyGenerator(res.name)}_${res.id}1`} res={res} />
                         ))}
                     {skillEdit
                       && skills[techno]
                         .filter((skill) => filterSkillsPartnerUnactive(skill, partner.skills))
                         .map((res) => (
-                          <RangeCursor key={keyGenerator(res.name)} name={res.name} icon={res.icon} res={res} />
+                          <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} res={res} />
                         ))
-                    }
-                    {skillEdit ?
-                      <DarkButton onClick={switchEdit}>Terminer l'évaluation</DarkButton>
-                      :
-                      <DarkButton onClick={switchEdit}>Lancer une évaluation</DarkButton>
                     }
                   </SkillsSlideContainer>
 
+                  {skillEdit ?
+                    <DarkButton onClick={switchEdit}>Terminer l'évaluation</DarkButton>
+                    :
+                    <DarkButton onClick={switchEdit}>Lancer une évaluation</DarkButton>
+                  }
                 </BoxSkills>
               </Card>
             </Container>

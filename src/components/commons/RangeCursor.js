@@ -63,25 +63,25 @@ const getRandomInt = (max) => (
   Math.floor(Math.random() * Math.floor(max))
 );
 
-const RangeCursor = ({ name, icon }) => {
+const RangeCursor = ({ res }) => {
   const [value, setValue] = useState(getRandomInt(100));
-  const handleChange = (e) => setValue(e.target.value);
+  //const handleChange = (e) => setValue(e.target.value);
 
   return (
     <>
       <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
         <HorizontalFlex width="100%" justifyContent="flex-start">
-          <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${icon}.png`} alt="techno-Logo" />
-          <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{name}</P>
+          <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${res.icon}.png`} alt="techno-Logo" />
+          <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
         </HorizontalFlex>
         <HorizontalFlex position="relative">
           <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#C7ECEE" />
           <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#7ED6DF" />
           <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#22A6B3" />
           <Rect BorderTop="1.5" BorderRight="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#3C6382" />
-          <RangeTxt> {value} </RangeTxt>
+          <RangeTxt> {res.level} </RangeTxt>
           <SlideContainer>
-            <Slider type="range" min="0" max="100" value={value} onChange={handleChange} />
+            <Slider type="range" min="0" max="100" value={value} />
           </SlideContainer>
         </HorizontalFlex>
       </HorizontalFlex>
@@ -91,8 +91,7 @@ const RangeCursor = ({ name, icon }) => {
 };
 
 RangeCursor.propTypes = {
-  name: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
+  res: PropTypes.object.isRequired,
 };
 
 export default RangeCursor;
