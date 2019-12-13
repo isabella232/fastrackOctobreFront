@@ -2,6 +2,7 @@ export const CHANGE_VALUE = 'CHANGE_VALUE';
 export const GET_SKILLS = 'GET_SKILLS';
 export const INIT_SKILLS = 'INIT_SKILLS';
 export const SET_TECHNO = 'SET_TECHNO';
+export const GET_PARTNER_DETAILS = 'GET_PARNER_DETAILS';
 
 export const formSubmit = (payload) => ({
   type: CHANGE_VALUE,
@@ -15,6 +16,11 @@ export const getSkills = (payload) => ({
 
 export const initSkills = (payload) => ({
   type: INIT_SKILLS,
+  payload,
+});
+
+export const getPartnerDetails = (payload) => ({
+  type: GET_PARTNER_DETAILS,
   payload,
 });
 

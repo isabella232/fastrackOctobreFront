@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
 import { useParams } from 'react-router';
 import styled from '@emotion/styled';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMobileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import ConvertToTime from '../Helper/ConvertToTime';
+import Loading from '../components/Loading';
 import ChronoLine from '../components/commons/chronoLine';
 import RangeCursor from '../components/commons/RangeCursor';
 import Nav from '../components/Nav';
@@ -16,14 +15,15 @@ import Picture from '../components/commons/picture';
 import CardPartner from '../components/commons/cardPartner';
 import ContainerCommon from '../components/commons/container';
 import { H3, P } from '../components/commons/text';
-import Loading from '../components/Loading';
-import Img from '../components/commons/logoTechno';
 import {
-  SkillsSlideContainer, HorizontalFlex, VerticalFlex, BoxHead, BoxGoals, BoxSkills,
+  SkillsSlideContainer, HorizontalFlex, BoxHead, BoxGoals, BoxSkills,
 } from '../components/commons/otherStyles';
 import convertSkills from '../Helper/Skills';
-import { initSkills, setTechno } from '../store/actions';
+import { initSkills, getPartnerDetails, setTechno } from '../store/actions';
 import SubContainer from '../components/SubContainer';
+import keyGenerator from '../Helper/KeyGenerator';
+import { partnerReciever } from '../services/client';
+import filterSkillsPartner from '../Helper/Partner/filterSkillsPartner';
 
 const Container = styled(ContainerCommon)`
 height: 100%;
@@ -66,16 +66,17 @@ const PartnerDetails = () => {
   const { partnerId } = useParams();
   const dispatch = useDispatch();
   const skills = useSelector(({ skillsReducer }) => skillsReducer.skillsList);
+  const partner = useSelector(({ partnerReducer }) => partnerReducer.partnerDetails);
   const categorys = useSelector(({ skillsReducer }) => skillsReducer.categoriesList);
   const techno = useSelector(({ skillsReducer }) => skillsReducer.currentTechno);
 
-  useEffect(() => {
-    axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${partnerId}`)
-      .then((res) => {
-        setPartner(res.data);
-        setTime(ConvertToTime(res.data.experience));
-      });
 
+  useEffect(() => {
+    partnerReciever(partnerId)
+      .then((response) => {
+        dispatch(getPartnerDetails(response.data));
+        setTime(response.convertedTime);
+      });
     convertSkills().then((data) => dispatch(initSkills(data)));
   }, []);
 
@@ -87,7 +88,7 @@ const PartnerDetails = () => {
 
   return (
     <>
-      {Object.getOwnPropertyNames(partner).length === 0
+      {Object.getOwnPropertyNames(partner).length < 1
         ? <Loading />
         : (
           <>
@@ -123,55 +124,33 @@ const PartnerDetails = () => {
                     <H3 fontSize="2rem">Objectifs</H3>
                   </HorizontalFlex>
                   <ChronoLine />
-                  <HorizontalFlex justifyContent="space-between" alignItems="baseline" width="100%">
-                    <VerticalFlex margin=".8rem 2rem .8rem .3rem" width="calc(100%/3)">
-                      <P fontWeight="bold" margin=".8rem 0 .8rem .3rem" display="block">Court Terme </P>
-                      <P margin=".8rem 0 .8rem .3rem"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet felis at massa varius fringilla. Morbi id est viverra, auctor dui nec, lobortis leo. Maecenas eu fermentum sem, quis rhoncus elit. Proin imperdiet elementum elit, sit amet laoreet metus ornare ac. Pellentesque aliquam at augue quis mattis. Integer porttitor sagittis mauris, id eleifend nisi euismod non. Cras semper pellentesque ipsum.   </P>
-                    </VerticalFlex>
-                    <VerticalFlex margin=".8rem 2rem .8rem .3rem" width="calc(100%/3)">
-                      <P fontWeight="bold" margin=".8rem 0 .8rem .3rem">Moyen Terme</P>
-                      <P margin=".8rem 0 .8rem .3rem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at semper sapien. Donec sit amet felis at massa varius fringilla. Morbi id est viverra, auctor dui nec, lobortis leo. Maecenas eu fermentum sem, quis rhoncus elit. Proin imperdiet elementum elit, sit amet laoreet metus ornare ac. Pellentesque aliquam at augue quis mattis. Integer porttitor sagittis mauris, id eleifend nisi euismod non. Nulla facilisi. Cras semper pellentesque ipsum. </P>
-                    </VerticalFlex>
-                    <VerticalFlex width="calc(100%/3)">
-                      <P fontWeight="bold" margin=".8rem 0 .8rem .3rem">Long Terme</P>
-                      <P margin=".8rem 0 .8rem .3rem">Lorem ipsum dolor sit amet. Phasellus at semper sapien. Varius fringilla. Morbi id est viverra, auctor dui nec, lobortis leo. Maecenas eu fermentum sem, quis rhoncus elit. Proin imperdiet elementum elit, sit amet laoreet metus ornare ac. Pellentesque aliquam at augue quis mattis. Integer porttitor sagittis mauris, id eleifend nisi euismod non. Nulla facilisi. Cras semper pellentesque ipsum. </P>
-                    </VerticalFlex>
-                  </HorizontalFlex>
                 </BoxGoals>
 
                 <BoxSkills>
                   <H3 fontSize="2rem">Compètences</H3>
 
                   {categorys.map((category) => (
-                    <SubContainer key={`${category.name}_${category.id}`} category={category} handleSet={handleSet} />
+                    <SubContainer key={`${category.name}_${category.id}`} category={category} setTechno={handleSet} />
                   ))}
 
                   <P fontWeight="bold" margin="2rem 0 2rem .3rem" display="block"> Niveau des technologies acquises </P>
                   <SkillsSlideContainer justifyContent="center">
 
                     {Object.getOwnPropertyNames(skills).length === 0
-                      || skills[techno].map((res) => (
-                        <>
-                          <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
-                            <HorizontalFlex width="100%" justifyContent="flex-start">
-                              <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${res.icon}.png`} alt="techno-Logo" />
-                              <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
-                            </HorizontalFlex>
-                            <HorizontalFlex position="relative">
-                              <RangeCursor />
-                            </HorizontalFlex>
-                          </HorizontalFlex>
-                        </>
-                      ))}
+                      || skills[techno]
+                        .filter((skill) => filterSkillsPartner(skill, partner.skills))
+                        .map((res) => (
+                          <RangeCursor key={keyGenerator(res.name)} name={res.name} icon={res.icon} />
+                        ))}
+
                   </SkillsSlideContainer>
 
                 </BoxSkills>
               </Card>
             </Container>
+            );
           </>
-        )
-
-      }
+        )}
     </>
   );
 };

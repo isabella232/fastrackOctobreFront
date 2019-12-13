@@ -3,7 +3,7 @@ import { INIT_SKILLS, GET_SKILLS, SET_TECHNO } from '../actions';
 const initialState = {
   categoriesList: [],
   skillsList: {},
-  currentTechno: 'Front',
+  currentTechno: 'Back',
 };
 
 const skillsReducer = (state = initialState, action = {}) => {
