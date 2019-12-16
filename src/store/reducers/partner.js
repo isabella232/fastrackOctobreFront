@@ -13,11 +13,7 @@ const partnerReducer = (state = initialState, action = {}) => {
     case GET_PARTNER_DETAILS:
       return { ...state, partnerDetails: action.payload };
     case SET_SKILL_VALUE:
-      return { ...state,
-        partnerDetails: { 
-          ...state.partnerDetails,
-          skills: action.payload 
-        }};
+      return { ...state, partnerDetails:{ ...state.partnerDetails, skills: action.payload } };
     default:
       return state;
   }
