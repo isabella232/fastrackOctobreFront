@@ -13,6 +13,12 @@ const theme = {
     logo: '#DFE4EA',
     subCat: '#FF408C',
   },
+  colorOff: {
+    accentExtraLight: '#d6dfdf',
+    accentLight: '#a3b7b9',
+    accentRegular: '#5a787b',
+    accentDark: '#576067',
+  }
 };
 
 export default theme;
