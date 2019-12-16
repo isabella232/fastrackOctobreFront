@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import PropTypes, { array } from 'prop-types';
 import styled from '@emotion/styled';
 import { P } from './text';
 import { HorizontalFlex, Rect } from './otherStyles';
 import Img from './logoTechno';
+import { setSkillValue } from '../../store/actions';
 
 const RangeTxt = styled(P)`
   position : absolute; 
@@ -59,13 +61,26 @@ const Slider = styled.input`
   }
 `;
 
-const getRandomInt = (max) => (
-  Math.floor(Math.random() * Math.floor(max))
-);
 
 const RangeCursor = ({ res, value }) => {
-  const [editValue, setValue] = useState(value);
-  const handleChange = (e) => setValue(e.target.value);
+  const dispatch = useDispatch();
+  const partner = useSelector(({ partnerReducer }) => partnerReducer.partnerDetails);
+
+  const handleChange = (value) => {
+    if (partner.skills.filter(skill => res.id === skill.id).length === 0) {
+      partner.skills.push({
+        id : res.id,
+        level: 0,
+      });
+    }
+    dispatch(setSkillValue(partner.skills.map(skill => {
+      if (skill.id === res.id) {
+        skill.level = value;
+      }
+      return skill;
+    })));
+
+  };
 
   const opacityHandler = (edit) => (
     edit > 1 ? 1 : 0.5
@@ -79,17 +94,16 @@ const RangeCursor = ({ res, value }) => {
           <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
         </HorizontalFlex>
         <HorizontalFlex position="relative">
-          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#C7ECEE" opacity={opacityHandler(editValue)} />
-          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#7ED6DF" opacity={opacityHandler(editValue)} />
-          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#22A6B3" opacity={opacityHandler(editValue)} />
-          <Rect BorderTop="1.5" BorderRight="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#3C6382" opacity={opacityHandler(editValue)} />
-          <RangeTxt> {editValue} </RangeTxt>
+          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#C7ECEE" opacity={opacityHandler(value)} />
+          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#7ED6DF" opacity={opacityHandler(value)} />
+          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#22A6B3" opacity={opacityHandler(value)} />
+          <Rect BorderTop="1.5" BorderRight="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#3C6382" opacity={opacityHandler(value)} />
+          <RangeTxt> {value} </RangeTxt>
           <SlideContainer>
-            <Slider type="range" min="0" max="100" value={editValue} onChange={(e) => handleChange(e)} />
+            <Slider type="range" min="0" max="100" value={value} onChange={(e) => handleChange(e.target.value)} />
           </SlideContainer>
         </HorizontalFlex>
       </HorizontalFlex>
-
     </>
   );
 };
