@@ -18,7 +18,7 @@ const theme = {
     accentLight: '#a3b7b9',
     accentRegular: '#5a787b',
     accentDark: '#576067',
-  }
+  },
 };
 
 export default theme;

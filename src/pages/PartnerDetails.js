@@ -68,7 +68,6 @@ const Icon = styled(FontAwesomeIcon)`
 `;
 
 const PartnerDetails = () => {
-
   const [time, setTime] = useState(0);
   const [skillEdit, setSkillsEdit] = useState(false);
   const { partnerId } = useParams();
@@ -152,26 +151,21 @@ const PartnerDetails = () => {
                       || skills[techno]
                         .filter((skill) => filterSkillsPartnerActive(skill, partner.skills))
                         .map((res) => (
-                          partner.skills.map((partnerSkill) =>
-                            partnerSkill.id === res.id &&
-                            <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} value={partnerSkill.level} res={res} />
-                          )
+                          partner.skills.map((partnerSkill) => partnerSkill.id === res.id
+                            && <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} value={partnerSkill.level} res={res} />)
 
                         ))}
                     {skillEdit
                       && skills[techno]
                         .filter((skill) => filterSkillsPartnerUnactive(skill, partner.skills))
                         .map((res) => (
-                          <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} res={res} />
-                        ))
-                    }
+                          <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} res={res} value={0} />
+                        ))}
                   </SkillsSlideContainer>
 
-                  {skillEdit ?
-                    <DarkButton onClick={switchEdit}>Terminer l'évaluation</DarkButton>
-                    :
-                    <DarkButton onClick={switchEdit}>Lancer une évaluation</DarkButton>
-                  }
+                  {skillEdit
+                    ? <DarkButton onClick={switchEdit}>Terminer l'évaluation</DarkButton>
+                    : <DarkButton onClick={switchEdit}>Lancer une évaluation</DarkButton>}
                 </BoxSkills>
               </Card>
             </Container>

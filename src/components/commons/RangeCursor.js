@@ -64,7 +64,12 @@ const getRandomInt = (max) => (
 );
 
 const RangeCursor = ({ res, value }) => {
-  //const handleChange = (e) => setValue(e.target.value);
+  const [editValue, setValue] = useState(value);
+  const handleChange = (e) => setValue(e.target.value);
+
+  const opacityHandler = (edit) => (
+    edit > 1 ? 1 : 0.5
+  );
 
   return (
     <>
@@ -74,13 +79,13 @@ const RangeCursor = ({ res, value }) => {
           <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
         </HorizontalFlex>
         <HorizontalFlex position="relative">
-          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#C7ECEE" />
-          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#7ED6DF" />
-          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#22A6B3" />
-          <Rect BorderTop="1.5" BorderRight="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#3C6382" />
-          <RangeTxt> {value} </RangeTxt>
+          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#C7ECEE" opacity={opacityHandler(editValue)} />
+          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#7ED6DF" opacity={opacityHandler(editValue)} />
+          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#22A6B3" opacity={opacityHandler(editValue)} />
+          <Rect BorderTop="1.5" BorderRight="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#3C6382" opacity={opacityHandler(editValue)} />
+          <RangeTxt> {editValue} </RangeTxt>
           <SlideContainer>
-            <Slider type="range" min="0" max="100" value={value} />
+            <Slider type="range" min="0" max="100" value={editValue} onChange={(e) => handleChange(e)} />
           </SlideContainer>
         </HorizontalFlex>
       </HorizontalFlex>
@@ -91,6 +96,7 @@ const RangeCursor = ({ res, value }) => {
 
 RangeCursor.propTypes = {
   res: PropTypes.object.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 export default RangeCursor;
