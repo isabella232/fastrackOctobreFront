@@ -152,7 +152,7 @@ const PartnerDetails = () => {
                         .filter((skill) => filterSkillsPartnerActive(skill, partner.skills))
                         .map((res) => (
                           partner.skills.map((partnerSkill) => partnerSkill.id === res.id
-                            && <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} value={partnerSkill.level} res={res} />)
+                            && <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} level={partnerSkill.level} res={res} />)
 
                         ))}
                     {skillEdit

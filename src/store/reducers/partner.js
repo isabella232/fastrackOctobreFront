@@ -12,8 +12,14 @@ const partnerReducer = (state = initialState, action = {}) => {
       return { currentPartner: action.payload };
     case GET_PARTNER_DETAILS:
       return { ...state, partnerDetails: action.payload };
-    case SET_SKILL_VALUE:
-      return { ...state, partnerDetails:{ ...state.partnerDetails, skills: action.payload } };
+      case SET_SKILL_VALUE:
+        return {
+          ...state, partnerDetails: {
+            ...state.partnerDetails, skills: state.partnerDetails.skills.map((skill, ) =>
+              (skill.id === action.payload.id) ? action.payload : skill
+            )
+          }
+        };
     default:
       return state;
   }
