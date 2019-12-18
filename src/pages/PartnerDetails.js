@@ -9,6 +9,7 @@ import Loading from '../components/Loading';
 import ChronoLine from '../components/commons/chronoLine';
 import RangeCursor from '../components/commons/RangeCursor';
 import Nav from '../components/Nav';
+import Img from '../components/commons/logoTechno';
 import TextHeader from '../components/commons/TextHeader';
 import FixedButton from '../components/FixedButton';
 import Picture from '../components/commons/picture';
@@ -152,14 +153,29 @@ const PartnerDetails = () => {
                         .filter((skill) => filterSkillsPartnerActive(skill, partner.skills))
                         .map((res) => (
                           partner.skills.map((partnerSkill) => partnerSkill.id === res.id
-                            && <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} level={partnerSkill.level} res={res} />)
+                            &&
+                            (
+                              <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
+                                <HorizontalFlex width="100%" justifyContent="flex-start">
+                                  <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${res.icon}.png`} alt="techno-Logo" />
+                                  <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
+                                </HorizontalFlex>
+                                <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} level={partnerSkill.level} res={res} />
+                              </HorizontalFlex>
+                            ))
 
                         ))}
                     {skillEdit
                       && skills[techno]
                         .filter((skill) => filterSkillsPartnerUnactive(skill, partner.skills))
                         .map((res) => (
-                          <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} res={res} value={0} />
+                          <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
+                            <HorizontalFlex width="100%" justifyContent="flex-start">
+                              <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${res.icon}.png`} alt="techno-Logo" />
+                              <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
+                            </HorizontalFlex>
+                            <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} res={res} level={0} />
+                          </HorizontalFlex>
                         ))}
                   </SkillsSlideContainer>
 

@@ -4,8 +4,7 @@ import PropTypes, { array } from 'prop-types';
 import styled from '@emotion/styled';
 import { P } from './text';
 import { HorizontalFlex, Rect } from './otherStyles';
-import Img from './logoTechno';
-import { setSkillValue } from '../../store/actions';
+import { setSkillValue, addValue } from '../../store/actions';
 
 const RangeTxt = styled(P)`
   position : absolute; 
@@ -63,38 +62,41 @@ const Slider = styled.input`
 
 const RangeCursor = ({ res, level }) => {
   const dispatch = useDispatch();
+  const [lvl, setLvl] = useState(level);
+  const [isActive, setIsActive] = useState();
 
-  const  updateValue = (level) => {
-      dispatch(setSkillValue(
-          { id: res.id, level}
-      ));
-  }
+  useEffect(() => {
+    level === 0 ? setIsActive(false) : setIsActive(true)
+  }, []);
+
+  const setValue = (level) => {
+    dispatch(setSkillValue(
+      { id: res.id, level },
+    ));
+  };
+
+  const addSkillValue = (level) => {
+    dispatch(addValue(
+      { id: res.id, level },
+    ));
+  };
 
   const opacityHandler = (edit) => (
     edit > 1 ? 1 : 0.5
   );
 
 
-
   return (
-    <>
-      <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
-        <HorizontalFlex width="100%" justifyContent="flex-start">
-          <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${res.icon}.png`} alt="techno-Logo" />
-          <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
-        </HorizontalFlex>
-        <HorizontalFlex position="relative">
-          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#C7ECEE" opacity={opacityHandler(level)} />
-          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#7ED6DF" opacity={opacityHandler(level)} />
-          <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#22A6B3" opacity={opacityHandler(level)} />
-          <Rect BorderTop="1.5" BorderRight="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#3C6382" opacity={opacityHandler(level)} />
-          <RangeTxt> {level} </RangeTxt>
-          <SlideContainer>
-            <Slider type="range" min="0" max="100" value={level} onChange={(e) => updateValue(parseInt(e.target.value))} />
-          </SlideContainer>
-        </HorizontalFlex>
-      </HorizontalFlex>
-    </>
+    <HorizontalFlex position="relative">
+      <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#C7ECEE" opacity={opacityHandler(level)} />
+      <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#7ED6DF" opacity={opacityHandler(level)} />
+      <Rect BorderTop="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#22A6B3" opacity={opacityHandler(level)} />
+      <Rect BorderTop="1.5" BorderRight="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#3C6382" opacity={opacityHandler(level)} />
+      <RangeTxt> {lvl} </RangeTxt>
+      <SlideContainer>
+        <Slider type="range" min="0" max="100" value={lvl} onMouseUp={(e) => isActive ? setValue(parseInt(e.target.value)) : addSkillValue(parseInt(e.target.value))} onChange={(e) => setLvl(e.target.value)} />
+      </SlideContainer>
+    </HorizontalFlex>
   );
 };
 
@@ -104,3 +106,8 @@ RangeCursor.propTypes = {
 };
 
 export default RangeCursor;
+
+/*
+
+
+*/
