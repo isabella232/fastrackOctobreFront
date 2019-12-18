@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes, { array } from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { P } from './text';
 import { HorizontalFlex, Rect } from './otherStyles';
@@ -11,21 +11,21 @@ const RangeTxt = styled(P)`
   color: ${(props) => props.theme.colors.accentExtraLight}; 
   left: 88%;
   margin-top: 0.5rem;
-
 `;
 
 const SlideContainer = styled.div`
   width: 16rem;
   position: absolute;
+  height: 70px;
   left: calc(-0.6rem + -2px);
-  top: calc(2rem - 2px);
+  top: 4px;
 `;
-
 
 const Slider = styled.input`
   width: 17.2rem;
-  background: none;
+  height: 70px;
   justify-self : center;
+  background: none;
   outline: none;
   border: 0;
   appearance: none; 
@@ -106,8 +106,3 @@ RangeCursor.propTypes = {
 };
 
 export default RangeCursor;
-
-/*
-
-
-*/
