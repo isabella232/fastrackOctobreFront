@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import { skillsSender } from '../../services/client';
 import styled from '@emotion/styled';
+
 import { P } from './text';
 import { HorizontalFlex, Rect } from './otherStyles';
 import { setSkillValue, addValue } from '../../store/actions';
@@ -64,21 +66,24 @@ const RangeCursor = ({ res, level }) => {
   const dispatch = useDispatch();
   const [lvl, setLvl] = useState(level);
   const [isActive, setIsActive] = useState();
+  const partner = useSelector(({ partnerReducer }) => partnerReducer.partnerDetails);
 
   useEffect(() => {
     level === 0 ? setIsActive(false) : setIsActive(true)
   }, []);
 
-  const setValue = (level) => {
+  const setValue = async (level) => {
     dispatch(setSkillValue(
       { id: res.id, level },
     ));
+    await skillsSender(partner);
   };
 
-  const addSkillValue = (level) => {
+  const addSkillValue = async (level) => {
     dispatch(addValue(
       { id: res.id, level },
     ));
+    await skillsSender(partner);
   };
 
   const opacityHandler = (edit) => (
