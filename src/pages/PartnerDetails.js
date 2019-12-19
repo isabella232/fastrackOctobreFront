@@ -26,6 +26,7 @@ import keyGenerator from '../Helper/KeyGenerator';
 import { partnerReciever } from '../services/client';
 import { filterSkillsPartnerActive, filterSkillsPartnerUnactive } from '../Helper/Partner/filterSkillsPartner';
 import Button from '../components/commons/button';
+import NoEditingForm from '../components/OnFlyForm/NoEditingForm';
 
 const Container = styled(ContainerCommon)`
 height: 100%;
@@ -134,8 +135,9 @@ const PartnerDetails = () => {
                 <BoxGoals>
                   <HorizontalFlex>
                     <H3 fontSize="2rem">Objectifs</H3>
-                  </HorizontalFlex>
-                  <ChronoLine />
+                    </HorizontalFlex>
+                    <ChronoLine />
+                    <NoEditingForm />
                 </BoxGoals>
 
                 <BoxSkills>
