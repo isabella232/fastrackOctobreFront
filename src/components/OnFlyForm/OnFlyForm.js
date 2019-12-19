@@ -1,34 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
+import styled from '@emotion/styled';
+import TextareaAutosize from 'react-textarea-autosize';
+
 import { VerticalFlex, HorizontalFlex } from '../commons/otherStyles';
 import { P } from '../commons/text';
 import Form from '../commons/form';
-import Input from '../commons/input'; 
 
-const OnFlyForm = () => {
+const TextArea = styled(TextareaAutosize)`
+  background: none;
+  border: ${(props) => props.border} ;
+  resize: none;
+  color: ${(props) => props.theme.colors.black};
+  width: 100%;
+  height: auto;
+  text-align: center;
+`;
 
+const OnFlyForm = (props) => {
+  const [active, setActive] = useState(true);
+
+  const handleDoubleClick = () => {
+    setActive(!active);
+  };
+
+  const handleClose = () => {
+    setActive(true);
+  };
+
+  const placeholder = "Double-Cliquez pour entrer du texte";
+  
   return (
-    <HorizontalFlex justifyContent="space-between" alignItems="baseline" width="100%">
-      <VerticalFlex margin=".8rem 2rem .8rem .3rem" width="calc(100%/3)">
-        <P fontWeight="bold" margin=".8rem 0 .8rem .3rem" display="block">Court Terme </P>
-        <Form margin=".8rem 0 .8rem .3rem">
-        <Input type="text" value="Lorem Ipsum"/>
-        </Form>
-      </VerticalFlex>
-      <VerticalFlex margin=".8rem 2rem .8rem .3rem" width="calc(100%/3)">
-        <P fontWeight="bold" margin=".8rem 0 .8rem .3rem">Moyen Terme</P>
-        <Form margin=".8rem 0 .8rem .3rem">
-        <Input type="text" value="Lorem Ipsum"/>
-        </Form>
-      </VerticalFlex>
-      <VerticalFlex width="calc(100%/3)">
-        <P fontWeight="bold" margin=".8rem 0 .8rem .3rem">Long Terme</P>
-        <Form margin=".8rem 0 .8rem .3rem">
-        <Input type="text" value="Lorem Ipsum"/>
-        </Form>
-      </VerticalFlex>
-    </HorizontalFlex>
-
-  )
-}
+    <VerticalFlex margin=".8rem 2rem .8rem .3rem" width="calc(100%/3)">
+      <P fontWeight="bold" margin=".8rem 0 .8rem .3rem" display="block">{props.title}</P>
+      <Form margin=".8rem 0 .8rem .3rem">
+        <div onDoubleClick={handleDoubleClick} onMouseLeave={handleClose}>
+          <TextArea disabled={active} placeholder={placeholder} border={active ? 'none' : '1px solid rgb(0, 0, 0, 0.5)'}></TextArea>
+        </div>
+      </Form>
+    </VerticalFlex>
+  );
+};
 
 export default OnFlyForm;

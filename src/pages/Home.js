@@ -43,8 +43,7 @@ const Home = () => {
     }
     else if (asc === false && desc === true) {
       filtredPartnerList('desc').then((res) => setList(res.data));
-    }
-    else {
+    } else {
       partnerList().then((res) => setList(res.data));
     }
   };
@@ -57,8 +56,8 @@ const Home = () => {
     <>
       <Nav />
       <TextHeader title="Partners" subtitle="Liste des partners enregistrés" />
-      <FiltredButton top="2.5rem" left="96%" icon={faSortAlphaDown} click={ascFilter} />
-      <FiltredButton top="2.5rem" left="98%" icon={faSortAlphaDownAlt} click={descFilter} />
+      <FiltredButton top="2.5rem" left="96%" icon={faSortAlphaDown} click={ascFilter} asc={asc} />
+      <FiltredButton top="2.5rem" left="98%" icon={faSortAlphaDownAlt} click={descFilter} desc={desc} />
       <FixedButton />
       <SearchBar top="2rem" left="81%" />
       <Container>
