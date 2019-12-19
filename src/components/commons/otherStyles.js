@@ -70,7 +70,7 @@ export const Rect = styled.div`
   border-bottom: ${(props) => props.BorderBottom}px solid #2F3640;
   border-left: ${(props) => props.BorderLeft}px solid #2F3640;
   border-color: ${(props) => props.theme.colors.black};
- 
+  opacity: ${(props) => props.opacity};
   background: ${(props) => props.background};
 `;
 
