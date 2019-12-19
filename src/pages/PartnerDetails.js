@@ -9,6 +9,7 @@ import Loading from '../components/Loading';
 import ChronoLine from '../components/commons/chronoLine';
 import RangeCursor from '../components/commons/RangeCursor';
 import Nav from '../components/Nav';
+import Img from '../components/commons/logoTechno';
 import TextHeader from '../components/commons/TextHeader';
 import FixedButton from '../components/FixedButton';
 import Picture from '../components/commons/picture';
@@ -23,7 +24,8 @@ import { initSkills, getPartnerDetails, setTechno } from '../store/actions';
 import SubContainer from '../components/SubContainer';
 import keyGenerator from '../Helper/KeyGenerator';
 import { partnerReciever } from '../services/client';
-import filterSkillsPartner from '../Helper/Partner/filterSkillsPartner';
+import { filterSkillsPartnerActive, filterSkillsPartnerUnactive } from '../Helper/Partner/filterSkillsPartner';
+import Button from '../components/commons/button';
 
 const Container = styled(ContainerCommon)`
 height: 100%;
@@ -46,6 +48,12 @@ margin: 0;
 color: ${(props) => props.theme.colors.white};
 position: absolute;
 `;
+const DarkButton = styled(Button)`
+  background: ${((props) => props.theme.colors.bodyBg)};
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+`;
+
 const Pmail = styled(P)`
 width: 50%;
 right: 0;
@@ -62,6 +70,7 @@ const Icon = styled(FontAwesomeIcon)`
 
 const PartnerDetails = () => {
   const [time, setTime] = useState(0);
+  const [skillEdit, setSkillsEdit] = useState(false);
   const { partnerId } = useParams();
   const dispatch = useDispatch();
   const skills = useSelector(({ skillsReducer }) => skillsReducer.skillsList);
@@ -80,6 +89,10 @@ const PartnerDetails = () => {
   }, []);
 
   const baseUrl = '../styles/';
+
+  const switchEdit = () => {
+    setSkillsEdit(!skillEdit);
+  };
 
   const handleSet = (text) => {
     dispatch(setTechno(text));
@@ -137,17 +150,41 @@ const PartnerDetails = () => {
 
                     {Object.getOwnPropertyNames(skills).length === 0
                       || skills[techno]
-                        .filter((skill) => filterSkillsPartner(skill, partner.skills))
+                        .filter((skill) => filterSkillsPartnerActive(skill, partner.skills))
                         .map((res) => (
-                          <RangeCursor key={keyGenerator(res.name)} name={res.name} icon={res.icon} />
-                        ))}
+                          partner.skills.map((partnerSkill) => partnerSkill.id === res.id
+                            &&
+                            (
+                              <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
+                                <HorizontalFlex width="100%" justifyContent="flex-start">
+                                  <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${res.icon}.png`} alt="techno-Logo" />
+                                  <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
+                                </HorizontalFlex>
+                                <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} level={partnerSkill.level} res={res} />
+                              </HorizontalFlex>
+                            ))
 
+                        ))}
+                    {skillEdit
+                      && skills[techno]
+                        .filter((skill) => filterSkillsPartnerUnactive(skill, partner.skills))
+                        .map((res) => (
+                          <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
+                            <HorizontalFlex width="100%" justifyContent="flex-start">
+                              <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${res.icon}.png`} alt="techno-Logo" />
+                              <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
+                            </HorizontalFlex>
+                            <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} res={res} level={0} />
+                          </HorizontalFlex>
+                        ))}
                   </SkillsSlideContainer>
 
+                  {skillEdit
+                    ? <DarkButton onClick={switchEdit}>Terminer l'évaluation</DarkButton>
+                    : <DarkButton onClick={switchEdit}>Lancer une évaluation</DarkButton>}
                 </BoxSkills>
               </Card>
             </Container>
-            );
           </>
         )}
     </>

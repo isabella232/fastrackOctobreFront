@@ -1,5 +1,3 @@
-const filterSkillsPartner = (skill, partnerSkills) => {
-  return partnerSkills.some((partnerSkill) => skill.id === partnerSkill.id);
-};
+export const filterSkillsPartnerActive = (skill, partnerSkills) => partnerSkills.some((partnerSkill) => skill.id === partnerSkill.id);
 
-export default filterSkillsPartner;
+export const filterSkillsPartnerUnactive = (skill, partnerSkills) => !partnerSkills.some((partnerSkill) => skill.id === partnerSkill.id);

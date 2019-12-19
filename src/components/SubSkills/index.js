@@ -7,15 +7,13 @@ import keyGenerator from '../../Helper/KeyGenerator';
 const SubButton = styled(Button)`
    background: #FF408C;
 `;
-const SubSkills = (props) => {
-  return (
-    <>
-      {props.subCategories.map((subCategory) => (
-        <SubButton key={keyGenerator(subCategory.name)} onClick={(e) => props.click(e)}>{subCategory.name}</SubButton>
-      ))}
-    </>
-  );
-};
+const SubSkills = (props) => (
+  <>
+    {props.subCategories.map((subCategory) => (
+      <SubButton key={keyGenerator(subCategory.name)} onClick={(e) => props.click(e)}>{subCategory.name}</SubButton>
+    ))}
+  </>
+);
 
 SubSkills.propTypes = {
   subCategories: PropTypes.array.isRequired,
