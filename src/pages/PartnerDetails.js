@@ -26,7 +26,7 @@ import keyGenerator from '../Helper/KeyGenerator';
 import { partnerReciever } from '../services/client';
 import { filterSkillsPartnerActive, filterSkillsPartnerUnactive } from '../Helper/Partner/filterSkillsPartner';
 import Button from '../components/commons/button';
-import NoEditingForm from '../components/OnFlyForm/NoEditingForm';
+import OnFlyForm from '../components/OnFlyForm/OnFlyForm';
 
 const Container = styled(ContainerCommon)`
 height: 100%;
@@ -135,9 +135,13 @@ const PartnerDetails = () => {
                 <BoxGoals>
                   <HorizontalFlex>
                     <H3 fontSize="2rem">Objectifs</H3>
-                    </HorizontalFlex>
-                    <ChronoLine />
-                    <NoEditingForm />
+                  </HorizontalFlex>
+                  <ChronoLine />
+                  <HorizontalFlex justifyContent="space-between" alignItems="baseline" width="100%">
+                    <OnFlyForm title="Court terme" />
+                    <OnFlyForm title="Moyen terme" />
+                    <OnFlyForm title="Long terme" />
+                  </HorizontalFlex>
                 </BoxGoals>
 
                 <BoxSkills>
