@@ -5,12 +5,12 @@ const HorizontalFlex = styled.div`
   display: flex;
   justify-content: center; 
 
-  margin: ${(props) => props.margin || '0px'};
-  margin-right: ${(props) => props.marginR || '0px'};
-  justify-content: ${(props) => props.justifyContent || 'center'};
-  align-items: ${(props) => props.alignItems || 'center'};
-  position: ${(props) => props.position || 'relative'};
-  width: ${(props) => props.width || '0px'};
+  margin: ${(props) => props.margin};
+  margin-right: ${(props) => props.marginR};
+  justify-content: ${(props) => props.justifyContent};
+  align-items: ${(props) => props.alignItems};
+  position: ${(props) => props.position};
+  width: ${(props) => props.width};
 `;
 
 export default HorizontalFlex; 
