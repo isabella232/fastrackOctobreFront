@@ -6,7 +6,7 @@ const keyGenerator = (name) => {
     return Math.floor(Math.random() * (max - min) + min);
   };
 
-  const key = `${Date.now()}${name}${getRandomInt(100, 999)}${getRandomInt2(100, 999)}`;
+  const key = `${Date.now()}${name}${getRandomInt(10000, 99999)}${getRandomInt2(10000, 99999)}`;
   return key;
 };
 
