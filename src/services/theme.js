@@ -8,7 +8,6 @@ const theme = {
     bodyBg: '#2F3640',
     partnerBg: '#DFE4EA',
     font: '#2F3640',
-    black: '#2F3640',
     white: '#fff',
     logo: '#DFE4EA',
     subCat: '#FF408C',

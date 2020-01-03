@@ -18,12 +18,12 @@ export const HorizontalFlex = styled.div`
   display: flex;
   justify-content: center; 
 
-  margin: ${(props) => props.margin || '0px'};
-  margin-right: ${(props) => props.marginR || '0px'};
-  justify-content: ${(props) => props.justifyContent || 'center'};
-  align-items: ${(props) => props.alignItems || 'center'};
-  position: ${(props) => props.position || 'relative'};
-  width: ${(props) => props.width || '0px'};
+  margin: ${(props) => props.margin};
+  margin-right: ${(props) => props.marginR};
+  justify-content: ${(props) => props.justifyContent};
+  align-items: ${(props) => props.alignItems};
+  position: ${(props) => props.position};
+  width: ${(props) => props.width};
 `;
 
 // <VerticalFlex></VerticalFlex>
@@ -31,12 +31,12 @@ export const VerticalFlex = styled.div`
   display : flex; 
   flex-direction : column;
 
-  position: ${(props) => props.position || 'relative'};
-  margin: ${(props) => props.margin || '0px'};
-  margin-top: ${(props) => props.marginTop || '0px'};
-  width: ${(props) => props.width || '0px'};
-  align-items: ${(props) => props.alignItems || 'center'};
-  justify-content: ${(props) => props.justifyContent || 'center'};
+  position: ${(props) => props.position};
+  margin: ${(props) => props.margin};
+  margin-top: ${(props) => props.marginTop};
+  width: ${(props) => props.width};
+  align-items: ${(props) => props.alignItems};
+  justify-content: ${(props) => props.justifyContent};
 `;
 
 // <BoxHead></BoxHead>
@@ -65,20 +65,16 @@ export const BoxSkills = styled.div`
 
 export const Rect = styled.div`
   height: 2rem; 
-  width : 4rem;
-  border-top: ${(props) => props.BorderTop || '0'}px solid #2F3640;
-  border-right: ${(props) => props.BorderRight || '0'}px solid #2F3640;
-  border-bottom: ${(props) => props.BorderBottom || '0'}px solid #2F3640;
-  border-left: ${(props) => props.BorderLeft || '0'}px solid #2F3640;
-  border-color: ${(props) => props.theme.colors.black || '#FFF'};
-  opacity: ${(props) => props.opacity || '1'};
-  background: ${(props) => props.background || '#282828'};
+  width : 4rem; 
+  border-top: ${(props) => props.BorderTop}px solid #2F3640;
+  border-right: ${(props) => props.BorderRight}px solid #2F3640;
+  border-bottom: ${(props) => props.BorderBottom}px solid #2F3640;
+  border-left: ${(props) => props.BorderLeft}px solid #2F3640;
+  opacity: ${(props) => props.opacity};
+  background: ${(props) => props.background};
 `;
 
 export const Infos = styled.div`
-
 color: ${(props) => props.theme.colors.white};
 position: absolute;
-
-
 `;

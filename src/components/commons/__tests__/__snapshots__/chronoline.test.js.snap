@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ChronoLine should renders ChronoLine with correct styles 1`] = `ShallowWrapper {}`;
+
 exports[`ChronoLine should renders Ellipse with correct styles 1`] = `
 .emotion-0 {
   position: absolute;
   width: 1rem;
   height: 1rem;
-  background: #111;
   border-radius: 25px;
   top: 50%;
   -ms-transform: translateY(-50%);
