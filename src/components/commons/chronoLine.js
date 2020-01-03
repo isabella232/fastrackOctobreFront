@@ -4,7 +4,7 @@ import { HorizontalFlex } from './otherStyles';
 
 
 // <Line />
-const Line = styled.div`
+export const Line = styled.div`
 margin: 2rem 0;
 display: flex; 
 justify-content: center;
@@ -15,7 +15,7 @@ background: ${(props) => props.theme.colors.primary};
 `;
 
 // <Ellipse />
-const Ellipse = styled.div`
+export const Ellipse = styled.div`
 position: absolute;
 width: 1rem;
 height: 1rem;

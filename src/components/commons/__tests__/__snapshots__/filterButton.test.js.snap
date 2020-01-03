@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`filterButton should renders with correct styles 1`] = `
+.emotion-0 {
+  position: absolute;
+  width: 16px;
+  height: 14px;
+}
+
+<a
+  href=""
+  onClick={[Function]}
+>
+  <div
+    className="emotion-0"
+  />
+</a>
+`;

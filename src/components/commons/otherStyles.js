@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 // You can use this list to import one or all element below
 // eslint-disable-next-line max-len
-// { Cursor, Rect, HorizontalFlex, VerticalFlex, Line, Ellipse, BoxHead, BoxGoals, BoxSkills }
+// { SkillsSlideContainer, Rect, HorizontalFlex, VerticalFlex, Line, Ellipse, BoxHead, BoxGoals, BoxSkills, Infos }
 
 export const SkillsSlideContainer = styled.div`
   width: 1000px;
@@ -10,7 +10,7 @@ export const SkillsSlideContainer = styled.div`
   margin : 0 auto;
   justify-self : center; 
 
-  justify-content: ${(props) => props.justifyContent};
+  justify-content: ${(props) => props.justifyContent || 'center'};
 `;
 
 // <HorizontalFlex></HorizontalFlex>
@@ -18,12 +18,12 @@ export const HorizontalFlex = styled.div`
   display: flex;
   justify-content: center; 
 
-  margin: ${(props) => props.margin};
-  margin-right: ${(props) => props.marginR};
-  justify-content: ${(props) => props.justifyContent};
-  align-items: ${(props) => props.alignItems};
-  position: ${(props) => props.position};
-  width: ${(props) => props.width};
+  margin: ${(props) => props.margin || '0px'};
+  margin-right: ${(props) => props.marginR || '0px'};
+  justify-content: ${(props) => props.justifyContent || 'center'};
+  align-items: ${(props) => props.alignItems || 'center'};
+  position: ${(props) => props.position || 'relative'};
+  width: ${(props) => props.width || '0px'};
 `;
 
 // <VerticalFlex></VerticalFlex>
@@ -31,12 +31,12 @@ export const VerticalFlex = styled.div`
   display : flex; 
   flex-direction : column;
 
-  position: ${(props) => props.position};
-  margin: ${(props) => props.margin};
-  margin-top: ${(props) => props.marginTop};
-  width: ${(props) => props.width};
-  align-items: ${(props) => props.alignItems};
-  justify-content: ${(props) => props.justifyContent};
+  position: ${(props) => props.position || 'relative'};
+  margin: ${(props) => props.margin || '0px'};
+  margin-top: ${(props) => props.marginTop || '0px'};
+  width: ${(props) => props.width || '0px'};
+  align-items: ${(props) => props.alignItems || 'center'};
+  justify-content: ${(props) => props.justifyContent || 'center'};
 `;
 
 // <BoxHead></BoxHead>
@@ -66,13 +66,13 @@ export const BoxSkills = styled.div`
 export const Rect = styled.div`
   height: 2rem; 
   width : 4rem;
-  border-top: ${(props) => props.BorderTop}px solid #2F3640;
-  border-right: ${(props) => props.BorderRight}px solid #2F3640;
-  border-bottom: ${(props) => props.BorderBottom}px solid #2F3640;
-  border-left: ${(props) => props.BorderLeft}px solid #2F3640;
-  border-color: ${(props) => props.theme.colors.black};
-  opacity: ${(props) => props.opacity};
-  background: ${(props) => props.background};
+  border-top: ${(props) => props.BorderTop || '0'}px solid #2F3640;
+  border-right: ${(props) => props.BorderRight || '0'}px solid #2F3640;
+  border-bottom: ${(props) => props.BorderBottom || '0'}px solid #2F3640;
+  border-left: ${(props) => props.BorderLeft || '0'}px solid #2F3640;
+  border-color: ${(props) => props.theme.colors.black || '#FFF'};
+  opacity: ${(props) => props.opacity || '1'};
+  background: ${(props) => props.background || '#282828'};
 `;
 
 export const Infos = styled.div`

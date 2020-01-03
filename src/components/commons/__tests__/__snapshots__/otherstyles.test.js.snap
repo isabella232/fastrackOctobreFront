@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BoxGoals should renders with correct styles 1`] = `
+.emotion-0 {
+  border-bottom: 1px solid grey;
+  width: 80%;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+<div
+  className="emotion-0"
+/>
+`;
+
+exports[`BoxHead should renders with correct styles 1`] = `
+.emotion-0 {
+  border-bottom: 1px solid grey;
+  width: 80%;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+<div
+  className="emotion-0"
+/>
+`;
+
+exports[`BoxSkills should renders with correct styles 1`] = `
+.emotion-0 {
+  border-bottom: 1px solid grey;
+  width: 80%;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+<div
+  className="emotion-0"
+/>
+`;
+
+exports[`HorizontalFlex should renders with correct styles 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0px;
+  margin-right: 0px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  width: 0px;
+}
+
+<div
+  className="emotion-0"
+/>
+`;
+
+exports[`Rect should renders with correct styles 1`] = `
+.emotion-0 {
+  height: 2rem;
+  width: 4rem;
+  border-top: 0px solid #2F3640;
+  border-right: 0px solid #2F3640;
+  border-bottom: 0px solid #2F3640;
+  border-left: 0px solid #2F3640;
+  border-color: #111;
+  opacity: 1;
+  background: #282828;
+}
+
+<div
+  className="emotion-0"
+/>
+`;
+
+exports[`SkillsSlideContainer should renders with correct styles 1`] = `
+.emotion-0 {
+  width: 1000px;
+  min-width: 800px;
+  margin: 0 auto;
+  justify-self: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+<div
+  className="emotion-0"
+/>
+`;
+
+exports[`VerticalFlex should renders with correct styles 1`] = `
+.emotion-0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  position: relative;
+  margin: 0px;
+  margin-top: 0px;
+  width: 0px;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+<div
+  className="emotion-0"
+/>
+`;
