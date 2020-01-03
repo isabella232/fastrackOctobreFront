@@ -6,8 +6,8 @@ const keyGenerator = (name) => {
     return Math.floor(Math.random() * (max - min) + min);
   };
 
-const key = `${Date.now()}${name}${getRandomInt(100, 999)}${getRandomInt2(100, 999)}`;
-return key;
+  const key = `${Date.now()}${name}${getRandomInt(100, 999)}${getRandomInt2(100, 999)}`;
+  return key;
 };
 
 export default keyGenerator;
