@@ -5,7 +5,8 @@ import { skillsSender } from '../../services/client';
 import styled from '@emotion/styled';
 
 import { P } from './text';
-import { HorizontalFlex, Rect } from './otherStyles';
+import HorizontalFlex from '../commons/horizontalFlex';
+import Rect from '../commons/rect';
 import { setSkillValue, addValue } from '../../store/actions';
 
 const RangeTxt = styled(P)`

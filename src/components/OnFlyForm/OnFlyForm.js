@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import TextareaAutosize from 'react-textarea-autosize';
 
-import { VerticalFlex, HorizontalFlex } from '../commons/otherStyles';
+import HorizontalFlex from '../commons/horizontalFlex';
+import VerticalFlex from '../commons/verticalFlex';
 import { P } from '../commons/text';
 import Form from '../commons/form';
 

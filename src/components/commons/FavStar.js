@@ -4,7 +4,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled';
 
 import { P } from './text';
-import { HorizontalFlex } from './otherStyles';
+import  HorizontalFlex from './horizontalFlex';
 
 const FavStar = ({ themeColors }) => {
   const [isActive, setIsActive] = useState(false);

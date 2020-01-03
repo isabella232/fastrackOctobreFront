@@ -16,9 +16,16 @@ import Picture from '../components/commons/picture';
 import CardPartner from '../components/commons/cardPartner';
 import ContainerCommon from '../components/commons/container';
 import { H3, P } from '../components/commons/text';
-import {
-  SkillsSlideContainer, HorizontalFlex, BoxHead, BoxGoals, BoxSkills,
-} from '../components/commons/otherStyles';
+
+import SkillsSlideContainer from '../components/commons/skillsSlideContainer';
+import HorizontalFlex from '../components/commons/horizontalFlex';
+import VerticalFlex from '../components/commons/verticalFlex';
+import BoxHead from '../components/commons/boxHead';
+import BoxGoals from '../components/commons/boxGoals';
+import BoxSkills from '../components/commons/boxSkills';
+import Rect from '../components/commons/rect';
+import Infos from '../components/commons/infos';
+
 import convertSkills from '../Helper/Skills';
 import { initSkills, getPartnerDetails, setTechno } from '../store/actions';
 import SubContainer from '../components/SubContainer';

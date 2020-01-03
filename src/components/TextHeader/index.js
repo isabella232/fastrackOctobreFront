@@ -1,5 +1,4 @@
 import React from 'react';
-
 import TextHeader from '../commons/TextHeader';
 
 const Title = (props) => (
