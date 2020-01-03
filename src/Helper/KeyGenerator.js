@@ -1,14 +1,13 @@
 const keyGenerator = (name) => {
-  const getRandomInt = () => (
+  const getRandomInt = (min, max) => {
+    return Math.floor(Math.random() * (max - min) + min);
+  };
+  const getRandomInt2 = (min, max) => {
+    return Math.floor(Math.random() * (max - min) + min);
+  };
 
-    Math.floor(Math.random() * Math.floor(10000))
-  );
-  const getRandomInt2 = () => (
-    Math.floor(Math.random() * Math.floor(10000))
-  );
-
-  const key = `${Date.now()}${name}${getRandomInt()}${getRandomInt2()}`;
-  return key;
+const key = `${Date.now()}${name}${getRandomInt(100, 999)}${getRandomInt2(100, 999)}`;
+return key;
 };
 
 export default keyGenerator;
