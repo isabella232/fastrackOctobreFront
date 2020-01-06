@@ -1,7 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import serializer from 'jest-emotion';
-import BoxSkills from '../boxSkills'; 
+import BoxSkills from '../boxSkills';
 
 expect.addSnapshotSerializer(serializer);
 

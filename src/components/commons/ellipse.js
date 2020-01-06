@@ -12,4 +12,4 @@ top: 50%;
 transform: translateY(-50%);
 `;
 
-export default Ellipse; 
+export default Ellipse;

@@ -39,4 +39,4 @@ export const setSkillValue = (payload) => ({
 export const addValue = (payload) => ({
   type: ADD_VALUE,
   payload,
-})
+});

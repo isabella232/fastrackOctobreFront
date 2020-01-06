@@ -13,4 +13,4 @@ const HorizontalFlex = styled.div`
   width: ${(props) => props.width};
 `;
 
-export default HorizontalFlex; 
+export default HorizontalFlex;

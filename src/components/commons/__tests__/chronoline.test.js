@@ -3,10 +3,10 @@ import renderer from 'react-test-renderer';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, configure } from 'enzyme';
 import * as emotion from 'emotion';
-import { createSerializer } from 'jest-emotion'
+import { createSerializer } from 'jest-emotion';
 import ChronoLine from '../chronoline';
 import Line from '../line';
-import Ellipse from '../ellipse'; 
+import Ellipse from '../ellipse';
 
 
 expect.addSnapshotSerializer(createSerializer(emotion));
@@ -20,7 +20,7 @@ describe('ChronoLine', () => {
       },
     };
 
-    const wrapper = shallow(<ChronoLine theme={mock} />)
+    const wrapper = shallow(<ChronoLine theme={mock} />);
     expect(wrapper).toMatchSnapshot();
   });
 });

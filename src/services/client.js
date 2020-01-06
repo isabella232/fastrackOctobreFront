@@ -31,4 +31,4 @@ export const skillsSender = (partner) => {
     url: `https://fasttrack-octobre-back.herokuapp.com/api/partner/${partner.id}`,
     data: partner,
   });
-  }
+};

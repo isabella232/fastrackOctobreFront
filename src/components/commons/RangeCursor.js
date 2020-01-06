@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { skillsSender } from '../../services/client';
 import styled from '@emotion/styled';
+import { skillsSender } from '../../services/client';
 
 import { P } from './text';
-import HorizontalFlex from '../commons/horizontalFlex';
-import Rect from '../commons/rect';
+import HorizontalFlex from './horizontalFlex';
+import Rect from './rect';
 import { setSkillValue, addValue } from '../../store/actions';
 
 const RangeTxt = styled(P)`
@@ -70,7 +70,7 @@ const RangeCursor = ({ res, level }) => {
   const partner = useSelector(({ partnerReducer }) => partnerReducer.partnerDetails);
 
   useEffect(() => {
-    level === 0 ? setIsActive(false) : setIsActive(true)
+    level === 0 ? setIsActive(false) : setIsActive(true);
   }, []);
 
   const setValue = async (level) => {
@@ -100,7 +100,7 @@ const RangeCursor = ({ res, level }) => {
       <Rect BorderTop="1.5" BorderRight="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#3C6382" opacity={opacityHandler(level)} />
       <RangeTxt> {lvl} </RangeTxt>
       <SlideContainer>
-        <Slider type="range" min="0" max="100" value={lvl} onMouseUp={(e) => isActive ? setValue(parseInt(e.target.value)) : addSkillValue(parseInt(e.target.value))} onChange={(e) => setLvl(e.target.value)} />
+        <Slider type="range" min="0" max="100" value={lvl} onMouseUp={(e) => (isActive ? setValue(parseInt(e.target.value)) : addSkillValue(parseInt(e.target.value)))} onChange={(e) => setLvl(e.target.value)} />
       </SlideContainer>
     </HorizontalFlex>
   );

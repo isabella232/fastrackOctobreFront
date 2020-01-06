@@ -166,8 +166,7 @@ const PartnerDetails = () => {
                         .filter((skill) => filterSkillsPartnerActive(skill, partner.skills))
                         .map((res) => (
                           partner.skills.map((partnerSkill) => partnerSkill.id === res.id
-                            &&
-                            (
+                            && (
                               <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
                                 <HorizontalFlex width="100%" justifyContent="flex-start">
                                   <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${res.icon}.png`} alt="techno-Logo" />

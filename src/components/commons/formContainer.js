@@ -25,4 +25,4 @@ left: 100%;
 
 `;
 
-export default FormContainer
+export default FormContainer;

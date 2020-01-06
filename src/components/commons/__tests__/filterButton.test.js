@@ -21,7 +21,7 @@ describe('filterButton', () => {
     const tree = renderer.create(
       <Router>
         <FiltredButton {...mock} />
-      </Router>
+      </Router>,
     ).toJSON();
 
     expect(tree).toMatchSnapshot();

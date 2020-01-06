@@ -8,7 +8,6 @@ expect.addSnapshotSerializer(serializer);
 
 describe('fixedButtonCSS', () => {
   it('renders with correct styles', () => {
-
     const tree = renderer.create(<EditButton />).toJSON();
 
     expect(tree).toMatchSnapshot();
