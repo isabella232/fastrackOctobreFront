@@ -23,19 +23,4 @@ describe('Delayed', () => {
     expect(setTimeout).toHaveBeenCalledTimes(1);
     expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 250);
   });
-
-  
-  // it('waits 0.250 second before showing card', () => {
-  //   jest.useFakeTimers();
-  //   // setTimeout();
-  //   const props = {
-  //     hidden: 'false',
-  //     wait: 250,
-  //     colors: { partnerBg: '#111' },
-  //   };
-  //   // 
-  //   const tree = renderer.create(<Delayed {...props} />).toJSON();
-  //   expect(setTimeout).toHaveBeenCalledTimes(1);
-  //   expect(setTimeout).toHaveBeenLastCalledWith(expect.any(Function), 250);
-  // })
 });

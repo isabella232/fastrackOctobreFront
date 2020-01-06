@@ -4,7 +4,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import { shallow, configure } from 'enzyme';
 import * as emotion from 'emotion';
 import { createSerializer } from 'jest-emotion';
-import ChronoLine from '../chronoline';
+import ChronoLine from '../chronoLine';
 import Line from '../line';
 import Ellipse from '../ellipse';
 
