@@ -11,4 +11,4 @@ const Rect = styled.div`
   background: ${(props) => props.background};
 `;
 
-export default Rect; 
+export default Rect;

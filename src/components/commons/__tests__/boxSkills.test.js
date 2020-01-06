@@ -1,19 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import serializer from 'jest-emotion';
-import Button from '../button';
+import BoxSkills from '../boxSkills';
 
 expect.addSnapshotSerializer(serializer);
 
-describe('button', () => {
+describe('boxSkills', () => {
   it('should renders with correct styles', () => {
-    const mock = {
-      colors: {
-        primary: '#111',
-        white: '#fff',
-      },
-    };
-    const tree = renderer.create(<Button theme={mock} />).toJSON();
+    const tree = renderer.create(<BoxSkills />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

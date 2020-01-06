@@ -8,4 +8,4 @@ const BoxSkills = styled.div`
   padding-bottom: 1rem; 
 `;
 
-export default BoxSkills; 
+export default BoxSkills;

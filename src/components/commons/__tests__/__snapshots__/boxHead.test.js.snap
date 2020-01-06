@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`boxHead should renders with correct styles 1`] = `
+.emotion-0 {
+  border-bottom: 1px solid grey;
+  width: 80%;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+<div
+  className="emotion-0"
+/>
+`;

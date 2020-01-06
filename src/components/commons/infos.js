@@ -5,4 +5,4 @@ color: ${(props) => props.theme.colors.white};
 position: absolute;
 `;
 
-export default Infos; 
+export default Infos;
