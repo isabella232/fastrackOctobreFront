@@ -1,13 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Logo renders with correct styles 1`] = `
+exports[`Logo should renders with correct styles 1`] = `
 .emotion-0 {
-  height: 35%;
-  width: 35%;
-  margin-bottom: 1rem;
+  height: 10px;
+  width: 10px;
+  margin-bottom: 3px;
+  margin: #fff;
 }
 
 <img
   className="emotion-0"
+  height="10px"
+  width="10px"
 />
 `;

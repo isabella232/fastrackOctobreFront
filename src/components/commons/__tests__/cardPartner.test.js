@@ -13,7 +13,6 @@ describe('cardPartnerCSS', () => {
     };
 
     const tree = renderer.create(<CardPartner theme={mock} />).toJSON();
-
     expect(tree).toMatchSnapshot();
   });
 });

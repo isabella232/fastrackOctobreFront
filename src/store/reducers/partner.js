@@ -1,4 +1,6 @@
-import { CHANGE_VALUE, GET_PARTNER_DETAILS, SET_SKILL_VALUE, ADD_VALUE } from '../actions';
+import {
+  CHANGE_VALUE, GET_PARTNER_DETAILS, SET_SKILL_VALUE, ADD_VALUE,
+} from '../actions';
 
 const initialState = {
   list: [],

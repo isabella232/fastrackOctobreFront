@@ -43,7 +43,8 @@ const Home = () => {
     }
     else if (asc === false && desc === true) {
       filtredPartnerList('desc').then((res) => setList(res.data));
-    } else {
+    }
+    else {
       partnerList().then((res) => setList(res.data));
     }
   };

@@ -9,7 +9,6 @@ expect.addSnapshotSerializer(serializer);
 describe('container', () => {
   it('renders with correct styles', () => {
     const tree = renderer.create(<Container />).toJSON();
-
     expect(tree).toMatchSnapshot();
   });
 });

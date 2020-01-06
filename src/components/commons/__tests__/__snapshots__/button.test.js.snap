@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button should renders with correct styles 1`] = `
+.emotion-0 {
+  background: #111;
+  border-radius: 90px;
+  padding: .5rem 1rem;
+  margin: 0.5rem;
+  color: #fff;
+  -webkit-transition: -webkit-transform .03s cubic-bezier(0.47,0,0.745,0.715);
+  -webkit-transition: transform .03s cubic-bezier(0.47,0,0.745,0.715);
+  transition: transform .03s cubic-bezier(0.47,0,0.745,0.715);
+  border: none;
+}
+
+.emotion-0:hover {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+<button
+  className="emotion-0"
+/>
+`;

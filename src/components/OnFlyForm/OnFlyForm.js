@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import TextareaAutosize from 'react-textarea-autosize';
 
-import { VerticalFlex, HorizontalFlex } from '../commons/otherStyles';
+import HorizontalFlex from '../commons/horizontalFlex';
+import VerticalFlex from '../commons/verticalFlex';
 import { P } from '../commons/text';
 import Form from '../commons/form';
 
@@ -27,14 +28,14 @@ const OnFlyForm = (props) => {
     setActive(true);
   };
 
-  const placeholder = "Double-Cliquez pour entrer du texte";
-  
+  const placeholder = 'Double-Cliquez pour entrer du texte';
+
   return (
     <VerticalFlex margin=".8rem 2rem .8rem .3rem" width="calc(100%/3)">
       <P fontWeight="bold" margin=".8rem 0 .8rem .3rem" display="block">{props.title}</P>
       <Form margin=".8rem 0 .8rem .3rem">
         <div onDoubleClick={handleDoubleClick} onMouseLeave={handleClose}>
-          <TextArea disabled={active} placeholder={placeholder} border={active ? 'none' : '1px solid rgb(0, 0, 0, 0.5)'}></TextArea>
+          <TextArea disabled={active} placeholder={placeholder} border={active ? 'none' : '1px solid rgb(0, 0, 0, 0.5)'} />
         </div>
       </Form>
     </VerticalFlex>
