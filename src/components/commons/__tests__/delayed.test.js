@@ -2,17 +2,22 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import serializer from 'jest-emotion';
 
-import CardPartner from '../cardPartner';
+import Delayed from '../delayed';
 
 expect.addSnapshotSerializer(serializer);
 
-describe('cardPartnerCSS', () => {
+describe('Delayed', () => {
   it('renders with correct styles', () => {
     const mock = {
-      colors: { partnerBg: '#111' },
-    };
+        props: {
+            hidden : 'hidden'
+          },
+          colors : {
+              partnerBg : '#FFF'
+          }
+    }
 
-    const tree = renderer.create(<CardPartner theme={mock} />).toJSON();
+    const tree = renderer.create(<Delayed {...mock} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
