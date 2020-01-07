@@ -31,10 +31,11 @@ describe('client file', () => {
     expect(await filtredPartnerList()).toStrictEqual({ name: 'lorenzo' });
   });
 
-  it('should dataSenger send the data', async () => {
-    const formData = jest.fn().mockResolvedValue('test');
+  it('should dataSender send the data', async () => {
+    const formData = {};
     await dataSender(formData);
-    console.log(axios.post);
-    expect(axios.post).toHaveBeenCalledWith(formData);
+    expect(axios).toHaveBeenCalledWith({
+      method: 'post', url: 'https://fasttrack-octobre-back.herokuapp.com/api/partner', data: formData, headers: { 'Content-Type': 'multipart/form-data' },
+    });
   });
 });
