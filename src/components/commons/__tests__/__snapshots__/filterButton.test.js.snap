@@ -8,7 +8,7 @@ exports[`filterButton should renders with correct styles 1`] = `
 }
 
 <a
-  href=""
+  href="/"
   onClick={[Function]}
 >
   <div
