@@ -24,7 +24,7 @@ background-color: ${props.theme.colors.primary};
 
 `;
 
-const FixedButton = () => {
+const FixedButton = (props) => {
   const [show, setShow] = useState(true);
   const [animate, setAnimate] = useState(false);
 
@@ -61,7 +61,7 @@ const FixedButton = () => {
                   <FontAwesomeIcon icon={faMinus} style={{ color: '#DFE4EA' }} size="1x" />
                 </AddButton>
               </Link>
-              <Form />
+              <Form status={handleClose} />
             </>
           )}
       </FormContainer>
