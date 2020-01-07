@@ -5,7 +5,7 @@ export const Ellipse = styled.div`
 position: absolute;
 width: 1rem;
 height: 1rem;
-background: ${(props) => console.log(props.theme)};
+background: ${(props) => props.theme.colors.primary};
 border-radius: 25px; 
 top: 50%;
 -ms-transform: translateY(-50%);

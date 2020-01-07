@@ -31,7 +31,7 @@ const FiltredButton = (props) => {
 
   return (
     <>
-      <Link to={props.link}>
+      <Link to="">
         <Button top={props.top} left={props.left} onClick={props.click}>
           <Icon icon={props.icon} color={color} size="1x" onClick={handleChangeColor} />
         </Button>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import {
   faUser, faBriefcase, faUpload,
 } from '@fortawesome/free-solid-svg-icons';
@@ -121,12 +122,12 @@ const Form = (props) => (
     </Flex>
     <FlexColumn>
       <WhiteP>Sélectionnez une photo de profil</WhiteP>
-      <Label htmlFor="avatar" url={props.image}>
+      <Label htmlFor="image" url={props.image}>
         {!props.image && (
-        <FontAwesomeIcon icon={faUpload} style={{ color: '#282828' }} size="1x" />
+          <FontAwesomeIcon icon={faUpload} style={{ color: '#282828' }} size="1x" />
         )}
       </Label>
-      <InputFile name="image" type="file" accept="image/png, image/jpeg, image/jpg, image.svg" id="avatar" onChange={props.changeImage} />
+      <InputFile name="avatar" type="file" accept="image/png, image/jpeg, image/jpg, image.svg" id="image" onChange={props.changeImage} required />
     </FlexColumn>
     <Flex>
 
@@ -136,15 +137,15 @@ const Form = (props) => (
     <FlexColumn>
       <FlexSpaceBetween>
         <WhiteP>Prénom</WhiteP>
-        <Input name="firstName" placeholder="Jean" onChange={props.change} />
+        <Input name="firstName" placeholder="Jean" onChange={props.change} required />
       </FlexSpaceBetween>
       <FlexSpaceBetween>
         <WhiteP>Nom</WhiteP>
-        <Input name="lastName" placeholder="Dupuis" onChange={props.change} />
+        <Input name="lastName" placeholder="Dupuis" onChange={props.change} required />
       </FlexSpaceBetween>
       <FlexSpaceBetween>
         <WhiteP>Tél.</WhiteP>
-        <Input name="phoneNumber" type="tel" placeholder="0634256172" onChange={props.change} />
+        <Input name="phoneNumber" type="tel" placeholder="0634256172" onChange={props.change} required />
       </FlexSpaceBetween>
       <FlexSpaceBetween>
         <WhiteP>E-mail</WhiteP>
@@ -162,11 +163,11 @@ const Form = (props) => (
       </FlexSpaceBetween>
       <FlexSpaceBetween>
         <WhiteP>Exp.</WhiteP>
-        <InputNumber name="experience" placeholder="3 ans" type="number" min="0" onChange={props.change} />
+        <InputNumber name="experience" placeholder="3 ans" type="number" min="0" onChange={props.change} required />
       </FlexSpaceBetween>
       <FlexSpaceBetween>
         <WhiteP>Client</WhiteP>
-        <Select name="customer" onChange={props.change}>
+        <Select name="customer" onChange={props.change} id="select">
           {/* J'attends d'avoir les clients en bdd pour map */}
           <option>Sélectionnez un client</option>
           <option>FTV</option>
@@ -177,17 +178,17 @@ const Form = (props) => (
         </Select>
       </FlexSpaceBetween>
       <FlexSpaceBetween>
-        {props.partner.customer === 'Booster'
-            && (
-              <>
-                <WhiteP> Projet</WhiteP>
-                <Input name="project" placeholder="Mister Aslphalt" onChange={props.change} />
-              </>
-            )}
+        {document.getElementById('select') === 'Booster'
+          && (
+            <>
+              <WhiteP> Projet</WhiteP>
+              <Input name="project" placeholder="Mister Aslphalt" onChange={props.change} />
+            </>
+          )}
       </FlexSpaceBetween>
     </FlexColumn>
     <Flex>
-      <Button onClick={props.click}>Suivant</Button>
+      <Button type="submit">Suivant</Button>
     </Flex>
   </>
 );

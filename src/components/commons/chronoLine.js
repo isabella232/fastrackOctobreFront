@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import HorizontalFlex from './horizontalFlex';
 import Line from './line';
 import Ellipse from './ellipse';
