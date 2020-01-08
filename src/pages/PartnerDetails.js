@@ -27,7 +27,7 @@ import convertSkills from '../Helper/Skills';
 import { initSkills, getPartnerDetails, setTechno } from '../store/actions';
 import SubContainer from '../components/SubContainer';
 import keyGenerator from '../Helper/KeyGenerator';
-import { partnerReciever } from '../services/client';
+import { partnerReciever, skillsSender } from '../services/client';
 import { filterSkillsPartnerActive, filterSkillsPartnerUnactive } from '../Helper/Partner/filterSkillsPartner';
 import Button from '../components/commons/button';
 import OnFlyForm from '../components/OnFlyForm/OnFlyForm';
@@ -93,6 +93,10 @@ const PartnerDetails = () => {
     convertSkills().then((data) => dispatch(initSkills(data)));
   }, []);
 
+  useEffect(() => {
+    skillsSender(partner);
+  }, [partner]);
+
   const switchEdit = () => {
     setSkillsEdit(!skillEdit);
   };
@@ -151,7 +155,7 @@ const PartnerDetails = () => {
                     <BoxSkills>
                       <H3 fontSize="2rem">Compètences</H3>
 
-                      {categorys.map((category) => (
+                      {categorys && categorys.map((category) => (
                         <SubContainer key={`${category.name}_${category.id}`} category={category} setTechno={handleSet} />
                       ))}
 

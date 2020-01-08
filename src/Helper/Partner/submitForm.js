@@ -1,10 +1,10 @@
 import { dataSender } from '../../services/client';
 
-const submitForm = (imageURL, currentPartner) => {
+const submitForm = async (imageURL, currentPartner) => {
   const formData = new FormData();
-  formData.append('avatar', imageURL);
-  Object.keys(currentPartner).map((objectKey) => formData.append(objectKey, currentPartner[objectKey]));
-  dataSender(formData);
+  await formData.append('avatar', imageURL);
+  await Object.keys(currentPartner).map((objectKey) => formData.append(objectKey, currentPartner[objectKey]));
+  return dataSender(formData).then((res) => res);
 };
 
 export default submitForm;

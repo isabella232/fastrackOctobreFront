@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Delay from './delay';
 
+
 const Delayed = ({ wait, children }) => {
   const [hidden, setHidden] = useState(false);
 

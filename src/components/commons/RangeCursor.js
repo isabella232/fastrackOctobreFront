@@ -72,19 +72,17 @@ const RangeCursor = ({ res, level }) => {
   useEffect(() => {
     level === 0 ? setIsActive(false) : setIsActive(true);
   }, []);
-
-  const setValue = async (level) => {
+  
+  const setValue = (level) => {
     dispatch(setSkillValue(
       { id: res.id, level },
     ));
-    await skillsSender(partner);
   };
 
-  const addSkillValue = async (level) => {
+  const addSkillValue = (level) => {
     dispatch(addValue(
       { id: res.id, level },
     ));
-    await skillsSender(partner);
   };
 
   const opacityHandler = (edit) => (

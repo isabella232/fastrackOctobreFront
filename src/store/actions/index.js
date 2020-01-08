@@ -6,6 +6,7 @@ export const GET_PARTNER_DETAILS = 'GET_PARNER_DETAILS';
 export const SET_SKILL_VALUE = 'SET_SKILL_VALUE';
 export const ADD_VALUE = 'ADD_VALUE';
 export const ADD_LIST = 'ADD_LIST';
+export const ADD_NEW_PARTNER = 'ADD_NEW_PARTNER';
 
 export const formSubmit = (payload) => ({
   type: CHANGE_VALUE,
@@ -44,5 +45,10 @@ export const addValue = (payload) => ({
 
 export const addList = (payload) => ({
   type: ADD_LIST,
+  payload,
+});
+
+export const addNewPartner = (payload) => ({
+  type: ADD_NEW_PARTNER,
   payload,
 });

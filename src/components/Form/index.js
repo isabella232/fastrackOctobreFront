@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { partnerList } from '../../services/client';
-import { formSubmit, addList } from '../../store/actions/index';
+import { formSubmit, addList, addNewPartner } from '../../store/actions/index';
 
 import submitForm from '../../Helper/Partner/submitForm';
 import Step1 from './steps/Step1';
@@ -28,9 +28,9 @@ const Form = (props) => {
     dispatch(formSubmit({ ...currentPartner, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    submitForm(imageURL, currentPartner);
+    await submitForm(imageURL, currentPartner).then((response) => dispatch(addNewPartner(response)));
     props.status(e);
   };
 

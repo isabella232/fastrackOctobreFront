@@ -4,7 +4,6 @@ const CardPartner = styled.div`
   display: flex;
   width: 100%;
   height: 35vh;
-  min-height: 300px;
   margin-bottom: 8rem;
   background: ${(props) => props.theme.colors.partnerBg};
   border-radius: 45px;
