@@ -14,6 +14,7 @@ import Container from '../components/commons/container';
 import FiltredButton from '../components/commons/filterButton';
 import keyGenerator from '../Helper/KeyGenerator';
 import { addList } from '../store/actions';
+import { setToken } from '../Helper/Partner/localStorage';
 
 const Link2 = styled(Link)`
   display: flex;

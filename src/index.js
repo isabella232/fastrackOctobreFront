@@ -5,8 +5,8 @@ import { Provider } from 'react-redux';
 import { ThemeProvider } from 'emotion-theming';
 import { createStore, compose, applyMiddleware } from 'redux';
 
-import PartnerDetails from './pages/PartnerDetails';
-import Home from './pages/Home';
+import Public from './services/Routes/Public'
+import Private from './services/Routes/Private'
 import theme from './services/theme';
 import './index.css';
 import combineReducer from './store/index';
@@ -29,12 +29,11 @@ const rootComponent = (
   <Provider store={store}>
     <ThemeProvider theme={theme}>
       <Router>
-        <Switch>
-          <Route path="/:partnerId" component={PartnerDetails} />
-          <Route exact path="/">
-            <Home />
-          </Route>
-        </Switch>
+        {localStorage.getItem('token') ? (
+          <Private />
+        ) : (
+          <Public />
+        )}
       </Router>
     </ThemeProvider>
   </Provider>
