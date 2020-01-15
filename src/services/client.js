@@ -8,23 +8,45 @@ export const dataSender = async (formData) => {
     method: 'post',
     url: 'https://fasttrack-octobre-back.herokuapp.com/api/partner',
     data: formData,
-    headers: { 'Content-Type': 'multipart/form-data' },
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      Authorization: token,
+    },
   }).then((response) => response.data);
 };
 
-export const skillsReciever = async () => axios.get('https://fasttrack-octobre-back.herokuapp.com/api/skill').then((res) => res.data);
+export const skillsReciever = async () => axios.get('https://fasttrack-octobre-back.herokuapp.com/api/skill',
+  {
+    headers: {
+      Authorization: token,
+    },
+  }).then((res) => res.data);
 
 
-export const partnerReciever = async (partnerId) => axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${partnerId}`)
-  .then((res) => ({
-    data: res.data,
-    convertedTime: ConvertToTime(res.data.experience),
-  }));
+export const partnerReciever = async (partnerId) => axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${partnerId}`,
+  {
+    headers: {
+      Authorization: token,
+    },
+  }).then((res) => ({
+  data: res.data,
+  convertedTime: ConvertToTime(res.data.experience),
+}));
 
-export const partnerList = async () => axios.get('https://fasttrack-octobre-back.herokuapp.com/api/partner')
+export const partnerList = async () => axios.get('https://fasttrack-octobre-back.herokuapp.com/api/partner',
+  {
+    headers: {
+      Authorization: token,
+    },
+  })
   .then((res) => ({ data: res.data }));
 
-export const filtredPartnerList = async (filter) => axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${filter}`)
+export const filtredPartnerList = async (filter) => axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${filter}`,
+  {
+    headers: {
+      Authorization: token,
+    },
+  })
   .then((res) => ({ data: res.data }));
 
 export const skillsSender = (partner) => {
@@ -32,5 +54,6 @@ export const skillsSender = (partner) => {
     method: 'put',
     url: `https://fasttrack-octobre-back.herokuapp.com/api/partner/${partner.id}`,
     data: partner,
+    headers: { Authorization: token },
   });
 };
