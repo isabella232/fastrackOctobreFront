@@ -55,7 +55,8 @@ color: ${(props) => props.theme.colors.white};
 
 const AppPrez = styled.p`
 font-size: 1rem;
-font-weight: light italic;
+font-weight: 300;
+font-style: italic;
 `;
 
 const AppTitle = styled.h1`
