@@ -1,6 +1,8 @@
 import axios from 'axios';
 import ConvertToTime from '../Helper/ConvertToTime';
 
+const token = localStorage.getItem('token');
+
 export const dataSender = async (formData) => {
   return axios({
     method: 'post',
