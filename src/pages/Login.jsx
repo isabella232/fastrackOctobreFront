@@ -25,6 +25,7 @@ const Login = () => {
     password: pass,
   };
 
+
   return (
 
     <>
@@ -55,7 +56,7 @@ const Login = () => {
               <DescInput>
                 Password
               </DescInput>
-              <Input type="password" defaultValue={(e) => setPass(e.target.value)} name="password" />
+              <Input type="password" defaultValue={(e) => setMail(e.target.value)} name="password" />
             </FieldContainer>
           </LoginForm>
         </LoginContainer>

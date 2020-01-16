@@ -25,12 +25,12 @@ configure({ adapter: new Adapter() });
 
 describe('LoginStyles', () => {
   it('MainLoginContainer should renders with correct styles', () => {
-    const tree = renderer.create(<MainLoginContainer />).toJSON();
+    const tree = shallow(<MainLoginContainer />);
     expect(tree).toMatchSnapshot();
   });
 
   it('LoginContainer should renders with correct styles', () => {
-    const tree = renderer.create(<LoginContainer />).toJSON();
+    const tree = shallow(<LoginContainer />);
     expect(tree).toMatchSnapshot();
   });
   it('LogoContainer should renders with correct styles', () => {
@@ -39,11 +39,11 @@ describe('LoginStyles', () => {
         primary: '#111',
       },
     };
-    const tree = renderer.create(<LogoContainer theme={mock} />).toJSON();
+    const tree = shallow(<LogoContainer theme={mock} />);
     expect(tree).toMatchSnapshot();
   });
   it('LogoLV should renders with correct styles', () => {
-    const tree = renderer.create(<LogoLV />).toJSON();
+    const tree = shallow(<LogoLV />);
     expect(tree).toMatchSnapshot();
   });
   it('PrezContrainer should renders with correct styles', () => {
@@ -52,23 +52,23 @@ describe('LoginStyles', () => {
         white: '#fff',
       },
     };
-    const tree = renderer.create(<PrezContrainer theme={mock} />).toJSON();
+    const tree = shallow(<PrezContrainer theme={mock} />);
     expect(tree).toMatchSnapshot();
   });
   it('AppPrez should renders with correct styles', () => {
-    const tree = renderer.create(<AppPrez />).toJSON();
+    const tree = shallow(<AppPrez />);
     expect(tree).toMatchSnapshot();
   });
   it('AppTitle should renders with correct styles', () => {
-    const tree = renderer.create(<AppTitle />).toJSON();
+    const tree = shallow(<AppTitle />);
     expect(tree).toMatchSnapshot();
   });
   it('LoginForm should renders with correct styles', () => {
-    const tree = renderer.create(<LoginForm />).toJSON();
+    const tree = shallow(<LoginForm />);
     expect(tree).toMatchSnapshot();
   });
   it('FieldContainer should renders with correct styles', () => {
-    const tree = renderer.create(<FieldContainer />).toJSON();
+    const tree = shallow(<FieldContainer />);
     expect(tree).toMatchSnapshot();
   });
   it('Input should renders with correct styles', () => {
@@ -77,7 +77,7 @@ describe('LoginStyles', () => {
         primary: '#111',
       },
     };
-    const tree = renderer.create(<Input theme={mock} />).toJSON();
+    const tree = shallow(<Input theme={mock} />);
     expect(tree).toMatchSnapshot();
   });
   it('DescInput should renders with correct styles', () => {
@@ -86,7 +86,7 @@ describe('LoginStyles', () => {
         black: '#fff',
       },
     };
-    const tree = renderer.create(<DescInput theme={mock} />).toJSON();
+    const tree = shallow(<DescInput theme={mock} />);
     expect(tree).toMatchSnapshot();
   });
   it('Icon should renders with correct styles', () => {
@@ -95,7 +95,7 @@ describe('LoginStyles', () => {
         black: '#fff',
       },
     };
-    const wrapper = shallow(<Icon theme={mock} />).toJSON();
+    const wrapper = shallow(<Icon theme={mock} />);
     expect(wrapper).toMatchSnapshot();
   });
 });
