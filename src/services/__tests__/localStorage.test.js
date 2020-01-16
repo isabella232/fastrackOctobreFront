@@ -1,7 +1,8 @@
+import { setToken } from '../../Helper/Partner/localStorage';
+
 describe('localStorage', () => {
   it('should be equal', () => {
-    localStorage.setItem('test', 'jesuisuntest');
-    const token = localStorage.getItem('test');
-    expect(token).toBe('jesuisuntest');
+    setToken('test');
+    expect(localStorage.getItem('token')).toBe('test');
   });
 });

@@ -57,11 +57,6 @@ const Home = () => {
     getList();
   }, [asc, desc]);
 
-  useEffect(() => {
-    // le token sera set à la validation du formulaire, avec la vrai valeur, pour le moment, il est set au chargement des pages.
-    localStorage.setItem('token', 'waitGoodToken');
-  }, []);
-
   return (
     <>
       <Nav />

@@ -9,53 +9,53 @@ export const dataSender = async (formData) => {
     data: formData,
     headers: {
       'Content-Type': 'multipart/form-data',
-      Authorization: getToken,
+      Authorization: `bearer ${getToken}`,
     },
   }).then((response) => response.data).catch(() => {
-    localStorage.clear();
+    localStorage.removeItem('token');
   });
 };
 
 export const skillsReciever = async () => axios.get('https://fasttrack-octobre-back.herokuapp.com/api/skill',
   {
     headers: {
-      Authorization: getToken,
+      Authorization: `bearer ${getToken}`,
     },
   }).then((res) => res.data).catch(() => {
-  localStorage.clear();
+  localStorage.removeItem('token');
 });
 
 
 export const partnerReciever = async (partnerId) => axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${partnerId}`,
   {
     headers: {
-      Authorization: getToken,
+      Authorization: `bearer ${getToken}`,
     },
   }).then((res) => ({
   data: res.data,
   convertedTime: ConvertToTime(res.data.experience),
 })).catch(() => {
-  localStorage.clear();
+  localStorage.removeItem('token');
 });;
 
 export const partnerList = async () => axios.get('https://fasttrack-octobre-back.herokuapp.com/api/partner',
   {
     headers: {
-      Authorization: getToken,
+      Authorization: `bearer ${getToken}`,
     },
   })
   .then((res) => ({ data: res.data })).catch(() => {
-    localStorage.clear();
+    localStorage.removeItem('token');
   });
 
 export const filtredPartnerList = async (filter) => axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${filter}`,
   {
     headers: {
-      Authorization: getToken,
+      Authorization: `bearer ${getToken}`,
     },
   })
   .then((res) => ({ data: res.data })).catch(() => {
-    localStorage.clear();
+    localStorage.removeItem('token');
   });
 
 export const skillsSender = (partner) => {
@@ -63,8 +63,8 @@ export const skillsSender = (partner) => {
     method: 'put',
     url: `https://fasttrack-octobre-back.herokuapp.com/api/partner/${partner.id}`,
     data: partner,
-    headers: { Authorization: getToken },
+    headers: { Authorization: `bearer ${getToken}` },
   }).catch(() => {
-    localStorage.clear();
+    localStorage.removeItem('token');
   });
 };

@@ -1,3 +1,3 @@
-export const setToken = localStorage.setItem('token', 'waitGoodToken');
+export const setToken = (token) => localStorage.setItem('token', token);
 
-export const getToken = localStorage.getItem('token');
+export const getToken = () => localStorage.getItem('token');
