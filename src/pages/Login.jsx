@@ -25,15 +25,6 @@ const Login = () => {
     password: pass,
   };
 
-  const handleChange = (e) => {
-    if (e.target.type === 'email') {
-      setMail(e.target.value);
-    }
-    else {
-      setPass(e.target.value);
-    }
-  };
-
   return (
 
     <>
@@ -55,7 +46,7 @@ const Login = () => {
               <DescInput>
                 Courriel
               </DescInput>
-              <Input type="email" name="email" defaultValue={mail} onChange={handleChange} />
+              <Input type="email" name="email" defaultValue={mail} onChange={(e) => setMail(e.target.value)} />
             </FieldContainer>
 
             <FieldContainer>
@@ -64,7 +55,7 @@ const Login = () => {
               <DescInput>
                 Password
               </DescInput>
-              <Input type="password" defaultValue={pass} name="password" />
+              <Input type="password" defaultValue={(e) => setPass(e.target.value)} name="password" />
             </FieldContainer>
           </LoginForm>
         </LoginContainer>
