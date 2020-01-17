@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginStyles AppPrez should renders with correct styles 1`] = `ShallowWrapper {}`;
+
+exports[`LoginStyles AppTitle should renders with correct styles 1`] = `ShallowWrapper {}`;
+
+exports[`LoginStyles DescInput should renders with correct styles 1`] = `ShallowWrapper {}`;
+
+exports[`LoginStyles FieldContainer should renders with correct styles 1`] = `ShallowWrapper {}`;
+
+exports[`LoginStyles Icon should renders with correct styles 1`] = `ShallowWrapper {}`;
+
+exports[`LoginStyles Input should renders with correct styles 1`] = `ShallowWrapper {}`;
+
+exports[`LoginStyles LoginContainer should renders with correct styles 1`] = `ShallowWrapper {}`;
+
+exports[`LoginStyles LoginForm should renders with correct styles 1`] = `ShallowWrapper {}`;
+
+exports[`LoginStyles LogoContainer should renders with correct styles 1`] = `ShallowWrapper {}`;
+
+exports[`LoginStyles LogoLV should renders with correct styles 1`] = `ShallowWrapper {}`;
+
+exports[`LoginStyles MainLoginContainer should renders with correct styles 1`] = `ShallowWrapper {}`;
+
+exports[`LoginStyles PrezContrainer should renders with correct styles 1`] = `ShallowWrapper {}`;

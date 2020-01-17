@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 //styled component list
 // MainLoginContainer, LoginContainer, LogoContainer, LogoLV, PrezContrainer, AppPrez, AppTitle, LoginForm, FieldContainer, Input, DescInput, Icon, Link2
