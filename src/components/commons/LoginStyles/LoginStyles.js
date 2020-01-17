@@ -1,8 +1,30 @@
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { keyframes } from '@emotion/core';
 
 // styled component list
 // MainLoginContainer, LoginContainer, LogoContainer, LogoLV, PrezContrainer, AppPrez, AppTitle, LoginForm, FieldContainer, Input, DescInput, Icon, Link2
+
+
+export const slide = keyframes`
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 60%;
+  }
+`;
+
+export const opacity = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`; 
 
 export const Button = styled.button`
 margin: 2rem 0 0 2rem;
@@ -19,8 +41,6 @@ export const MainLoginContainer = styled.div`
   width: 100%;
   height: 50vh; 
   display : flex; 
-  /* background-color: pink;
-  opacity: 10%;  */
   margin: 0;
   position: absolute;
   top: 50%;
@@ -29,14 +49,18 @@ export const MainLoginContainer = styled.div`
 `;
 
 export const LoginContainer = styled.div`
+  opacity: 1;
   width: 40%;
   height: 50vh; 
-  background-color: white;
-  opacity: 100%; 
+  background-color: ${(props) => props.theme.colors.white};
+  position: fixed;
+  left: 60%;
   margin: 0;
   display : flex;
   flex-direction : row;
   align-items : center; 
+  z-index: 2;
+  animation: ${opacity} 2.5s ease;
 `;
 
 export const LogoContainer = styled.div`
@@ -48,8 +72,9 @@ export const LogoContainer = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
+  z-index: 3;
+  animation: ${slide} 1.5s ease;
 `;
-
 export const LogoLV = styled.img`
 width: 30vh;
 height: 30vh;
@@ -114,3 +139,4 @@ export const Icon = styled(FontAwesomeIcon)`
   margin : 0 1em;
   color: ${(props) => props.theme.colors.black};
 `;
+
