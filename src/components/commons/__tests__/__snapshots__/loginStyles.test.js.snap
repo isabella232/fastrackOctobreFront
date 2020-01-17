@@ -4,6 +4,8 @@ exports[`LoginStyles AppPrez should renders with correct styles 1`] = `ShallowWr
 
 exports[`LoginStyles AppTitle should renders with correct styles 1`] = `ShallowWrapper {}`;
 
+exports[`LoginStyles Button should renders with correct styles 1`] = `ShallowWrapper {}`;
+
 exports[`LoginStyles DescInput should renders with correct styles 1`] = `ShallowWrapper {}`;
 
 exports[`LoginStyles FieldContainer should renders with correct styles 1`] = `ShallowWrapper {}`;

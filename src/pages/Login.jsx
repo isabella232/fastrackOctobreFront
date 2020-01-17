@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { faUserNinja, faKey } from '@fortawesome/free-solid-svg-icons';
+import { setToken } from '../Helper/Partner/localStorage';
+import { sendAuth } from '../services/client';
 
 import {
   MainLoginContainer,
@@ -14,17 +16,20 @@ import {
   Input,
   DescInput,
   Icon,
+  Button,
 } from '../components/commons/LoginStyles/LoginStyles';
 
 const Login = () => {
   const [mail, setMail] = useState();
   const [pass, setPass] = useState();
 
-  const data = {
-    login: mail,
-    password: pass,
+  const handleSubmit = () => {
+    const data = {
+      login: mail,
+      password: pass,
+    };
+    sendAuth(data).then((token) => setToken(token));
   };
-
 
   return (
 
@@ -41,7 +46,7 @@ const Login = () => {
 
         </LogoContainer>
         <LoginContainer>
-          <LoginForm>
+          <LoginForm onSubmit={() => handleSubmit()}>
             <FieldContainer>
               <Icon icon={faUserNinja} />
               <DescInput>
@@ -56,8 +61,9 @@ const Login = () => {
               <DescInput>
                 Password
               </DescInput>
-              <Input type="password" defaultValue={(e) => setMail(e.target.value)} name="password" />
+              <Input type="password" defaultValue={(e) => setPass(e.target.value)} name="password" />
             </FieldContainer>
+            <Button type="submit"> C'est parti mon kiki </Button>
           </LoginForm>
         </LoginContainer>
       </MainLoginContainer>

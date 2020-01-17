@@ -1,8 +1,19 @@
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-//styled component list
+// styled component list
 // MainLoginContainer, LoginContainer, LogoContainer, LogoLV, PrezContrainer, AppPrez, AppTitle, LoginForm, FieldContainer, Input, DescInput, Icon, Link2
+
+export const Button = styled.button`
+margin: 2rem 0 0 2rem;
+width: 10rem;
+height: 2rem; 
+background-color:  ${(props) => props.theme.colors.primary};
+border-radius: 25px;
+border: none; 
+color: ${(props) => props.theme.colors.white};
+font-size: 0.8em;
+`;
 
 export const MainLoginContainer = styled.div`
   width: 100%;
@@ -86,7 +97,7 @@ position : relative;
 export const Input = styled.input`
 width : 100%;
 border : none;
-border-bottom : 2px solid ${(props) => props.theme.colors.primary};
+border-bottom : 1px solid ${(props) => props.theme.colors.primary};
 background : none;
 
 `;

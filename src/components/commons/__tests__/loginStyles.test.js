@@ -18,12 +18,23 @@ import {
   Input,
   DescInput,
   Icon,
+  Button,
 } from '../LoginStyles/LoginStyles';
 
 expect.addSnapshotSerializer(createSerializer(emotion));
 configure({ adapter: new Adapter() });
 
 describe('LoginStyles', () => {
+  it('Button should renders with correct styles', () => {
+    const mock = {
+      colors: {
+        primary: '#111',
+        white: '#FFF',
+      },
+    };
+    const tree = shallow(<Button theme={mock} />);
+    expect(tree).toMatchSnapshot();
+  });
   it('MainLoginContainer should renders with correct styles', () => {
     const tree = shallow(<MainLoginContainer />);
     expect(tree).toMatchSnapshot();
