@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formTest Button should renders with correct styles 1`] = `ShallowWrapper {}`;
+
+exports[`formTest Input should renders with correct styles 1`] = `ShallowWrapper {}`;
+
+exports[`formTest InputFile should renders with correct styles 1`] = `ShallowWrapper {}`;
+
+exports[`formTest Label renders with correct styles 1`] = `ShallowWrapper {}`;
+
+exports[`formTest Select renders with correct styles 1`] = `ShallowWrapper {}`;

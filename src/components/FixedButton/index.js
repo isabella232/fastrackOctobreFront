@@ -21,7 +21,6 @@ ${(props) => !props.animate && `
 left: calc(100% - 40px);
 background-color: ${props.theme.colors.primary};
 `}
-
 `;
 
 const FixedButton = (props) => {
