@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'emotion-theming';
 import { createStore, compose, applyMiddleware } from 'redux';
@@ -12,7 +12,7 @@ import combineReducer from './store/index';
 import logMiddleware from './store/logMiddleware';
 import Home from './pages/Home';
 import PartnerDetails from './pages/PartnerDetails';
-import Loading from './components/Loading';
+import Login from './pages/Login';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -32,7 +32,8 @@ const rootComponent = (
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
-          <Route exact path="/" component={Loading} />
+          <Redirect exact from="/" to="/login" />
+          <Route exact path="/login" component={Login} />
           <PrivateRoute exact path="/partner" component={Home} />
           <PrivateRoute exact path="/partner/:id" component={PartnerDetails} />
         </Switch>
