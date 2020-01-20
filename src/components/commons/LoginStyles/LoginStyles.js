@@ -7,7 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export const Button = styled.button`
 margin: 2rem 0 0 2rem;
 width: 10rem;
-height: 2rem; 
+min-height: 2rem; 
+max-height: 2rem; 
 background-color:  ${(props) => props.theme.colors.primary};
 border-radius: 25px;
 border: none; 
@@ -91,7 +92,8 @@ export const FieldContainer = styled.div`
 width : 100%;
 display : flex;
 margin: auto 0;
-position : relative; 
+position : relative;
+margin: 2rem;  
 `;
 
 export const Input = styled.input`
