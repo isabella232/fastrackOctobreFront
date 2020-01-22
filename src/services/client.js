@@ -47,7 +47,7 @@ export const partnerReciever = async (partnerId) => axios.get(`https://fasttrack
     convertedTime: ConvertToTime(res.data.experience),
   })).catch(() => {
     localStorage.removeItem('token');
-  });;
+  });
 
 export const partnerList = async () => axios.get('https://fasttrack-octobre-back.herokuapp.com/api/partner',
   {
