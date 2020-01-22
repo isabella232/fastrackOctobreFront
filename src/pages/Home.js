@@ -53,8 +53,8 @@ const Home = () => {
     }
   };
 
-  useEffect(() => {
-    getList();
+  useEffect(async () => {
+    await getList();
   }, [asc, desc]);
 
   return (
@@ -67,27 +67,34 @@ const Home = () => {
       <SearchBar top="2rem" left="81%" />
       <Container>
         {list
-        && list.map((partner, index) => (
-          <Link2 key={keyGenerator(partner.id)} to={`/${partner.id}`}>
-            <Card
-              key={keyGenerator(partner.lastName)}
-              partner={{
-                id: partner.id,
-                wait: (index * 250),
-                firstname: partner.firstName,
-                lastname: partner.lastName,
-                image: partner.avatar,
-                jobs: partner.job,
-                firstTechnoName: 'Docker',
-                secondTechnoName: 'Jenkins',
-                thirdTechnoName: 'CircleCI',
-                firstTechno: './styles/img/docker.png',
-                secondTechno: './styles/img/jenkins.png',
-                thirdTechno: './styles/img/circleci.png',
-              }}
-            />
-          </Link2>
-        ))}
+        && list.map((partner, index) => {
+          const fav = {
+            fav1: partner.favorites[0],
+            fav2: partner.favorites[1],
+            fav3: partner.favorites[2],
+          };
+          return (
+            <Link2 key={keyGenerator(partner.id)} to={`/${partner.id}`}>
+              <Card
+                key={keyGenerator(partner.lastName)}
+                partner={{
+                  id: partner.id,
+                  wait: (index * 250),
+                  firstname: partner.firstName,
+                  lastname: partner.lastName,
+                  image: partner.avatar,
+                  jobs: partner.job,
+                  firstTechnoName: fav.fav1.name,
+                  secondTechnoName: fav.fav2.name,
+                  thirdTechnoName: fav.fav3.name,
+                  firstTechno: `./styles/img/${fav.fav1.icon}.png`,
+                  secondTechno: `./styles/img/${fav.fav2.icon}.png`,
+                  thirdTechno: `./styles/img/${fav.fav3.icon}.png`,
+                }}
+              />
+            </Link2>
+          );
+        })}
       </Container>
     </>
   );
