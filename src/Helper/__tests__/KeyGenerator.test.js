@@ -11,7 +11,6 @@ configure({ adapter: new Adapter() });
 describe('keyGenerator', () => {
   it('should random a key', () => {
     const name = 'morgan';
-    const long = name.length;
-    expect(keyGenerator(name)).toHaveLength(23 + long);
+    expect(keyGenerator(name)).toHaveLength(29);
   });
 });
