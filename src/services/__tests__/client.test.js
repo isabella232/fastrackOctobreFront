@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { dataSender, skillsReciever, partnerList, partnerReciever, filtredPartnerList, skillsSender } from '../client';
+import { dataSender, skillsReciever, partnerList, partnerReciever, filtredPartnerList } from '../client';
 
 jest.mock('axios');
 
@@ -33,9 +33,10 @@ describe('client file', () => {
 
   it('should dataSender send the data', async () => {
     const formData = {};
+    const getToken = null;
     await dataSender(formData);
     expect(axios).toHaveBeenCalledWith({
-      method: 'post', url: 'https://fasttrack-octobre-back.herokuapp.com/api/partner', data: formData, headers: { 'Content-Type': 'multipart/form-data' },
+      method: 'post', url: 'https://fasttrack-octobre-back.herokuapp.com/api/partner', data: formData, headers: { 'Content-Type': 'multipart/form-data', Authorization: `Bearer ${getToken}` },
     });
   });
 });
