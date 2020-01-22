@@ -6,6 +6,7 @@ const theme = {
     accentRegular: '#22A6B3',
     accentDark: '#3C6382',
     bodyBg: '#2F3640',
+    black: '#2F3640',
     partnerBg: '#DFE4EA',
     font: '#2F3640',
     white: '#fff',

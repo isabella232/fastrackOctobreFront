@@ -27,7 +27,7 @@ export const opacity = keyframes`
 `; 
 
 export const Button = styled.button`
-margin: 2rem 0 0 2rem;
+margin: 1.5vmin 0 0 5rem;
 width: 10rem;
 min-height: 2rem; 
 max-height: 2rem; 
@@ -36,13 +36,14 @@ border-radius: 25px;
 border: none; 
 color: ${(props) => props.theme.colors.white};
 font-size: 0.8em;
+font-weight: bold; 
 `;
 
 export const MainLoginContainer = styled.div`
   width: 100%;
-  height: 50vh; 
+  height: 50vh;
   display : flex; 
-  margin: 0;
+  margin: auto;
   position: absolute;
   top: 50%;
   -ms-transform: translateY(-50%);
@@ -116,7 +117,6 @@ flex-direction : column;
 export const FieldContainer = styled.div`
 width : 100%;
 display : flex;
-margin: auto 0;
 position : relative;
 margin: 2rem;  
 `;
@@ -126,19 +126,22 @@ width : 100%;
 border : none;
 border-bottom : 1px solid ${(props) => props.theme.colors.primary};
 background : none;
-
+color: ${(props) => props.theme.colors.accentDark};
+font-size: 2vmin;
+padding-bottom: 1vmin;
+font-weight: 300;
 `;
 
 export const DescInput = styled.p`
 width : 100%;
 position : absolute;
-top : -1.5rem;
+top : -2rem;
 left : 2.5rem;
-color : ${(props) => props.theme.colors.black};
+color : ${(props) => props.theme.colors.accentDark};
 `;
 
 export const Icon = styled(FontAwesomeIcon)`
   margin : 0 1em;
-  color: ${(props) => props.theme.colors.black};
+  color: ${(props) => props.theme.colors.accentDark};
 `;
 
