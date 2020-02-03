@@ -41,8 +41,9 @@ font-weight: bold;
 
 export const MainLoginContainer = styled.div`
   width: 100%;
-  height: 50vh;
+  height: 100vh;
   display : flex; 
+  align-items: center;
   margin: auto;
   position: absolute;
   top: 50%;
@@ -53,6 +54,7 @@ export const MainLoginContainer = styled.div`
 export const LoginContainer = styled.div`
   opacity: 1;
   width: 40%;
+  min-height: 300px;
   height: 50vh; 
   background-color: ${(props) => props.theme.colors.white};
   position: fixed;
@@ -68,6 +70,7 @@ export const LoginContainer = styled.div`
 export const LogoContainer = styled.div`
   width: 60%;
   height: 50vh; 
+  min-height: 300px;
   background: ${(props) => props.theme.colors.primary};
   opacity: 100%; 
   margin: 0;
@@ -104,7 +107,7 @@ font-weight: 700;
 margin-bottom : 1rem;
 `;
 
-export const LoginForm = styled.div`
+export const LoginForm = styled.form`
 width : 40%;
 min-height : 150px;
 height : 40%;
