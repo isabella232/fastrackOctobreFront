@@ -2,7 +2,7 @@ import { skillsReciever } from '../../services/client';
 
 const convertSkills = () => skillsReciever().then((data) => {
   const formatedSkills = { categories: [], skills: {} };
-  data.map((res) => {
+  data.map((res) => () => {
     formatedSkills.categories.push({
       id: res.id,
       name: res.name,

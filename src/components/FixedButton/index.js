@@ -23,7 +23,7 @@ background-color: ${props.theme.colors.primary};
 `}
 `;
 
-const FixedButton = (props) => {
+const FixedButton = () => {
   const [show, setShow] = useState(true);
   const [animate, setAnimate] = useState(false);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   faUser, faBriefcase, faUpload,
 } from '@fortawesome/free-solid-svg-icons';
@@ -43,19 +43,19 @@ const InputNumber = styled(Input)`
   margin: 0;
 `;
 
-const Form = (props) => (
+const Form = ({ image, changeImage, change }) => (
   <>
     <HorizontalFlex width="100%" alignItems="center">
       <Title>Ajouter un partner</Title>
     </HorizontalFlex>
     <FlexColumn>
       <WhiteP>Sélectionnez une photo de profil</WhiteP>
-      <Label htmlFor="image" url={props.image}>
-        {!props.image && (
+      <Label htmlFor="image" url={image}>
+        {!image && (
           <FontAwesomeIcon icon={faUpload} style={{ color: '#282828' }} size="1x" />
         )}
       </Label>
-      <InputFile name="avatar" type="file" accept="image/png, image/jpeg, image/jpg, image.svg" id="image" onChange={props.changeImage} required />
+      <InputFile name="avatar" type="file" accept="image/png, image/jpeg, image/jpg, image.svg" id="image" onChange={changeImage} required />
     </FlexColumn>
     <HorizontalFlex width="100%" alignItems="center">
 
@@ -65,19 +65,19 @@ const Form = (props) => (
     <FlexColumn>
       <FlexSpaceBetween>
         <WhiteP>Prénom</WhiteP>
-        <Input name="firstName" placeholder="Jean" onChange={props.change} required />
+        <Input name="firstName" placeholder="Jean" onChange={change} required />
       </FlexSpaceBetween>
       <FlexSpaceBetween>
         <WhiteP>Nom</WhiteP>
-        <Input name="lastName" placeholder="Dupuis" onChange={props.change} required />
+        <Input name="lastName" placeholder="Dupuis" onChange={change} required />
       </FlexSpaceBetween>
       <FlexSpaceBetween>
         <WhiteP>Tél.</WhiteP>
-        <Input name="phoneNumber" type="tel" placeholder="0634256172" onChange={props.change} required />
+        <Input name="phoneNumber" type="tel" placeholder="0634256172" onChange={change} required />
       </FlexSpaceBetween>
       <FlexSpaceBetween>
         <WhiteP>E-mail</WhiteP>
-        <Input name="email" type="email" placeholder="Jean.dupuis@link-value.fr" onChange={props.change} required />
+        <Input name="email" type="email" placeholder="Jean.dupuis@link-value.fr" onChange={change} required />
       </FlexSpaceBetween>
     </FlexColumn>
     <HorizontalFlex width="100%" alignItems="center">
@@ -87,15 +87,15 @@ const Form = (props) => (
     <FlexColumn>
       <FlexSpaceBetween>
         <WhiteP>Métier</WhiteP>
-        <Input name="job" placeholder="Développeur" onChange={props.change} required />
+        <Input name="job" placeholder="Développeur" onChange={change} required />
       </FlexSpaceBetween>
       <FlexSpaceBetween>
         <WhiteP>Exp.</WhiteP>
-        <InputNumber name="experience" placeholder="3 ans" type="number" min="0" onChange={props.change} required />
+        <InputNumber name="experience" placeholder="3 ans" type="number" min="0" onChange={change} required />
       </FlexSpaceBetween>
       <FlexSpaceBetween>
         <WhiteP>Client</WhiteP>
-        <Select name="customer" onChange={props.change} id="select">
+        <Select name="customer" onChange={change} id="select">
           {/* J'attends d'avoir les clients en bdd pour map */}
           <option>Sélectionnez un client</option>
           <option>FTV</option>
@@ -110,7 +110,7 @@ const Form = (props) => (
           && (
             <>
               <WhiteP> Projet</WhiteP>
-              <Input name="project" placeholder="Mister Aslphalt" onChange={props.change} />
+              <Input name="project" placeholder="Mister Aslphalt" onChange={change} />
             </>
           )}
       </FlexSpaceBetween>
@@ -120,5 +120,11 @@ const Form = (props) => (
     </HorizontalFlex>
   </>
 );
+
+Form.propTypes = {
+  image: PropTypes.string.isRequired,
+  change: PropTypes.func.isRequired,
+  changeImage: PropTypes.func.isRequired,
+};
 
 export default Form;

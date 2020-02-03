@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled';
@@ -66,7 +67,7 @@ const TextArea = styled.textarea`
 `;
 
 
-const Form = (props) => (
+const Form = ({ change, click }) => (
   <>
     <Flex>
       <Title>Ajouter un partner</Title>
@@ -81,26 +82,31 @@ const Form = (props) => (
 
       <FlexColumn>
         <WhiteP>Court terme</WhiteP>
-        <TextArea name="shortObjectif" placeholder="Voici le premier objectif" onChange={props.change} required />
+        <TextArea name="shortObjectif" placeholder="Voici le premier objectif" onChange={change} required />
       </FlexColumn>
 
       <FlexColumn>
         <WhiteP>Moyen terme</WhiteP>
-        <TextArea name="mediumObjectif" placeholder="Voici le deuxième objectif" onChange={props.change} required />
+        <TextArea name="mediumObjectif" placeholder="Voici le deuxième objectif" onChange={change} required />
       </FlexColumn>
 
       <FlexColumn>
         <WhiteP>Long terme</WhiteP>
-        <TextArea name="largeObjectif" type="tel" placeholder="Voici le troisième objectif" onChange={props.change} required />
+        <TextArea name="largeObjectif" type="tel" placeholder="Voici le troisième objectif" onChange={change} required />
       </FlexColumn>
 
     </FlexColumn>
 
     <FlexColumn>
-      <Button onClick={props.click}>Précédent</Button>
+      <Button onClick={click}>Précédent</Button>
       <Button type="submit">Envoyer</Button>
     </FlexColumn>
   </>
 );
+
+Form.propTypes = {
+  change: PropTypes.func.isRequired,
+  click: PropTypes.func.isRequired,
+};
 
 export default Form;
