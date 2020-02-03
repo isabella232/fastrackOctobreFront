@@ -26,19 +26,16 @@ const Login = () => {
   const [mail, setMail] = useState();
   const [pass, setPass] = useState();
   const history = useHistory();
-  const location = useLocation();
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
       username: mail,
       password: pass,
     };
-
     sendAuth(data)
       .then(() => sendAuth(data))
       .then((token) => setToken(token.token))
       .then(() => history.push('/partner'));
-      /*  .then((token) => console.log(token)) */
   };
 
   return (
