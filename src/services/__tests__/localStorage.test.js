@@ -1,5 +1,5 @@
-import { setToken } from '../../Helper/Partner/localStorage';
-import { getToken } from '../../Helper/Partner/localStorage';
+import { setToken, getToken } from '../../Helper/Partner/localStorage';
+
 
 describe('localStorage', () => {
   it('should be equal', () => {

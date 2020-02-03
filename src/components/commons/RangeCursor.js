@@ -72,7 +72,7 @@ const RangeCursor = ({ res, level }) => {
   useEffect(() => {
     level === 0 ? setIsActive(false) : setIsActive(true);
   }, []);
-  
+
   const setValue = (level) => {
     dispatch(setSkillValue(
       { id: res.id, level },
