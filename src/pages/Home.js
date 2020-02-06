@@ -40,7 +40,7 @@ const Home = () => {
     setDesc(!desc);
   };
 
-  const getList = () => {
+  const getList = () => { 
     if (asc === true && desc === false) {
       filtredPartnerList('asc').then((res) => dispatch(addList(res.data)));
     }
@@ -52,8 +52,8 @@ const Home = () => {
     }
   };
 
-  useEffect(async () => {
-    await getList();
+  useEffect(() => {
+    getList();
   }, [asc, desc]);
 
   return (
