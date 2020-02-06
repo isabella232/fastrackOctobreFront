@@ -69,7 +69,6 @@ const Home = () => {
         {list
         && list.map((partner, index) => {
           const noFav = { id: partner.id, name: '', icon: 'undefinedFav' };
-          console.log(partner.favorites[0]);
           const fav = {
             fav1: partner.favorites[0] || noFav,
             fav2: partner.favorites[1] || noFav,
