@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
-import styled from '@emotion/styled';
 
 import { P } from './text';
 import HorizontalFlex from './horizontalFlex';
 
-const FavStar = ({ themeColors }) => {
+const FavStar = () => {
   const [isActive, setIsActive] = useState(false);
   const [color, setColor] = useState();
+  const [counter, setCounter] = useState();
 
   const switchActive = () => {
     if (counter !== 3) {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,7 +17,9 @@ const Icon = styled(FontAwesomeIcon)`
   width: 40px;
 `;
 
-const FiltredButton = (props) => {
+const FiltredButton = ({
+  top, left, click, icon,
+}) => {
   const [color, setColor] = useState('#fff');
 
   const handleChangeColor = () => {
@@ -32,12 +35,20 @@ const FiltredButton = (props) => {
   return (
     <>
       <Link to="">
-        <Button top={props.top} left={props.left} onClick={props.click}>
-          <Icon icon={props.icon} color={color} size="1x" onClick={handleChangeColor} />
+        <Button top={top} left={left} onClick={click}>
+          <Icon icon={icon} color={color} size="1x" onClick={handleChangeColor} />
         </Button>
       </Link>
     </>
   );
 };
+
+FiltredButton.propTypes = {
+  top: PropTypes.string.isRequired,
+  left: PropTypes.string.isRequired,
+  click: PropTypes.func.isRequired,
+  icon: PropTypes.string.isRequired,
+};
+
 
 export default FiltredButton;

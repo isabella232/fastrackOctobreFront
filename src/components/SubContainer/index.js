@@ -5,7 +5,7 @@ import SubSkills from '../SubSkills';
 import Button from '../commons/button';
 import { setTechno } from '../../store/actions';
 
-const SubContainer = (props) => {
+const SubContainer = ({ category }) => {
   const [isActive, setIsActive] = useState(false);
   const dispatch = useDispatch();
 
@@ -22,8 +22,8 @@ const SubContainer = (props) => {
 
   return (
     <>
-      <Button onClick={(e) => toggleIsActive(e)}>{props.category.name}</Button>
-      {isActive && <SubSkills subCategories={props.category.subCategories} click={dispatchTechno} />}
+      <Button onClick={(e) => toggleIsActive(e)}>{category.name}</Button>
+      {isActive && <SubSkills subCategories={category.subCategories} click={dispatchTechno} />}
     </>
   );
 };
@@ -31,5 +31,4 @@ const SubContainer = (props) => {
 SubContainer.propTypes = {
   category: PropTypes.object.isRequired,
 };
-
 export default SubContainer;

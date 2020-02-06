@@ -9,7 +9,7 @@ describe('async actions', () => {
     store.dispatch(setTechno());
 
     const actions = store.getActions();
-    const expectedPayload = { type: 'SET_TECHNO' };
+    const expectedPayload = { type: 'SET_TECHNO' };
     expect(actions).toEqual([expectedPayload]);
   });
 
@@ -18,7 +18,7 @@ describe('async actions', () => {
     store.dispatch(getPartnerDetails());
 
     const actions = store.getActions();
-    const expectedPayload = { type: 'GET_PARTNER_DETAILS' };
+    const expectedPayload = { type: 'GET_PARTNER_DETAILS' };
     expect(actions).toEqual([expectedPayload]);
   });
 
@@ -27,7 +27,7 @@ describe('async actions', () => {
     store.dispatch(initSkills());
 
     const actions = store.getActions();
-    const expectedPayload = { type: 'INIT_SKILLS' };
+    const expectedPayload = { type: 'INIT_SKILLS' };
     expect(actions).toEqual([expectedPayload]);
   });
 });

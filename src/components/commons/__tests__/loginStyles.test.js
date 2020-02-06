@@ -1,5 +1,4 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
 import { createSerializer } from 'jest-emotion';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, configure } from 'enzyme';

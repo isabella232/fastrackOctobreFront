@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
 const Bar = styled.input`
@@ -16,10 +17,16 @@ const Bar = styled.input`
 `;
 
 
-const SearchBar = (props) => (
+const SearchBar = ({ top, left, change }) => (
   <>
-    <Bar top={props.top} left={props.left} onChange={props.change} placeholder="Rechercher un partner" />
+    <Bar top={top} left={left} onChange={change} placeholder="Rechercher un partner" />
   </>
 );
+
+SearchBar.propTypes = {
+  top: PropTypes.string.isRequired,
+  left: PropTypes.string.isRequired,
+  change: PropTypes.func.isRequired,
+};
 
 export default SearchBar;

@@ -4,16 +4,17 @@ import keyGenerator from '../../Helper/KeyGenerator';
 import SubButton from '../commons/subButton';
 
 
-const SubSkills = (props) => (
+const SubSkills = ({ subCategories, click }) => (
   <>
-    {props.subCategories.map((subCategory) => (
-      <SubButton key={keyGenerator(subCategory.name)} onClick={(e) => props.click(e)}>{subCategory.name}</SubButton>
+    {subCategories.map((subCategory) => (
+      <SubButton key={keyGenerator(subCategory.name)} onClick={(e) => click(e)}>{subCategory.name}</SubButton>
     ))}
   </>
 );
 
 SubSkills.propTypes = {
   subCategories: PropTypes.array.isRequired,
+  click: PropTypes.func.isRequired,
 };
 
 export default SubSkills;
