@@ -30,6 +30,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const list = useSelector(({ partnerReducer }) => partnerReducer.list);
 
+
   const ascFilter = () => {
     setAsc(!asc);
     setDesc(desc);
@@ -40,7 +41,7 @@ const Home = () => {
     setDesc(!desc);
   };
 
-  const getList = () => { 
+  const getList = () => {
     if (asc === true && desc === false) {
       filtredPartnerList('asc').then((res) => dispatch(addList(res.data)));
     }
@@ -67,10 +68,12 @@ const Home = () => {
       <Container>
         {list
         && list.map((partner, index) => {
+          const noFav = { id: partner.id, name: '', icon: 'undefinedFav' };
+          console.log(partner.favorites[0]);
           const fav = {
-            fav1: partner.favorites[0],
-            fav2: partner.favorites[1],
-            fav3: partner.favorites[2],
+            fav1: partner.favorites[0] || noFav,
+            fav2: partner.favorites[1] || noFav,
+            fav3: partner.favorites[2] || noFav,
           };
           return (
             <Link2 key={keyGenerator(partner.id)} to={`/${partner.id}`}>
@@ -96,6 +99,7 @@ const Home = () => {
         })}
       </Container>
     </>
+
   );
 };
 
