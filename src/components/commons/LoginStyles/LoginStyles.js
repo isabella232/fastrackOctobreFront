@@ -27,6 +27,16 @@ export const slideTablet = keyframes`
   }
 `;
 
+export const slidePhone = keyframes`
+  0% {
+    height: 100vh;
+  }
+
+  100% {
+    height: 30vh;
+  }
+`;
+
 export const opacity = keyframes`
   0% {
     opacity: 0;
@@ -66,6 +76,14 @@ export const MainLoginContainer = styled.div`
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+  ${phoneQuery`
+  flex-direction: column;
+  top: 0;
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  margin:0;
+  height: 100%;
+`};
 
 `;
 
@@ -87,6 +105,16 @@ export const LoginContainer = styled.div`
   left: 50%;
   
 `};
+  ${phoneQuery`
+  width: 0%;
+  top: 30vh;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  min-height: 250px;
+  height: 70vh; 
+  
+`};
 `;
 
 export const LogoContainer = styled.div`
@@ -104,6 +132,14 @@ export const LogoContainer = styled.div`
   ${tabletQuery`
   width: 50%;
   animation: ${slideTablet} 1.5s ease;
+  `};
+  ${phoneQuery`
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30vh;
+  min-height: 10vh;
+  animation: ${slidePhone} 1.5s ease;
   
 `};
 `;
@@ -119,6 +155,14 @@ ${tabletQuery`
     justify-self: center;
     align-self: center;
 `};
+ ${phoneQuery`
+    width: 20vmin;
+    height: 20vmin;
+    margin: auto;
+    justify-self: center;
+    align-self: center;
+  
+`};
 `;
 
 export const PrezContrainer = styled.div`
@@ -131,8 +175,7 @@ ${tabletQuery`
 
 `};
 ${phoneQuery`
-    width: 315px;
-    background-color: green;
+display: none;
 `};
 `;
 
@@ -146,6 +189,9 @@ ${tabletQuery`
     bottom : 2%;
     width: 45vmin;
 `};
+${phoneQuery`
+    display: none;
+`};
 `;
 
 export const AppTitle = styled.h1`
@@ -158,6 +204,10 @@ ${tabletQuery`
     bottom : 10%;
     white-space: nowrap;
 
+`};
+${phoneQuery`
+   
+  background-color: green;
 `};
 `;
 
