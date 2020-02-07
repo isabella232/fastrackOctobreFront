@@ -37,7 +37,7 @@ const rootComponent = (
           <Redirect exact from="/" to="/login" />
           <Route exact path="/login" component={Login} />
           <PrivateRoute exact path="/partner" component={Home} />
-          <PrivateRoute exact path="/partner/:id" component={PartnerDetails} />
+          <PrivateRoute path="/partner/:partnerId" component={PartnerDetails} />
         </Switch>
       </Router>
     </ThemeProvider>
