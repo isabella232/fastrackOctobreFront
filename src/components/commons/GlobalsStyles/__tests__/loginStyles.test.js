@@ -18,7 +18,7 @@ import {
   DescInput,
   Icon,
   Button,
-} from '../LoginStyles/LoginStyles';
+} from '../../LoginStyles/LoginStyles';
 
 expect.addSnapshotSerializer(createSerializer(emotion));
 configure({ adapter: new Adapter() });

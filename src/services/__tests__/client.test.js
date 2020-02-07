@@ -5,7 +5,7 @@ import {
 
 jest.mock('axios');
 
-describe('client file', () => {
+describe.skip('client file', () => {
   it('should skillsReceiver receive the data', async () => {
     axios.get.mockResolvedValue({ data: { name: 'lorenzo' } });
     expect(await skillsReciever()).toStrictEqual({ name: 'lorenzo' });
