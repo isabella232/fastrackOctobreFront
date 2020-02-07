@@ -75,7 +75,7 @@ const Home = () => {
             fav3: partner.favorites[2] || noFav,
           };
           return (
-            <Link2 key={keyGenerator(partner.id)} to={`/${partner.id}`}>
+            <Link2 key={keyGenerator(partner.id)} to={`/partner/${partner.id}`}>
               <Card
                 key={keyGenerator(partner.lastName)}
                 partner={{
