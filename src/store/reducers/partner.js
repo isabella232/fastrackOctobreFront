@@ -11,7 +11,7 @@ const initialState = {
 const partnerReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case ADD_LIST:
-      return {...state, list: action.payload };
+      return { ...state, list: action.payload };
     case CHANGE_VALUE:
       return { ...state, currentPartner: action.payload };
     case GET_PARTNER_DETAILS:

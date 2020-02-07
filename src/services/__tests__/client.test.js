@@ -1,5 +1,7 @@
 import axios from 'axios';
-import { dataSender, skillsReciever, partnerList, partnerReciever, filtredPartnerList } from '../client';
+import {
+  dataSender, skillsReciever, partnerList, partnerReciever, filtredPartnerList,
+} from '../client';
 
 jest.mock('axios');
 

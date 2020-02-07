@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
-import { faUserNinja, faKey } from '@fortawesome/free-solid-svg-icons';
+import { useHistory } from 'react-router-dom';
+import { faUserNinja as FaUserNinja, faKey as FaKey } from '@fortawesome/free-solid-svg-icons';
 import { setToken } from '../Helper/Partner/localStorage';
 import { sendAuth } from '../services/client';
 
@@ -18,7 +18,6 @@ import {
   DescInput,
   Icon,
   Button,
-  AnimLogin,
 } from '../components/commons/LoginStyles/LoginStyles';
 
 
@@ -53,7 +52,7 @@ const Login = () => {
       <LoginContainer>
         <LoginForm onSubmit={(e) => handleSubmit(e)}>
           <FieldContainer>
-            <Icon icon={faUserNinja} />
+            <Icon icon={FaUserNinja} />
             <DescInput>
               Courriel
             </DescInput>
@@ -61,8 +60,7 @@ const Login = () => {
           </FieldContainer>
 
           <FieldContainer>
-            <Icon icon={faKey} />
-            <faKey />
+            <Icon icon={FaKey} />
             <DescInput>
               Password
             </DescInput>

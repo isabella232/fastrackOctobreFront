@@ -24,7 +24,7 @@ export const opacity = keyframes`
   100% {
     opacity: 1;
   }
-`; 
+`;
 
 export const Button = styled.button`
 margin: 1.5vmin 0 0 5rem;
@@ -147,4 +147,3 @@ export const Icon = styled(FontAwesomeIcon)`
   margin : 0 1em;
   color: ${(props) => props.theme.colors.accentDark};
 `;
-

@@ -46,7 +46,9 @@ export const partnerList = async () => axios.get('https://fasttrack-octobre-back
     },
   })
   .then((res) => ({ data: res.data }))
-  .catch(() => { localStorage.removeItem('token'); });
+  .catch(() => {
+    localStorage.removeItem('token');
+  });
 
 export const filtredPartnerList = async (filter) => axios.get(`https://fasttrack-octobre-back.herokuapp.com/api/partner/${filter}`,
   {
