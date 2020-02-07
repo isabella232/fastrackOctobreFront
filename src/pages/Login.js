@@ -43,7 +43,7 @@ const Login = () => {
         <PrezContrainer>
           <AppTitle> SkillUp Factory</AppTitle>
           <AppPrez>
-            L’app des ressources humaines développée avec amour par les Partners du FastTrack.
+          Application de suivi des compétences des partners LinkValue.
           </AppPrez>
         </PrezContrainer>
         <LogoLV src="./styles/img/LogoLinkValue.svg" alt="" />
