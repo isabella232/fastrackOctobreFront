@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import SubSkills from '../SubSkills';
-import Button from '../commons/button';
+import Button from '../commons/GlobalsStyles/button';
 import { setTechno } from '../../store/actions';
 
 const SubContainer = ({ category }) => {

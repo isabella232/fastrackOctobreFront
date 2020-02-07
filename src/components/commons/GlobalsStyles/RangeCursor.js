@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import { P } from './text';
 import HorizontalFlex from './horizontalFlex';
 import Rect from './rect';
-import { setSkillValue, addValue } from '../../store/actions';
+import { setSkillValue, addValue } from '../../../store/actions';
 
 const RangeTxt = styled(P)`
   position : absolute; 

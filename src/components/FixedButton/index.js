@@ -5,9 +5,9 @@ import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled';
 import { useTheme } from 'emotion-theming';
 
-import EditButton from '../commons/fixedButton';
+import EditButton from '../commons/GlobalsStyles/fixedButton';
 import Form from '../Form';
-import FormContainer from '../commons/formContainer';
+import FormContainer from '../commons/GlobalsStyles/formContainer';
 
 const AddButton = styled(EditButton)`
 transition: left 1s;

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import TextareaAutosize from 'react-textarea-autosize';
 import PropTypes from 'prop-types';
-import VerticalFlex from '../commons/verticalFlex';
-import { P } from '../commons/text';
-import Form from '../commons/form';
+import VerticalFlex from '../commons/GlobalsStyles/verticalFlex';
+import { P } from '../commons/GlobalsStyles/text';
+import Form from '../commons/GlobalsStyles/form';
 
 const TextArea = styled(TextareaAutosize)`
   background: none;

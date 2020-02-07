@@ -5,7 +5,7 @@ import {
   faUser, faBriefcase, faUpload,
 } from '@fortawesome/free-solid-svg-icons';
 import styled from '@emotion/styled';
-import HorizontalFlex from '../../commons/horizontalFlex';
+import HorizontalFlex from '../../commons/GlobalsStyles/horizontalFlex';
 import {
   Button,
   Input,
@@ -14,7 +14,7 @@ import {
   Label,
 } from '../../commons/Form/FormStyle';
 
-import { H3, WhiteP } from '../../commons/text';
+import { H3, WhiteP } from '../../commons/GlobalsStyles/text';
 
 const Title = styled(H3)`
   color: #FFF;

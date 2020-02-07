@@ -2,10 +2,10 @@ import React from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 
-import PictureBox from '../commons/picture';
-import Img from '../commons/logoTechno';
-import { H3, P, SpanBold } from '../commons/text';
-import Delayed from '../commons/delayed';
+import PictureBox from '../commons/GlobalsStyles/picture';
+import Img from '../commons/GlobalsStyles/logoTechno';
+import { H3, P, SpanBold } from '../commons/GlobalsStyles/text';
+import Delayed from '../commons/GlobalsStyles/delayed';
 
 const CustomH3 = styled(H3)`
   padding: 1rem;

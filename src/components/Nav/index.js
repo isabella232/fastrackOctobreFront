@@ -7,7 +7,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 
-import Navbar from '../commons/nav';
+import Navbar from '../commons/GlobalsStyles/nav';
 
 
 const IconContainer = styled.div`width: 80px;
