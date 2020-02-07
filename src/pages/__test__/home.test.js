@@ -7,9 +7,8 @@ describe('async actions', () => {
   it('should dispatch action', () => {
     const store = mockStore({});
     store.dispatch(addList());
-
     const actions = store.getActions();
-    const expectedPayload = { type: 'ADD_LIST' };
+    const expectedPayload = { type: 'ADD_LIST' };
     expect(actions).toEqual([expectedPayload]);
   });
 });

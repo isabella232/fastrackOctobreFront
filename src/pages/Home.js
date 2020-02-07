@@ -14,7 +14,6 @@ import Container from '../components/commons/container';
 import FiltredButton from '../components/commons/filterButton';
 import keyGenerator from '../Helper/KeyGenerator';
 import { addList } from '../store/actions';
-import { setToken } from '../Helper/Partner/localStorage';
 
 const Link2 = styled(Link)`
   display: flex;
@@ -41,7 +40,7 @@ const Home = () => {
     setDesc(!desc);
   };
 
-  const getList = () => {
+  const getList = () => { 
     if (asc === true && desc === false) {
       filtredPartnerList('asc').then((res) => dispatch(addList(res.data)));
     }
@@ -53,8 +52,8 @@ const Home = () => {
     }
   };
 
-  useEffect(async () => {
-    await getList();
+  useEffect(() => {
+    getList();
   }, [asc, desc]);
 
   return (

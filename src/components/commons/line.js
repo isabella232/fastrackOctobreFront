@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 // <Line />
-export const Line = styled.div`
+const Line = styled.div`
 margin: 2rem 0;
 display: flex; 
 justify-content: center;

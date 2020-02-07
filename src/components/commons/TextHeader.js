@@ -26,16 +26,16 @@ const Subtitle = styled.h3`
   font-weight: 300;
 `;
 
-const TextHeader = (props) => (
+const TextHeader = ({ title, subtitle }) => (
   <Header>
-    <Title>{props.title}</Title>
-    <Subtitle>{props.subtitle}</Subtitle>
+    <Title>{title}</Title>
+    <Subtitle>{subtitle}</Subtitle>
   </Header>
 );
 
 TextHeader.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string,
+  subtitle: PropTypes.string.isRequired,
 };
 
 export default TextHeader;

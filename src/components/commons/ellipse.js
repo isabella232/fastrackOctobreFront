@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 // <Ellipse />
-export const Ellipse = styled.div`
+const Ellipse = styled.div`
 position: absolute;
 width: 1rem;
 height: 1rem;

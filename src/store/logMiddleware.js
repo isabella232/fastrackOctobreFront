@@ -1,4 +1,4 @@
-const logMiddleware = (store) => (next) => (action) => {
+const logMiddleware = () => (next) => (action) => {
   next(action);
 };
 
