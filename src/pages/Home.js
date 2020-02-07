@@ -8,10 +8,10 @@ import Nav from '../components/Nav';
 import TextHeader from '../components/TextHeader';
 import FixedButton from '../components/FixedButton';
 import { partnerList, filtredPartnerList } from '../services/client';
-import SearchBar from '../components/commons/searchBar';
+import SearchBar from '../components/commons/GlobalsStyles/searchBar';
 import Card from '../components/Card';
-import Container from '../components/commons/container';
-import FiltredButton from '../components/commons/filterButton';
+import Container from '../components/commons/GlobalsStyles/container';
+import FiltredButton from '../components/commons/GlobalsStyles/filterButton';
 import keyGenerator from '../Helper/KeyGenerator';
 import { addList } from '../store/actions';
 

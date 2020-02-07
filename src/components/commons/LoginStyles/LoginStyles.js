@@ -37,6 +37,12 @@ border: none;
 color: ${(props) => props.theme.colors.white};
 font-size: 0.8em;
 font-weight: bold; 
+:active {
+  background-color: ${(props) => props.theme.colors.accentLight};
+}
+:hover {
+  opacity: .9;
+}
 `;
 
 export const MainLoginContainer = styled.div`

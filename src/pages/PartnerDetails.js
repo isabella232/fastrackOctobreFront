@@ -6,22 +6,22 @@ import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMobileAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import Loading from '../components/Loading';
-import ChronoLine from '../components/commons/chronoLine';
-import RangeCursor from '../components/commons/RangeCursor';
+import ChronoLine from '../components/commons/GlobalsStyles/chronoLine';
+import RangeCursor from '../components/commons/GlobalsStyles/RangeCursor';
 import Nav from '../components/Nav';
-import Img from '../components/commons/logoTechno';
-import TextHeader from '../components/commons/TextHeader';
+import Img from '../components/commons/GlobalsStyles/logoTechno';
+import TextHeader from '../components/commons/GlobalsStyles/TextHeader';
 import FixedButton from '../components/FixedButton';
-import Picture from '../components/commons/picture';
-import CardPartner from '../components/commons/cardPartner';
-import ContainerCommon from '../components/commons/container';
-import { H3, P } from '../components/commons/text';
+import Picture from '../components/commons/GlobalsStyles/picture';
+import CardPartner from '../components/commons/GlobalsStyles/cardPartner';
+import ContainerCommon from '../components/commons/GlobalsStyles/container';
+import { H3, P } from '../components/commons/GlobalsStyles/text';
 
-import SkillsSlideContainer from '../components/commons/skillsSlideContainer';
-import HorizontalFlex from '../components/commons/horizontalFlex';
-import BoxHead from '../components/commons/boxHead';
-import BoxGoals from '../components/commons/boxGoals';
-import BoxSkills from '../components/commons/boxSkills';
+import SkillsSlideContainer from '../components/commons/GlobalsStyles/skillsSlideContainer';
+import HorizontalFlex from '../components/commons/GlobalsStyles/horizontalFlex';
+import BoxHead from '../components/commons/GlobalsStyles/boxHead';
+import BoxGoals from '../components/commons/GlobalsStyles/boxGoals';
+import BoxSkills from '../components/commons/GlobalsStyles/boxSkills';
 
 import convertSkills from '../Helper/Skills';
 import { initSkills, getPartnerDetails, setTechno } from '../store/actions';
@@ -29,7 +29,7 @@ import SubContainer from '../components/SubContainer';
 import keyGenerator from '../Helper/KeyGenerator';
 import { partnerReciever, skillsSender } from '../services/client';
 import { filterSkillsPartnerActive, filterSkillsPartnerUnactive } from '../Helper/Partner/filterSkillsPartner';
-import Button from '../components/commons/button';
+import Button from '../components/commons/GlobalsStyles/button';
 import OnFlyForm from '../components/OnFlyForm/OnFlyForm';
 
 const Container = styled(ContainerCommon)`

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import keyGenerator from '../../Helper/KeyGenerator';
-import SubButton from '../commons/subButton';
+import SubButton from '../commons/GlobalsStyles/subButton';
 
 
 const SubSkills = ({ subCategories, click }) => (

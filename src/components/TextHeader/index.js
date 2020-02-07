@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import TextHeader from '../commons/TextHeader';
+import TextHeader from '../commons/GlobalsStyles/TextHeader';
 
 const Title = ({ title, subtitle }) => (
   <TextHeader title={title} subtitle={subtitle} />
