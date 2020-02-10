@@ -5,7 +5,7 @@ import {
 
 jest.mock('axios');
 
-describe.skip('client file', () => {
+describe('client file', () => {
   it('should skillsReceiver receive the data', async () => {
     axios.get.mockResolvedValue({ data: { name: 'lorenzo' } });
     expect(await skillsReciever()).toStrictEqual({ name: 'lorenzo' });
@@ -13,7 +13,7 @@ describe.skip('client file', () => {
 
   it('should partnerList receive the data', async () => {
     axios.get.mockResolvedValue({ data: { test: 'coucou' } });
-    expect(await partnerList()).toStrictEqual({ test: 'coucou' });
+    expect(await partnerList()).toStrictEqual({ data: { test: 'coucou' } });
   });
 
   it('should partnerReciever receive the data', async () => {
@@ -30,7 +30,7 @@ describe.skip('client file', () => {
 
   it('should filtredPartnerList receive the data', async () => {
     axios.get.mockResolvedValue({ data: { name: 'lorenzo' } });
-    expect(await filtredPartnerList()).toStrictEqual({ name: 'lorenzo' });
+    expect(await filtredPartnerList()).toStrictEqual({ data: { name: 'lorenzo' } });
   });
 
   it('should dataSender send the data', async () => {

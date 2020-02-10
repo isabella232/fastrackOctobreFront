@@ -161,7 +161,6 @@ const PartnerDetails = () => {
 
                       <P fontWeight="bold" margin="2rem 0 2rem .3rem" display="block"> Niveau des technologies acquises </P>
                       <SkillsSlideContainer justifyContent="center">
-                        {console.log('test', skills)}
                         {Object.getOwnPropertyNames(skills).length === 0
                           || skills[techno]
                             .filter((skill) => filterSkillsPartnerActive(skill, partner.skills))
