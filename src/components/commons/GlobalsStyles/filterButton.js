@@ -43,12 +43,4 @@ const FiltredButton = ({
   );
 };
 
-FiltredButton.propTypes = {
-  top: PropTypes.string.isRequired,
-  left: PropTypes.string.isRequired,
-  click: PropTypes.func.isRequired,
-  icon: PropTypes.object.isRequired,
-};
-
-
 export default FiltredButton;

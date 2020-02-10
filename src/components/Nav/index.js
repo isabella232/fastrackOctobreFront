@@ -32,7 +32,7 @@ const Nav = () => (
       <Link to="/"><FontAwesomeIcon icon={faGraduationCap} style={{ color: '#FFF', width: '80px' }} size="2x" /></Link>
       <Link to="/"><FontAwesomeIcon icon={faChartLine} style={{ color: '#FFF', width: '80px' }} size="2x" /></Link>
     </IconContainer>
-    <Link to="/"><FontAwesomeIcon
+    <Link to="/" onClick={() => localStorage.removeItem('token')}><FontAwesomeIcon
       icon={faDoorOpen}
       style={{
         color: '#FFF', width: '80px', position: 'absolute', top: 'calc(100% - 48px)',
