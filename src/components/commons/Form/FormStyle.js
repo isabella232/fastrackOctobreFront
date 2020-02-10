@@ -60,7 +60,7 @@ export const Label = styled.label`
   width: 120px;
   height: 120px;
   border-radius: 90px;
-  margin: 1rem 0;
+  margin: 1rem auto;
   border: 3px solid #2F3640;
   opacity: 1;
   background-color: #DFE4EA;

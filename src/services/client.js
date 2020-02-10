@@ -1,7 +1,7 @@
 import axios from 'axios';
 import ConvertToTime from '../Helper/ConvertToTime';
 import { getToken } from '../Helper/Partner/localStorage';
-import { baseUrl } from '../services/configs/genralsConfigs';
+import { baseUrl } from "./configs/genralsConfigs";
 
 export const dataSender = (formData) => axios({
   method: 'post',
@@ -70,7 +70,5 @@ export const skillsSender = (partner) => {
     url: `${baseUrl}/partner/${partner.id}`,
     data: partner,
     headers: { Authorization: `Bearer ${getToken()}` },
-  }).catch(() => {
-    localStorage.removeItem('token');
   });
 };
