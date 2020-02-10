@@ -120,7 +120,6 @@ height : 40%;
 margin-left: 1.5rem;
 display : flex;
 flex-direction : column;
-/* background-color : purple;  */
 `;
 
 export const FieldContainer = styled.div`

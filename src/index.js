@@ -34,7 +34,7 @@ const rootComponent = (
     <ThemeProvider theme={theme}>
       <Router>
         <Switch>
-          <Redirect exact from="/" to="/login" />
+          <Redirect exact from="/" to="/partner" />
           <Route exact path="/login" component={Login} />
           <PrivateRoute exact path="/partner" component={Home} />
           <PrivateRoute path="/partner/:partnerId" component={PartnerDetails} />
