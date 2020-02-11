@@ -2,8 +2,8 @@
 import { css } from '@emotion/core';
 
 const breakpoints = {
-  small: 415,
-  medium: 800,
+  small: 550,
+  medium: 1000,
 };
 
 const phoneRule = `(max-width: ${breakpoints.small - 1}px)`;
