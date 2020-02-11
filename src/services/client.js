@@ -1,7 +1,7 @@
 import axios from 'axios';
 import ConvertToTime from '../Helper/ConvertToTime';
 import { getToken } from '../Helper/Partner/localStorage';
-import { baseUrl } from '../services/configs/genralsConfigs';
+import { baseUrl } from './configs/genralsConfigs';
 
 export const dataSender = (formData) => axios({
   method: 'post',
@@ -27,6 +27,7 @@ export const skillsReciever = () => axios.get(`${baseUrl}/skill`,
   }).then((res) => res.data)
   .catch(() => {
     localStorage.removeItem('token');
+    window.location.assign('https://fasttrack-octobre-front.herokuapp.com/login');
   });
 
 export const partnerReciever = (partnerId) => axios.get(`${baseUrl}/partner/${partnerId}`,
@@ -41,6 +42,7 @@ export const partnerReciever = (partnerId) => axios.get(`${baseUrl}/partner/${pa
   }))
   .catch(() => {
     localStorage.removeItem('token');
+    window.location.assign('https://fasttrack-octobre-front.herokuapp.com/login');
   });
 
 export const partnerList = () => axios.get(`${baseUrl}/partner`,
@@ -52,6 +54,7 @@ export const partnerList = () => axios.get(`${baseUrl}/partner`,
   .then((res) => ({ data: res.data }))
   .catch(() => {
     localStorage.removeItem('token');
+    window.location.assign('https://fasttrack-octobre-front.herokuapp.com/login');
   });
 
 export const filtredPartnerList = (filter) => axios.get(`${baseUrl}/partner/${filter}`,
@@ -70,7 +73,5 @@ export const skillsSender = (partner) => {
     url: `${baseUrl}/partner/${partner.id}`,
     data: partner,
     headers: { Authorization: `Bearer ${getToken()}` },
-  }).catch(() => {
-    localStorage.removeItem('token');
   });
 };

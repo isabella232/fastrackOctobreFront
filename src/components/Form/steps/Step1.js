@@ -122,7 +122,7 @@ const Form = ({ image, changeImage, change }) => (
 );
 
 Form.propTypes = {
-  image: PropTypes.string.isRequired,
+  image: PropTypes.string,
   change: PropTypes.func.isRequired,
   changeImage: PropTypes.func.isRequired,
 };

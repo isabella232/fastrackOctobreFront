@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -18,6 +17,7 @@ const Icon = styled(FontAwesomeIcon)`
 `;
 
 const FiltredButton = ({
+  // eslint-disable-next-line react/prop-types
   top, left, click, icon,
 }) => {
   const [color, setColor] = useState('#fff');
@@ -41,13 +41,6 @@ const FiltredButton = ({
       </Link>
     </>
   );
-};
-
-FiltredButton.propTypes = {
-  top: PropTypes.string.isRequired,
-  left: PropTypes.string.isRequired,
-  click: PropTypes.func.isRequired,
-  icon: PropTypes.object.isRequired,
 };
 
 
