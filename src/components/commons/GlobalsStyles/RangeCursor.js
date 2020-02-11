@@ -1,3 +1,5 @@
+/* eslint-disable max-len */
+/* eslint-disable radix */
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -33,7 +35,7 @@ const Slider = styled.input`
   appearance: none; 
 
   &::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+    -webkit-appearance: none;
     appearance: none;
     background: none;
     width: 0;
@@ -68,16 +70,18 @@ const RangeCursor = ({ res, level }) => {
   const [isActive, setIsActive] = useState();
 
   useEffect(() => {
-    (level === 0) ? setIsActive(false) : setIsActive(true);
+    level === 0 ? setIsActive(false) : setIsActive(true);
   }, []);
 
-  const setValue = () => {
+  // eslint-disable-next-line no-shadow
+  const setValue = (level) => {
     dispatch(setSkillValue(
       { id: res.id, level },
     ));
   };
 
-  const addSkillValue = () => {
+  // eslint-disable-next-line no-shadow
+  const addSkillValue = (level) => {
     dispatch(addValue(
       { id: res.id, level },
     ));
@@ -96,16 +100,7 @@ const RangeCursor = ({ res, level }) => {
       <Rect BorderTop="1.5" BorderRight="1.5" BorderBottom="1.5" BorderLeft="1.5" background="#3C6382" opacity={opacityHandler(level)} />
       <RangeTxt> {lvl} </RangeTxt>
       <SlideContainer>
-        <Slider
-          type="range"
-          min="0"
-          max="100"
-          value={lvl}
-          onMouseUp={(e) => (isActive
-            ? setValue(parseInt(e.target.value, 10))
-            : addSkillValue(parseInt(e.target.value, 10)))}
-          onChange={(e) => setLvl(e.target.value)}
-        />
+        <Slider type="range" min="0" max="100" value={lvl} onMouseUp={(e) => (isActive ? setValue(parseInt(e.target.value)) : addSkillValue(parseInt(e.target.value)))} onChange={(e) => setLvl(e.target.value)} />
       </SlideContainer>
     </HorizontalFlex>
   );

@@ -25,14 +25,14 @@ top: 0;`;
 const Nav = () => (
   <Navbar>
     <Link to="/">
-      <Img src="./styles/img/Logo-LV.png" alt="" />
+      <Img src="/styles/img/Logo-LV.png" alt="" />
     </Link>
     <IconContainer>
       <Link to="/"><FontAwesomeIcon icon={faUser} style={{ color: '#FFF', width: '80px' }} size="2x" /></Link>
       <Link to="/"><FontAwesomeIcon icon={faGraduationCap} style={{ color: '#FFF', width: '80px' }} size="2x" /></Link>
       <Link to="/"><FontAwesomeIcon icon={faChartLine} style={{ color: '#FFF', width: '80px' }} size="2x" /></Link>
     </IconContainer>
-    <Link to="/"><FontAwesomeIcon
+    <Link to="/" onClick={() => localStorage.removeItem('token')}><FontAwesomeIcon
       icon={faDoorOpen}
       style={{
         color: '#FFF', width: '80px', position: 'absolute', top: 'calc(100% - 48px)',

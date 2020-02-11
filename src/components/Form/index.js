@@ -45,11 +45,9 @@ const Form = (props) => {
 
 Form.propTypes = {
   status: PropTypes.string,
-  image: PropTypes.string,
 };
 Form.defaultProps = {
   status: '',
-  image: '',
 };
 
 export default Form;

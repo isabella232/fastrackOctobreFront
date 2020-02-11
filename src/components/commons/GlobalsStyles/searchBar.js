@@ -17,16 +17,15 @@ const Bar = styled.input`
 `;
 
 
-const SearchBar = ({ top, left, change }) => (
+const SearchBar = ({ top, left }) => (
   <>
-    <Bar top={top} left={left} /* onChange={change} */ placeholder="Rechercher un partner" />
+    <Bar top={top} left={left} placeholder="Rechercher un partner" />
   </>
 );
 
 SearchBar.propTypes = {
   top: PropTypes.string.isRequired,
   left: PropTypes.string.isRequired,
-  /* change: PropTypes.func.isRequired, */
 };
 
 export default SearchBar;
