@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { keyframes } from '@emotion/core';
+import { phoneQuery, tabletQuery } from '../../../services/media-queries';
 
 // styled component list
 // MainLoginContainer, LoginContainer, LogoContainer, LogoLV, PrezContrainer, AppPrez, AppTitle, LoginForm, FieldContainer, Input, DescInput, Icon, Link2
@@ -13,6 +14,26 @@ export const slide = keyframes`
 
   100% {
     width: 60%;
+  }
+`;
+
+export const slideTablet = keyframes`
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 50%;
+  }
+`;
+
+export const slidePhone = keyframes`
+  0% {
+    height: 100vh;
+  }
+
+  100% {
+    height: 30vh;
   }
 `;
 
@@ -55,6 +76,15 @@ export const MainLoginContainer = styled.div`
   top: 50%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+  ${phoneQuery`
+  flex-direction: column;
+  top: 0;
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  margin:0;
+  height: 100%;
+`};
+
 `;
 
 export const LoginContainer = styled.div`
@@ -70,7 +100,21 @@ export const LoginContainer = styled.div`
   flex-direction : row;
   align-items : center; 
   z-index: 2;
-  animation: ${opacity} 2.5s ease;
+  ${tabletQuery`
+  width: 50%;
+  left: 50%;
+  
+`};
+  ${phoneQuery`
+  width: 0%;
+  top: 30vh;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  min-height: 250px;
+  height: 70vh; 
+  
+`};
 `;
 
 export const LogoContainer = styled.div`
@@ -85,31 +129,86 @@ export const LogoContainer = styled.div`
   flex-direction: row;
   z-index: 3;
   animation: ${slide} 1.5s ease;
+  ${tabletQuery`
+  width: 50%;
+  animation: ${slideTablet} 1.5s ease;
+  `};
+  ${phoneQuery`
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30vh;
+  min-height: 10vh;
+  animation: ${slidePhone} 1.5s ease;
+  
+`};
 `;
 export const LogoLV = styled.img`
-width: 30vh;
-height: 30vh;
+width: 30vmin;
+height: 30vmin;
 align-self: center;
 margin-right : 12rem;
+${tabletQuery`
+    width: 20vmin;
+    height: 20vmin;
+    margin: auto;
+    justify-self: center;
+    align-self: center;
+`};
+ ${phoneQuery`
+    width: 20vmin;
+    height: 20vmin;
+    margin: auto;
+    justify-self: center;
+    align-self: center;
+  
+`};
 `;
 
 export const PrezContrainer = styled.div`
-min-width : 20vh;
 max-width : 40vh; 
 margin-top : 1rem; 
 margin-left : 1rem;
 color: ${(props) => props.theme.colors.white};
+${tabletQuery`
+    position: relative; 
+
+`};
+${phoneQuery`
+display: none;
+`};
 `;
 
 export const AppPrez = styled.p`
 font-size: 1rem;
 font-weight: 300;
+font-style: italic;
+${tabletQuery`
+    font-size: .8em;
+    position: absolute; 
+    bottom : 2%;
+    width: 45vmin;
+`};
+${phoneQuery`
+    display: none;
+`};
 `;
 
 export const AppTitle = styled.h1`
 font-size: 1.5rem;
 font-weight: 700;
 margin-bottom : 1rem;
+${tabletQuery`
+    font-size: 1em;
+    position: absolute; 
+    bottom : 10%;
+    white-space: nowrap;
+
+`};
+${phoneQuery`
+   
+  background-color: green;
+`};
 `;
 
 export const LoginForm = styled.form`
