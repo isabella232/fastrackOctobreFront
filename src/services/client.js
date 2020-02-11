@@ -1,7 +1,7 @@
 import axios from 'axios';
 import ConvertToTime from '../Helper/ConvertToTime';
 import { getToken } from '../Helper/Partner/localStorage';
-import { baseUrl } from "./configs/genralsConfigs";
+import { baseUrl } from './configs/genralsConfigs';
 
 export const dataSender = (formData) => axios({
   method: 'post',

@@ -1,5 +1,7 @@
+/* eslint-disable max-len */
+/* eslint-disable radix */
 import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 
@@ -71,12 +73,14 @@ const RangeCursor = ({ res, level }) => {
     level === 0 ? setIsActive(false) : setIsActive(true);
   }, []);
 
+  // eslint-disable-next-line no-shadow
   const setValue = (level) => {
     dispatch(setSkillValue(
       { id: res.id, level },
     ));
   };
 
+  // eslint-disable-next-line no-shadow
   const addSkillValue = (level) => {
     dispatch(addValue(
       { id: res.id, level },

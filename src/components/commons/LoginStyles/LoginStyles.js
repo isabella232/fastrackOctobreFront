@@ -104,7 +104,6 @@ color: ${(props) => props.theme.colors.white};
 export const AppPrez = styled.p`
 font-size: 1rem;
 font-weight: 300;
-font-style: italic;
 `;
 
 export const AppTitle = styled.h1`
