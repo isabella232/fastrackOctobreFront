@@ -62,7 +62,7 @@ const Login = () => {
           <FieldContainer>
             <Icon icon={faKey} />
             <DescInput>
-              Password
+              Mot de passe
             </DescInput>
             <Input type="password" defaultValue={pass} onChange={(e) => setPass(e.target.value)} name="password" />
           </FieldContainer>
