@@ -47,16 +47,16 @@ const Card = ({ partner }) => (
     </Container2>
     <LogoContainer>
       <Logo>
-        <Img src={partner.firstTechno || 'coucou'} alt="" />
-        <Up><P>{partner.firstTechnoName || 'coucou'}</P></Up>
+        <Img src={partner.firstTechno} alt="" />
+        <Up><P>{partner.firstTechnoName}</P></Up>
       </Logo>
       <Logo>
-        <Img src={partner.secondTechno || 'coucou'} alt="" />
-        <Up><P>{partner.secondTechnoName || 'coucou'}</P></Up>
+        <Img src={partner.secondTechno} alt="" />
+        <Up><P>{partner.secondTechnoName}</P></Up>
       </Logo>
       <Logo>
-        <Img src={partner.thirdTechno || 'coucou'} alt="" />
-        <Up><P>{partner.thirdTechnoName || 'coucou'}</P></Up>
+        <Img src={partner.thirdTechno} alt="" />
+        <Up><P>{partner.thirdTechnoName}</P></Up>
       </Logo>
     </LogoContainer>
   </Delayed>
