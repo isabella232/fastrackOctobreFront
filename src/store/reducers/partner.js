@@ -1,5 +1,5 @@
 import {
-  CHANGE_VALUE, GET_PARTNER_DETAILS, SET_SKILL_VALUE, ADD_VALUE, ADD_LIST, ADD_NEW_PARTNER,
+  CHANGE_VALUE, GET_PARTNER_DETAILS, SET_SKILL_VALUE, ADD_VALUE, ADD_LIST, ADD_NEW_PARTNER, CLEAR_STORE_LIST,
 } from '../actions';
 
 const initialState = {
@@ -36,6 +36,10 @@ const partnerReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: [action.payload, ...state.list],
+      };
+    case CLEAR_STORE_LIST:
+      return {
+        ...state, list: action.payload,
       };
     default:
       return state;

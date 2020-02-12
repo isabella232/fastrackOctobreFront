@@ -2,7 +2,6 @@ import { skillsReciever } from '../../services/client';
 
 const convertSkills = () => skillsReciever().then((data) => {
   const formatedSkills = { categories: [], skills: {} };
-  // eslint-disable-next-line array-callback-return
   data.map((res) => {
     formatedSkills.categories.push({
       id: res.id,

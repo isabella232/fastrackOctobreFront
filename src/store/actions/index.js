@@ -7,6 +7,7 @@ export const SET_SKILL_VALUE = 'SET_SKILL_VALUE';
 export const ADD_VALUE = 'ADD_VALUE';
 export const ADD_LIST = 'ADD_LIST';
 export const ADD_NEW_PARTNER = 'ADD_NEW_PARTNER';
+export const CLEAR_STORE_LIST = 'CLEAR_STORE_LIST';
 
 export const formSubmit = (payload) => ({
   type: CHANGE_VALUE,
@@ -52,3 +53,8 @@ export const addNewPartner = (payload) => ({
   type: ADD_NEW_PARTNER,
   payload,
 });
+
+export const clearStoreList = (payload) => ({
+  type: CLEAR_STORE_LIST,
+  payload,
+})
