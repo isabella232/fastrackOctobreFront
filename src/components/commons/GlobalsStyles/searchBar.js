@@ -30,8 +30,6 @@ const SearchBar = ({ top, left }) => {
     getSearchBar(value).then((res) => dispatch(addList(res)));
   };
 
-  console.log(value);
-
   return (
     <>
       <Bar top={top} left={left} onKeyPress={(e) => e.key === 'Enter' && handleSubmit()} onChange={(e) => setValue(e.target.value)} placeholder="Rechercher un partner" />
