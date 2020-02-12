@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
@@ -22,7 +22,7 @@ const Bar = styled.input`
 
 
 const SearchBar = ({ top, left }) => {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = async () => {
