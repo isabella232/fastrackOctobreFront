@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+
+import { getSearchBar } from '../../../services/client';
+import { clearStoreList, addList } from '../../../store/actions';
 
 const Bar = styled.input`
   position: absolute;
@@ -17,11 +21,23 @@ const Bar = styled.input`
 `;
 
 
-const SearchBar = ({ top, left }) => (
-  <>
-    <Bar top={top} left={left} placeholder="Rechercher un partner" />
-  </>
-);
+const SearchBar = ({ top, left }) => {
+  const [value, setValue] = useState();
+  const dispatch = useDispatch();
+
+  const handleSubmit = async () => {
+    await dispatch(clearStoreList([]));
+    getSearchBar(value).then((res) => dispatch(addList(res)));
+  };
+
+  console.log(value);
+
+  return (
+    <>
+      <Bar top={top} left={left} onKeyPress={(e) => e.key === 'Enter' && handleSubmit()} onChange={(e) => setValue(e.target.value)} placeholder="Rechercher un partner" />
+    </>
+  );
+};
 
 SearchBar.propTypes = {
   top: PropTypes.string.isRequired,

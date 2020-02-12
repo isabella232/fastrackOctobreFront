@@ -43,7 +43,7 @@ const Login = () => {
         <PrezContrainer>
           <AppTitle> SkillUp Factory</AppTitle>
           <AppPrez>
-          Application de suivi des compétences des partners LinkValue.
+            Application de suivi des compétences des partners LinkValue.
           </AppPrez>
         </PrezContrainer>
         <LogoLV src="./styles/img/LogoLinkValue.svg" alt="" />
