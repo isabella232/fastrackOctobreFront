@@ -38,7 +38,7 @@ describe('client file', () => {
     const getToken = null;
     await dataSender(formData);
     expect(axios).toHaveBeenCalledWith({
-      method: 'post', url: 'https://www.fasttrack-octobre-back.herokuapp.com/api/partner', data: formData, headers: { 'Content-Type': 'multipart/form-data', Authorization: `Bearer ${getToken}` },
+      method: 'post', url: 'https://fasttrack-octobre-back.herokuapp.com/api/partner', data: formData, headers: { 'Content-Type': 'multipart/form-data', Authorization: `Bearer ${getToken}` },
     });
   });
 });
