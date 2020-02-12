@@ -11,7 +11,7 @@ import RangeCursor from '../components/commons/GlobalsStyles/RangeCursor';
 import Nav from '../components/Nav';
 import Img from '../components/commons/GlobalsStyles/logoTechno';
 import TextHeader from '../components/commons/GlobalsStyles/TextHeader';
-import FixedButton from '../components/commons/GlobalsStyles/fixedButton';
+import FixedButton from '../components/FixedButton';
 import Picture from '../components/commons/GlobalsStyles/picture';
 import CardPartner from '../components/commons/GlobalsStyles/cardPartner';
 import ContainerCommon from '../components/commons/GlobalsStyles/container';
@@ -24,7 +24,7 @@ import BoxGoals from '../components/commons/GlobalsStyles/boxGoals';
 import BoxSkills from '../components/commons/GlobalsStyles/boxSkills';
 
 import convertSkills from '../Helper/Skills';
-import { initSkills, getPartnerDetails, setTechno } from '../store/actions';
+import { initSkills, getPartnerDetails, setTechno, clearPartnerStore } from '../store/actions';
 import SubContainer from '../components/SubContainer';
 import keyGenerator from '../Helper/KeyGenerator';
 import { partnerReciever, skillsSender } from '../services/client';
@@ -96,6 +96,10 @@ const PartnerDetails = () => {
   useEffect(() => {
     skillsSender(partner);
   }, [partner]);
+
+  useEffect(() => {
+    dispatch(clearPartnerStore({}));
+  }, []);
 
   const switchEdit = () => {
     setSkillsEdit(!skillEdit);
