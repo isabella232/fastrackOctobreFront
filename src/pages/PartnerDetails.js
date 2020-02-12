@@ -24,7 +24,7 @@ import BoxGoals from '../components/commons/GlobalsStyles/boxGoals';
 import BoxSkills from '../components/commons/GlobalsStyles/boxSkills';
 
 import convertSkills from '../Helper/Skills';
-import { initSkills, getPartnerDetails, setTechno } from '../store/actions';
+import { initSkills, getPartnerDetails, setTechno, clearPartnerStore } from '../store/actions';
 import SubContainer from '../components/SubContainer';
 import keyGenerator from '../Helper/KeyGenerator';
 import { partnerReciever, skillsSender } from '../services/client';
@@ -91,6 +91,10 @@ const PartnerDetails = () => {
         setTime(response.convertedTime);
       });
     convertSkills().then((data) => dispatch(initSkills(data)));
+  }, []);
+
+  useEffect(() => {
+    dispatch(clearPartnerStore({}));
   }, []);
 
   useEffect(() => {
