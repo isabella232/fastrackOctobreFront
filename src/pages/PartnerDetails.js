@@ -139,7 +139,6 @@ const PartnerDetails = () => {
                         <P margin=".8rem 0 .8rem .3rem">{`${partner.project}`}</P>
                       </HorizontalFlex>
                     </BoxHead>
-
                     <BoxGoals>
                       <HorizontalFlex>
                         <H3 fontSize="2rem">Objectifs</H3>
