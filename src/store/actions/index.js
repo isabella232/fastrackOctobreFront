@@ -8,6 +8,7 @@ export const ADD_VALUE = 'ADD_VALUE';
 export const ADD_LIST = 'ADD_LIST';
 export const ADD_NEW_PARTNER = 'ADD_NEW_PARTNER';
 export const CLEAR_STORE_LIST = 'CLEAR_STORE_LIST';
+export const CLEAR_PARTNER_STORE = 'CLEAR_PARTNER_STORE';
 
 export const formSubmit = (payload) => ({
   type: CHANGE_VALUE,
@@ -57,4 +58,9 @@ export const addNewPartner = (payload) => ({
 export const clearStoreList = (payload) => ({
   type: CLEAR_STORE_LIST,
   payload,
-})
+});
+
+export const clearPartnerStore = (payload) => ({
+  type: CLEAR_PARTNER_STORE,
+  payload,
+});

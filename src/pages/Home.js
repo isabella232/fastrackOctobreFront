@@ -14,6 +14,7 @@ import Container from '../components/commons/GlobalsStyles/container';
 import FiltredButton from '../components/commons/GlobalsStyles/filterButton';
 import keyGenerator from '../Helper/KeyGenerator';
 import { addList, clearStoreList } from '../store/actions';
+import Loading from '../components/Loading';
 
 const Link2 = styled(Link)`
   display: flex;
@@ -70,36 +71,36 @@ const Home = () => {
       <FixedButton />
       <SearchBar top="2rem" left="81%" />
       <Container>
-        {list
-          && list.map((partner, index) => {
-            const noFav = { id: partner.id, name: '', icon: 'undefinedFav' };
-            const fav = {
-              fav1: partner.favorites[0] || noFav,
-              fav2: partner.favorites[1] || noFav,
-              fav3: partner.favorites[2] || noFav,
-            };
-            return (
-              <Link2 key={keyGenerator(partner.id)} to={`/partner/${partner.id}`}>
-                <Card
-                  key={keyGenerator(partner.lastName)}
-                  partner={{
-                    id: partner.id,
-                    wait: (index * 250),
-                    firstname: partner.firstName,
-                    lastname: partner.lastName,
-                    image: partner.avatar,
-                    jobs: partner.job,
-                    firstTechnoName: fav.fav1.name,
-                    secondTechnoName: fav.fav2.name,
-                    thirdTechnoName: fav.fav3.name,
-                    firstTechno: `./styles/img/${fav.fav1.icon}.png`,
-                    secondTechno: `./styles/img/${fav.fav2.icon}.png`,
-                    thirdTechno: `./styles/img/${fav.fav3.icon}.png`,
-                  }}
-                />
-              </Link2>
-            );
-          })}
+        {list && Object.getOwnPropertyNames(list).length > 1 ? list.map((partner, index) => {
+          const noFav = { id: partner.id, name: '', icon: 'undefinedFav' };
+          const fav = {
+            fav1: partner.favorites[0] || noFav,
+            fav2: partner.favorites[1] || noFav,
+            fav3: partner.favorites[2] || noFav,
+          };
+          return (
+            <Link2 key={keyGenerator(partner.id)} to={`/partner/${partner.id}`}>
+              <Card
+                key={keyGenerator(partner.lastName)}
+                partner={{
+                  id: partner.id,
+                  wait: (index * 250),
+                  firstname: partner.firstName,
+                  lastname: partner.lastName,
+                  image: partner.avatar,
+                  jobs: partner.job,
+                  firstTechnoName: fav.fav1.name,
+                  secondTechnoName: fav.fav2.name,
+                  thirdTechnoName: fav.fav3.name,
+                  firstTechno: `./styles/img/${fav.fav1.icon}.png`,
+                  secondTechno: `./styles/img/${fav.fav2.icon}.png`,
+                  thirdTechno: `./styles/img/${fav.fav3.icon}.png`,
+                }}
+              />
+            </Link2>
+          );
+        })
+          : <Loading />}
       </Container>
     </>
 

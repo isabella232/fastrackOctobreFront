@@ -10,7 +10,7 @@ const Delayed = ({ wait, children }) => {
     setTimeout(() => {
       setHidden(true);
     }, wait);
-  });
+  }, []);
 
   return <Delay animate={hidden}>{children}</Delay>;
 };
