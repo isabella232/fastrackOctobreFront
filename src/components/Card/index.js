@@ -47,16 +47,16 @@ const Card = ({ partner }) => (
     </Container2>
     <LogoContainer>
       <Logo>
-        <Img src={partner.firstTechno} alt="" />
-        <Up><P>{partner.firstTechnoName}</P></Up>
+        <Img src={partner.firstTechno || 'coucou'} alt="" />
+        <Up><P>{partner.firstTechnoName || 'coucou'}</P></Up>
       </Logo>
       <Logo>
-        <Img src={partner.secondTechno} alt="" />
-        <Up><P>{partner.secondTechnoName}</P></Up>
+        <Img src={partner.secondTechno || 'coucou'} alt="" />
+        <Up><P>{partner.secondTechnoName || 'coucou'}</P></Up>
       </Logo>
       <Logo>
-        <Img src={partner.thirdTechno} alt="" />
-        <Up><P>{partner.thirdTechnoName}</P></Up>
+        <Img src={partner.thirdTechno || 'coucou'} alt="" />
+        <Up><P>{partner.thirdTechnoName || 'coucou'}</P></Up>
       </Logo>
     </LogoContainer>
   </Delayed>
@@ -69,10 +69,10 @@ Card.propTypes = {
     firstname: PropTypes.string.isRequired,
     lastname: PropTypes.string.isRequired,
     jobs: PropTypes.string.isRequired,
-    firstTechno: PropTypes.string.isRequired,
+    firstTechno: PropTypes.string,
     secondTechno: PropTypes.string,
     thirdTechno: PropTypes.string,
-    firstTechnoName: PropTypes.string.isRequired,
+    firstTechnoName: PropTypes.string,
     secondTechnoName: PropTypes.string,
     thirdTechnoName: PropTypes.string,
     wait: PropTypes.number.isRequired,
