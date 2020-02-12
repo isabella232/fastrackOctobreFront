@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { formSubmit, addNewPartner, clearStoreList } from '../../store/actions/index';
+import { formSubmit, addNewPartner } from '../../store/actions/index';
 
 import submitForm from '../../Helper/Partner/submitForm';
 import Step1 from './steps/Step1';
