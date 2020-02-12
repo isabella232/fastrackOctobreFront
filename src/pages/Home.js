@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import { faSortAlphaDownAlt, faSortAlphaDown } from '@fortawesome/free-solid-svg-icons';
 import Nav from '../components/Nav';
 import TextHeader from '../components/TextHeader';
-import FixedButton from '../components/FixedButton';
+import FixedButton from '../components/commons/GlobalsStyles/fixedButton';
 import { partnerList, filtredPartnerList } from '../services/client';
 import SearchBar from '../components/commons/GlobalsStyles/searchBar';
 import Card from '../components/Card';
