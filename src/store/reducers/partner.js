@@ -17,7 +17,7 @@ const partnerReducer = (state = initialState, action = {}) => {
     case GET_PARTNER_DETAILS:
       return { ...state, partnerDetails: action.payload };
     case CLEAR_PARTNER_STORE:
-      return {...state, partnerDetails: action.payload };
+      return { ...state, partnerDetails: action.payload };
     case SET_SKILL_VALUE:
       return {
         ...state,

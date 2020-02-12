@@ -24,7 +24,7 @@ import BoxGoals from '../components/commons/GlobalsStyles/boxGoals';
 import BoxSkills from '../components/commons/GlobalsStyles/boxSkills';
 
 import convertSkills from '../Helper/Skills';
-import { initSkills, getPartnerDetails, setTechno } from '../store/actions';
+import { initSkills, getPartnerDetails, setTechno, clearPartnerStore } from '../store/actions';
 import SubContainer from '../components/SubContainer';
 import keyGenerator from '../Helper/KeyGenerator';
 import { partnerReciever, skillsSender } from '../services/client';
@@ -97,6 +97,10 @@ const PartnerDetails = () => {
     skillsSender(partner);
   }, [partner]);
 
+  useEffect(() => {
+    dispatch(clearPartnerStore({}));
+  }, []);
+
   const switchEdit = () => {
     setSkillsEdit(!skillEdit);
   };
@@ -139,7 +143,6 @@ const PartnerDetails = () => {
                         <P margin=".8rem 0 .8rem .3rem">{`${partner.project}`}</P>
                       </HorizontalFlex>
                     </BoxHead>
-
                     <BoxGoals>
                       <HorizontalFlex>
                         <H3 fontSize="2rem">Objectifs</H3>
