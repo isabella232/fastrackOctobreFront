@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUser, faGraduationCap, faChartLine, faDoorOpen,
 } from '@fortawesome/free-solid-svg-icons';
+import { phoneQuery} from '../../services/media-queries';
 
 
 import Navbar from '../commons/GlobalsStyles/nav';
@@ -15,11 +16,37 @@ height: 100vh;
 display: flex;
 justify-content: space-around;
 align-items: center;
-flex-direction: column;`;
+flex-direction: column;
+${phoneQuery`
+flex-direction: row;
+height: 50px;
+width: 100%;
+margin-left: 50px;
+`};
+`;
+
 
 const Img = styled.img`width: 80px;
 position: absolute;
-top: 0;`;
+top: 0;
+${phoneQuery`
+width: 50px;
+`};
+`;
+
+const LinkDisconect = styled(Link)`
+    color: #FFF; 
+    width: 80px; 
+    position: absolute; 
+    top: calc(100% - 48px);
+    ${phoneQuery`
+      position: absolute; 
+      top: 70px;
+      left: 15px;
+    `};
+
+    
+`;
 
 
 const Nav = () => (
@@ -32,14 +59,11 @@ const Nav = () => (
       <Link to="/"><FontAwesomeIcon icon={faGraduationCap} style={{ color: '#FFF', width: '80px' }} size="2x" /></Link>
       <Link to="/"><FontAwesomeIcon icon={faChartLine} style={{ color: '#FFF', width: '80px' }} size="2x" /></Link>
     </IconContainer>
-    <Link to="/" onClick={() => localStorage.removeItem('token')}><FontAwesomeIcon
+    <LinkDisconect to="/" onClick={() => localStorage.removeItem('token')}><FontAwesomeIcon
       icon={faDoorOpen}
-      style={{
-        color: '#FFF', width: '80px', position: 'absolute', top: 'calc(100% - 48px)',
-      }}
       size="1x"
     />
-    </Link>
+    </LinkDisconect>
   </Navbar>
 );
 

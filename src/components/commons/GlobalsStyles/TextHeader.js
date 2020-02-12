@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
+import { phoneQuery, tabletQuery } from '../../../services/media-queries';
 
 const Header = styled.div`
   width: calc(100% - 80px);
@@ -12,6 +13,9 @@ const Header = styled.div`
   flex-direction: column;
   padding-top: 2.5rem;
   padding-bottom: 1.5rem;
+  ${phoneQuery`
+  margin: 40px auto;
+`};
 `;
 
 const Title = styled.h2`

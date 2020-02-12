@@ -11,7 +11,7 @@ import RangeCursor from '../components/commons/GlobalsStyles/RangeCursor';
 import Nav from '../components/Nav';
 import Img from '../components/commons/GlobalsStyles/logoTechno';
 import TextHeader from '../components/commons/GlobalsStyles/TextHeader';
-import FixedButton from '../components/FixedButton';
+import FixedButton from '../components/commons/GlobalsStyles/fixedButton';
 import Picture from '../components/commons/GlobalsStyles/picture';
 import CardPartner from '../components/commons/GlobalsStyles/cardPartner';
 import ContainerCommon from '../components/commons/GlobalsStyles/container';

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import styled from '@emotion/styled';
 
 import { faSortAlphaDownAlt, faSortAlphaDown } from '@fortawesome/free-solid-svg-icons';
+import Link2 from '../components/commons/HomeStyles/HomeStyles';
 import Nav from '../components/Nav';
 import TextHeader from '../components/TextHeader';
-import FixedButton from '../components/FixedButton';
+import FixedButton from '../components/commons/GlobalsStyles/cardPartner';
 import { partnerList, filtredPartnerList } from '../services/client';
 import SearchBar from '../components/commons/GlobalsStyles/searchBar';
 import Card from '../components/Card';
@@ -15,14 +14,6 @@ import FiltredButton from '../components/commons/GlobalsStyles/filterButton';
 import keyGenerator from '../Helper/KeyGenerator';
 import { addList, clearStoreList } from '../store/actions';
 
-const Link2 = styled(Link)`
-  display: flex;
-  margin: 0 5rem;
-  width: 37%;
-  height: 34vh;
-  flex-wrap: wrap;
-  margin-bottom: 8rem;
-`;
 
 const Home = () => {
   const [asc, setAsc] = useState(false);
@@ -65,10 +56,9 @@ const Home = () => {
     <>
       <Nav />
       <TextHeader title="Partners" subtitle="Liste des partners enregistrés" />
-      <FiltredButton top="2.5rem" left="96%" icon={faSortAlphaDown} click={ascFilter} asc={asc} />
-      <FiltredButton top="2.5rem" left="98%" icon={faSortAlphaDownAlt} click={descFilter} desc={desc} />
-      <FixedButton />
-      <SearchBar top="2rem" left="81%" />
+      <FiltredButton icon1={faSortAlphaDown} click={ascFilter} asc={asc} />
+      <FiltredButton icon2={faSortAlphaDownAlt} click={descFilter} desc={desc} />
+      <SearchBar top="2rem" />
       <Container>
         {list
           && list.map((partner, index) => {
