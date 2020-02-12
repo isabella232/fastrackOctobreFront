@@ -16,7 +16,7 @@ left: calc(50% + 1.25em);
 top: calc(50%);
 border: 0.4em solid transparent;
 border-color: #eee;
-border-top-color: #3E67EC;
+border-top-color: #29AAE2;
 border-radius: 50%;
 animation: ${loadingsping} 1s linear infinite;
 `;
