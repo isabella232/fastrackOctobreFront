@@ -16,6 +16,19 @@ exports[`Nav renders with correct style 1`] = `
   position: fixed;
 }
 
+@media screen and (max-width:549px) {
+  .emotion-0 {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    padding: 0 0;
+    top: 0;
+  }
+}
+
 <div
   className="emotion-0"
 />
