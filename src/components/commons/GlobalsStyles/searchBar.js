@@ -9,6 +9,8 @@ import { clearStoreList, addList } from '../../../store/actions';
 const Bar = styled.input`
   position: absolute;
   width: 15%;
+  max-width: 300px;
+  min-width: 200px;
   height: 10px;
   border-radius: 45px;
   border: none;
@@ -17,7 +19,7 @@ const Bar = styled.input`
   font-weight: 300;
   padding: 1rem 1rem;
   top: ${(props) => props.top};
-  right: 60px;
+  right: 100px;
   
   ${tabletQuery`
   top: 7em;

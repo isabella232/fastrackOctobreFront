@@ -9,7 +9,7 @@ const ButtonASC = styled.div`
   width: 16px;
   height: 14px;
   top: 2.5rem;
-  left: 96%;
+  right: 40px;
   ${tabletQuery`
   top: 6em;
   left: 80%
@@ -26,7 +26,7 @@ const ButtonDESC = styled.div`
   width: 16px;
   height: 14px;
   top: 2.5rem;
-  left: 98%;
+  right: 70px;
   ${tabletQuery`
   top: 6em;
   left: 84%

@@ -7,6 +7,7 @@ const Link2 = styled(Link)`
   margin: 0 4%;
   width: 37%;
   min-width: 300px;
+  max-width: 600px;
   flex-wrap: wrap;
   margin-bottom: 4em;
   ${tabletQuery`
@@ -15,6 +16,9 @@ const Link2 = styled(Link)`
 `};
 ${phoneQuery`
   margin: 4%;
+  width: 90%;
+  min-width: 250px;
+  font-size: 4vmin;
 
 `};
 

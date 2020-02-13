@@ -5,7 +5,6 @@ import { faSortAlphaDownAlt, faSortAlphaDown } from '@fortawesome/free-solid-svg
 import Link2 from '../components/commons/HomeStyles/HomeStyles';
 import Nav from '../components/Nav';
 import TextHeader from '../components/TextHeader';
-import FixedButton from '../components/commons/GlobalsStyles/cardPartner';
 import { partnerList, filtredPartnerList } from '../services/client';
 import SearchBar from '../components/commons/GlobalsStyles/searchBar';
 import Card from '../components/Card';
