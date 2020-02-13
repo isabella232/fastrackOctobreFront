@@ -7,6 +7,7 @@ import Nav from '../components/Nav';
 import TextHeader from '../components/TextHeader';
 import { partnerList, filtredPartnerList } from '../services/client';
 import SearchBar from '../components/commons/GlobalsStyles/searchBar';
+import FixedButton from '../components/FixedButton';
 import Card from '../components/Card';
 import Container from '../components/commons/GlobalsStyles/container';
 import FiltredButton from '../components/commons/GlobalsStyles/filterButton';
@@ -58,6 +59,7 @@ const Home = () => {
       <TextHeader title="Partners" subtitle="Liste des partners enregistrés" />
       <FiltredButton icon1={faSortAlphaDown} click={ascFilter} asc={asc} />
       <FiltredButton icon2={faSortAlphaDownAlt} click={descFilter} desc={desc} />
+      <FixedButton />
       <SearchBar top="2rem" />
       <Container>
         {list && Object.getOwnPropertyNames(list).length > 1 ? list.map((partner, index) => {
