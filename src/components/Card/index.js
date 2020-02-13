@@ -6,9 +6,12 @@ import PictureBox from '../commons/GlobalsStyles/picture';
 import Img from '../commons/GlobalsStyles/logoTechno';
 import { H3, P, SpanBold } from '../commons/GlobalsStyles/text';
 import Delayed from '../commons/GlobalsStyles/delayed';
+import { phoneQuery } from '../../services/media-queries';
+
 
 const CustomH3 = styled(H3)`
   padding: 1rem;
+  margin-top: 1em;
 `;
 
 const LogoContainer = styled.div`
@@ -29,6 +32,17 @@ const Logo = styled.div`
 
 const Up = styled.div`
   text-transform: uppercase;
+  ${phoneQuery`
+  font-size: 2vmin;
+`};
+`;
+
+const ImgBox = styled.div`
+width: 9vmin;
+height: 9vmin;
+max-width: 80px;
+max-height: 80px;
+
 `;
 
 const Container2 = styled.div`
@@ -47,15 +61,21 @@ const Card = ({ partner }) => (
     </Container2>
     <LogoContainer>
       <Logo>
-        <Img src={partner.firstTechno} alt="" />
+        <ImgBox>
+          <Img src={partner.firstTechno} alt="" />
+        </ImgBox>
         <Up><P>{partner.firstTechnoName}</P></Up>
       </Logo>
       <Logo>
-        <Img src={partner.secondTechno} alt="" />
+        <ImgBox>
+          <Img src={partner.secondTechno} alt="" />
+        </ImgBox>
         <Up><P>{partner.secondTechnoName}</P></Up>
       </Logo>
       <Logo>
-        <Img src={partner.thirdTechno} alt="" />
+        <ImgBox>
+          <Img src={partner.thirdTechno} alt="" />
+        </ImgBox>
         <Up><P>{partner.thirdTechnoName}</P></Up>
       </Logo>
     </LogoContainer>

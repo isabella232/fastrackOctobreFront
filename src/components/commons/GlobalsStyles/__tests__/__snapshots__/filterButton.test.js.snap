@@ -5,6 +5,44 @@ exports[`filterButton should renders with correct styles 1`] = `
   position: absolute;
   width: 16px;
   height: 14px;
+  top: 2.5rem;
+  right: 40px;
+}
+
+@media screen and (max-width:999px) {
+  .emotion-0 {
+    top: 6em;
+    left: 80%;
+  }
+}
+
+@media screen and (max-width:549px) {
+  .emotion-0 {
+    top: 128px;
+    left: 82%;
+  }
+}
+
+.emotion-1 {
+  position: absolute;
+  width: 16px;
+  height: 14px;
+  top: 2.5rem;
+  right: 70px;
+}
+
+@media screen and (max-width:999px) {
+  .emotion-1 {
+    top: 6em;
+    left: 84%;
+  }
+}
+
+@media screen and (max-width:549px) {
+  .emotion-1 {
+    top: 128px;
+    left: 88%;
+  }
 }
 
 <a
@@ -13,6 +51,9 @@ exports[`filterButton should renders with correct styles 1`] = `
 >
   <div
     className="emotion-0"
+  />
+  <div
+    className="emotion-1"
   />
 </a>
 `;

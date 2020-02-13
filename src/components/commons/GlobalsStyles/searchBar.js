@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-
+import { phoneQuery, tabletQuery } from '../../../services/media-queries';
 import { getSearchBar } from '../../../services/client';
 import { clearStoreList, addList } from '../../../store/actions';
 
 const Bar = styled.input`
   position: absolute;
-  width: 200px;
+  width: 15%;
+  max-width: 300px;
+  min-width: 200px;
   height: 10px;
   border-radius: 45px;
   border: none;
@@ -17,7 +19,20 @@ const Bar = styled.input`
   font-weight: 300;
   padding: 1rem 1rem;
   top: ${(props) => props.top};
-  left: ${(props) => props.left};
+  right: 100px;
+  
+  ${tabletQuery`
+  top: 7em;
+  left: calc(50% + 40px);
+  transform: translateX(-50%);
+  width : 40%;
+`};
+ ${phoneQuery`
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width : 60%;
+`};
 `;
 
 

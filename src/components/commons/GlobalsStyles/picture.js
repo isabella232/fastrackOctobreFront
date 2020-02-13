@@ -7,7 +7,8 @@ const PictureBox = styled.div`
   border: 4px solid #DFE4EA;
   border-radius: 100px;
   top: -85px;
-  left: calc(50% - 85px);
+  left: calc(50%);
+  transform: translateX(-50%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
