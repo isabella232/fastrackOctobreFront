@@ -22,6 +22,7 @@ exports[`container renders with correct styles 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
+  margin-top: 5em;
 }
 
 @media screen and (max-width:999px) {

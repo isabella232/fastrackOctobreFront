@@ -6,7 +6,7 @@ exports[`filterButton should renders with correct styles 1`] = `
   width: 16px;
   height: 14px;
   top: 2.5rem;
-  left: 96%;
+  right: 40px;
 }
 
 @media screen and (max-width:999px) {
@@ -28,7 +28,7 @@ exports[`filterButton should renders with correct styles 1`] = `
   width: 16px;
   height: 14px;
   top: 2.5rem;
-  left: 98%;
+  right: 70px;
 }
 
 @media screen and (max-width:999px) {
