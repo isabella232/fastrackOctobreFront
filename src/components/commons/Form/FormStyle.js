@@ -14,6 +14,7 @@ export const Button = styled.button`
   align-items: center;
   color: #fff;
   border: none;
+  margin: 0 auto;
   margin-top: 1.5rem;
   transition: 0.3s cubic-bezier(0.39, 0.575, 0.565, 1);
   &:hover{

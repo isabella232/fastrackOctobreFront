@@ -38,8 +38,8 @@ const Up = styled.div`
 `;
 
 const ImgBox = styled.div`
-width: 9vmin;
-height: 9vmin;
+width: 7vmin;
+height: 7vmin;
 max-width: 80px;
 max-height: 80px;
 

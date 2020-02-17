@@ -116,7 +116,7 @@ const Form = ({ image, changeImage, change }) => (
       </FlexSpaceBetween>
     </FlexColumn>
     <HorizontalFlex width="100%" alignItems="center">
-      <Button type="submit">Suivant</Button>
+      <Button type="submit">Valider</Button>
     </HorizontalFlex>
   </>
 );

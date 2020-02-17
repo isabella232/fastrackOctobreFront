@@ -112,14 +112,18 @@ const PartnerDetails = () => {
   return (
     <>
       {partner && Object.getOwnPropertyNames(partner).length < 1
-        ? <Loading />
+        ? (
+          <>
+            <Nav />
+            <Loading />
+          </>
+        )
         : (
           <>
             {partner && (
               <>
                 <Nav />
                 <TextHeader title={`${partner.firstName} ${partner.lastName}`} />
-                <FixedButton />
                 <Container>
                   <Card>
                     <Pphone>
@@ -172,7 +176,7 @@ const PartnerDetails = () => {
                                 && (
                                   <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
                                     <HorizontalFlex width="100%" justifyContent="flex-start">
-                                      <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${res.icon}.png`} alt="techno-Logo" />
+                                      <Img width="17%" margin=".5rem 2rem 0 0" src={`/styles/img/${res.icon}.png`} alt="techno-Logo" />
                                       <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
                                     </HorizontalFlex>
                                     <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} level={partnerSkill.level} res={res} />
@@ -186,7 +190,7 @@ const PartnerDetails = () => {
                             .map((res) => (
                               <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
                                 <HorizontalFlex width="100%" justifyContent="flex-start">
-                                  <Img height="2rem" width="2rem" margin="0 2rem 0 0" src={`./styles/img/${res.icon}.png`} alt="techno-Logo" />
+                                  <Img width="17%" margin=".5rem 2rem 0 0" src={`/styles/img/${res.icon}.png`} alt="techno-Logo" />
                                   <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
                                 </HorizontalFlex>
                                 <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} res={res} level={0} />

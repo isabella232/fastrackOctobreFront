@@ -1,11 +1,12 @@
 import {
-  CHANGE_VALUE, GET_PARTNER_DETAILS, SET_SKILL_VALUE, ADD_VALUE, ADD_LIST, ADD_NEW_PARTNER, CLEAR_STORE_LIST, CLEAR_PARTNER_STORE,
+  CHANGE_VALUE, GET_PARTNER_DETAILS, SET_SKILL_VALUE, ADD_VALUE, ADD_LIST, ADD_NEW_PARTNER, CLEAR_STORE_LIST, CLEAR_PARTNER_STORE, CHANGE_FILTER,
 } from '../actions';
 
 const initialState = {
   list: [],
   currentPartner: {},
   partnerDetails: [],
+  filterState: 0,
 };
 
 const partnerReducer = (state = initialState, action = {}) => {
@@ -38,6 +39,11 @@ const partnerReducer = (state = initialState, action = {}) => {
       return {
         ...state,
         list: [action.payload, ...state.list],
+      };
+    case CHANGE_FILTER:
+      return {
+        ...state,
+        filterState: action.payload,
       };
     case CLEAR_STORE_LIST:
       return {

@@ -46,19 +46,16 @@ const Home = () => {
   };
 
   useEffect(() => {
-    getList();
-  }, [asc, desc]);
-
-  useEffect(() => {
     dispatch(clearStoreList([]));
+    return getList();
   }, []);
 
   return (
     <>
       <Nav />
       <TextHeader title="Partners" subtitle="Liste des partners enregistrés" />
-      <FiltredButton icon1={faSortAlphaDown} click={ascFilter} asc={asc} />
-      <FiltredButton icon2={faSortAlphaDownAlt} click={descFilter} desc={desc} />
+      <FiltredButton icon1={faSortAlphaDownAlt} click={ascFilter} asc={asc} />
+      <FiltredButton icon2={faSortAlphaDown} click={descFilter} desc={desc} />
       <FixedButton />
       <SearchBar top="2rem" />
       <Container>
