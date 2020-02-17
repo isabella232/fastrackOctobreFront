@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { phoneQuery, tabletQuery } from '../../../services/media-queries';
-import { getSearchBar } from '../../../services/client';
+import { getSearchBar, partnerList } from '../../../services/client';
 import { clearStoreList, addList } from '../../../store/actions';
 
 const Bar = styled.input`
@@ -42,7 +42,7 @@ const SearchBar = ({ top, left }) => {
 
   const handleSubmit = async () => {
     await dispatch(clearStoreList([]));
-    getSearchBar(value).then((res) => dispatch(addList(res)));
+    value === '' ? partnerList().then((res) => dispatch(addList(res.data))) : getSearchBar(value).then((res) => dispatch(addList(res)));
   };
 
   return (
