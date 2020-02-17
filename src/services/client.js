@@ -30,7 +30,7 @@ export const skillsReciever = () => axios.get(`${baseUrl}/skill`,
     window.location.assign('https://fasttrack-octobre-front.herokuapp.com/login');
   });
 
-export const getSearchBar = (options, order = '') => axios.get(`${baseUrl}/partner/${options}/${order}`,
+export const getSearchBar = (options) => axios.get(`${baseUrl}/partner/${options}`,
   {
     headers: {
       Authorization: `Bearer ${getToken()}`,

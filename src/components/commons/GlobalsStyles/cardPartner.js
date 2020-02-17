@@ -10,7 +10,7 @@ const CardPartner = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 3rem;
+  padding: 3rem 0 1.5rem 0rem;
 `;
 
 export default CardPartner;

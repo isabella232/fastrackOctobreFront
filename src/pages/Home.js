@@ -48,6 +48,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(clearStoreList([]));
     return getList();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -59,8 +60,8 @@ const Home = () => {
       <FixedButton />
       <SearchBar top="2rem" />
       <Container>
-        {list && Object.getOwnPropertyNames(list).length > 1 ? list.map((partner, index) => {
-          const noFav = { id: partner.id, name: '', icon: 'undefinedFav' };
+        {list ? list.map((partner, index) => {
+          const noFav = { id: partner.id, name: '', icon: 'idk' };
           const fav = {
             fav1: partner.favorites[0] || noFav,
             fav2: partner.favorites[1] || noFav,

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { phoneQuery, tabletQuery } from '../../../services/media-queries';
+import { phoneQuery } from '../../../services/media-queries';
 
 const Navbar = styled.div`
   width: 80px;

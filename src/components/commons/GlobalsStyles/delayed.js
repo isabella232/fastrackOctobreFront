@@ -5,11 +5,11 @@ import Delay from './delay';
 
 const Delayed = ({ wait, children }) => {
   const [hidden, setHidden] = useState(false);
-
   useEffect(() => {
     setTimeout(() => {
       setHidden(true);
     }, wait);
+    // eslint-disable-next-line
   }, []);
 
   return <Delay animate={hidden}>{children}</Delay>;

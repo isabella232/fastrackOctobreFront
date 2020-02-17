@@ -71,6 +71,7 @@ const RangeCursor = ({ res, level }) => {
 
   useEffect(() => {
     level === 0 ? setIsActive(false) : setIsActive(true);
+    // eslint-disable-next-line
   }, []);
 
   // eslint-disable-next-line no-shadow

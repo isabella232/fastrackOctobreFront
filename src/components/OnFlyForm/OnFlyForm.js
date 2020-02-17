@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
-import TextareaAutosize from 'react-textarea-autosize';
 import PropTypes from 'prop-types';
 import VerticalFlex from '../commons/GlobalsStyles/verticalFlex';
 import { P } from '../commons/GlobalsStyles/text';
@@ -16,7 +15,7 @@ const OnFlyForm = ({ title }) => {
     <VerticalFlex margin=".8rem 2rem .8rem .3rem" width="calc(100%/3)">
       <P fontWeight="bold" margin=".8rem 0 .8rem .3rem" display="block">{title}</P>
       <Form margin=".8rem 0 .8rem .3rem">
-          <P2 contentEditable="true">Cliquez ici pour modifier</P2>
+        <P2>Cliquez ici pour modifier</P2>
       </Form>
     </VerticalFlex>
   );

@@ -11,7 +11,6 @@ import RangeCursor from '../components/commons/GlobalsStyles/RangeCursor';
 import Nav from '../components/Nav';
 import Img from '../components/commons/GlobalsStyles/logoTechno';
 import TextHeader from '../components/commons/GlobalsStyles/TextHeader';
-import FixedButton from '../components/commons/GlobalsStyles/fixedButton';
 import Picture from '../components/commons/GlobalsStyles/picture';
 import CardPartner from '../components/commons/GlobalsStyles/cardPartner';
 import ContainerCommon from '../components/commons/GlobalsStyles/container';
@@ -91,6 +90,7 @@ const PartnerDetails = () => {
         setTime(response.convertedTime);
       });
     convertSkills().then((data) => dispatch(initSkills(data)));
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -99,6 +99,7 @@ const PartnerDetails = () => {
 
   useEffect(() => {
     dispatch(clearPartnerStore({}));
+    // eslint-disable-next-line
   }, []);
 
   const switchEdit = () => {
@@ -176,7 +177,7 @@ const PartnerDetails = () => {
                                 && (
                                   <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
                                     <HorizontalFlex width="100%" justifyContent="flex-start">
-                                      <Img width="17%" margin=".5rem 2rem 0 0" src={`/styles/img/${res.icon}.png`} alt="techno-Logo" />
+                                      <Img width="15%" margin=".5rem 2rem 0 0" src={`/styles/img/${res.icon}.png`} alt="techno-Logo" />
                                       <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
                                     </HorizontalFlex>
                                     <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} level={partnerSkill.level} res={res} />
@@ -190,7 +191,7 @@ const PartnerDetails = () => {
                             .map((res) => (
                               <HorizontalFlex marginTop="2rem" justifyContent="space-between" width="55%" minW="" maxW="" margin="2rem auto">
                                 <HorizontalFlex width="100%" justifyContent="flex-start">
-                                  <Img width="17%" margin=".5rem 2rem 0 0" src={`/styles/img/${res.icon}.png`} alt="techno-Logo" />
+                                  <Img width="15%" margin=".5rem 2rem 0 0" src={`/styles/img/${res.icon}.png`} alt="techno-Logo" />
                                   <P fontWeight="bold" padding=".5rem 2rem 0rem 0">{res.name}</P>
                                 </HorizontalFlex>
                                 <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} res={res} level={0} />
