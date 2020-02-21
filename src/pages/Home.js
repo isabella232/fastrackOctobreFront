@@ -25,11 +25,9 @@ const Home = () => {
 
   const ascFilter = () => {
     setAsc(!asc);
-    setDesc(desc);
   };
 
   const descFilter = () => {
-    setAsc(asc);
     setDesc(!desc);
   };
 
@@ -48,20 +46,18 @@ const Home = () => {
   useEffect(() => {
     dispatch(clearStoreList([]));
     return getList();
-    // eslint-disable-next-line
   }, []);
 
   return (
     <>
       <Nav />
       <TextHeader title="Partners" subtitle="Liste des partners enregistrés" />
-      <FiltredButton icon1={faSortAlphaDownAlt} click={ascFilter} asc={asc} />
-      <FiltredButton icon2={faSortAlphaDown} click={descFilter} desc={desc} />
+      <FiltredButton icon1={faSortAlphaDownAlt} icon2={faSortAlphaDown} ascClick={ascFilter} descClick={descFilter} />
       <FixedButton />
       <SearchBar top="2rem" />
       <Container>
         {list ? list.map((partner, index) => {
-          const noFav = { id: partner.id, name: '', icon: 'idk' };
+          const noFav = { id: partner.id, name: '', icon: 'undefinedFav' };
           const fav = {
             fav1: partner.favorites[0] || noFav,
             fav2: partner.favorites[1] || noFav,

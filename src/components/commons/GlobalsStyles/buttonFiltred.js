@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSortAlphaDownAlt, faSortAlphaDown } from '@fortawesome/free-solid-svg-icons';
 import { phoneQuery, tabletQuery } from '../../../services/media-queries';
 
 const ButtonASC = styled.div`
@@ -43,19 +45,17 @@ const Icon = styled(FontAwesomeIcon)`
 
 `;
 
-const FiltredButton = ({ descClick, ascClick, icon1, icon2 }) => {
+const ButtonFiltred = ({ supActive }) => {
+  const [active] = useState(supActive);
 
   return (
     <>
-      <ButtonASC onClick={ascClick}>
-        <Icon icon={icon1} size="1x" color="#fff" onClick={ascClick} />
+      <ButtonASC>
+        <Icon icon={faSortAlphaDown} size="1x" color={active} />
       </ButtonASC>
-      <ButtonDESC onClick={descClick}>
-        <Icon icon={icon2} size="1x" color="#fff" />
-      </ButtonDESC>
     </>
   );
 };
 
 
-export default FiltredButton;
+export default ButtonFiltred;

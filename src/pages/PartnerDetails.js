@@ -183,7 +183,6 @@ const PartnerDetails = () => {
                                     <RangeCursor key={`${keyGenerator(res.name)}_${res.id}`} level={partnerSkill.level} res={res} />
                                   </HorizontalFlex>
                                 ))
-
                             ))}
                         {skillEdit
                           && skills[techno]
