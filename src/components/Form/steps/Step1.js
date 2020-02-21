@@ -99,7 +99,6 @@ const Form = ({ image, changeImage, change }) => {
         <FlexSpaceBetween>
           <WhiteP>Client</WhiteP>
           <Select name="customer" onChange={(e) => change && setCustomer(e.target.value)} id="select">
-            {/* J'attends d'avoir les clients en bdd pour map */}
             <option>Sélectionnez un client</option>
             <option>FTV</option>
             <option>M6</option>
