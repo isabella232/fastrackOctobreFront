@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import {
@@ -43,83 +43,87 @@ const InputNumber = styled(Input)`
   margin: 0;
 `;
 
-const Form = ({ image, changeImage, change }) => (
-  <>
-    <HorizontalFlex width="100%" alignItems="center">
-      <Title>Ajouter un partner</Title>
-    </HorizontalFlex>
-    <FlexColumn>
-      <WhiteP>Sélectionnez une photo de profil</WhiteP>
-      <Label htmlFor="image" url={image}>
-        {!image && (
-          <FontAwesomeIcon icon={faUpload} style={{ color: '#282828' }} size="1x" />
-        )}
-      </Label>
-      <InputFile name="avatar" type="file" accept="image/png, image/jpeg, image/jpg, image.svg" id="image" onChange={changeImage} required />
-    </FlexColumn>
-    <HorizontalFlex width="100%" alignItems="center">
-
-      <FontAwesomeIcon icon={faUser} style={{ color: '#FFF' }} size="1x" />
-      <P>Informations personelles</P>
-    </HorizontalFlex>
-    <FlexColumn>
-      <FlexSpaceBetween>
-        <WhiteP>Prénom</WhiteP>
-        <Input name="firstName" placeholder="Jean" onChange={change} required />
-      </FlexSpaceBetween>
-      <FlexSpaceBetween>
-        <WhiteP>Nom</WhiteP>
-        <Input name="lastName" placeholder="Dupuis" onChange={change} required />
-      </FlexSpaceBetween>
-      <FlexSpaceBetween>
-        <WhiteP>Tél.</WhiteP>
-        <Input name="phoneNumber" type="tel" placeholder="0634256172" onChange={change} required />
-      </FlexSpaceBetween>
-      <FlexSpaceBetween>
-        <WhiteP>E-mail</WhiteP>
-        <Input name="email" type="email" placeholder="Jean.dupuis@link-value.fr" onChange={change} required />
-      </FlexSpaceBetween>
-    </FlexColumn>
-    <HorizontalFlex width="100%" alignItems="center">
-      <FontAwesomeIcon icon={faBriefcase} style={{ color: '#FFF' }} size="1x" />
-      <P>Informations professionnelles</P>
-    </HorizontalFlex>
-    <FlexColumn>
-      <FlexSpaceBetween>
-        <WhiteP>Métier</WhiteP>
-        <Input name="job" placeholder="Développeur" onChange={change} required />
-      </FlexSpaceBetween>
-      <FlexSpaceBetween>
-        <WhiteP>Exp.</WhiteP>
-        <InputNumber name="experience" placeholder="3 ans" type="number" min="0" onChange={change} required />
-      </FlexSpaceBetween>
-      <FlexSpaceBetween>
-        <WhiteP>Client</WhiteP>
-        <Select name="customer" onChange={change} id="select">
-          {/* J'attends d'avoir les clients en bdd pour map */}
-          <option>Sélectionnez un client</option>
-          <option>FTV</option>
-          <option>M6</option>
-          <option>Sodexo</option>
-          <option>Keplr</option>
-          <option>Booster</option>
-        </Select>
-      </FlexSpaceBetween>
-      <FlexSpaceBetween>
-        {document.getElementById('select') === 'Booster'
-          && (
-            <>
-              <WhiteP> Projet</WhiteP>
-              <Input name="project" placeholder="Mister Aslphalt" onChange={change} />
-            </>
+const Form = ({ image, changeImage, change }) => {
+  const [customer, setCustomer] = useState('');
+  
+  return (
+    <>
+      <HorizontalFlex width="100%" alignItems="center">
+        <Title>Ajouter un partner</Title>
+      </HorizontalFlex>
+      <FlexColumn>
+        <WhiteP>Sélectionnez une photo de profil</WhiteP>
+        <Label htmlFor="image" url={image}>
+          {!image && (
+            <FontAwesomeIcon icon={faUpload} style={{ color: '#282828' }} size="1x" />
           )}
-      </FlexSpaceBetween>
-    </FlexColumn>
-    <HorizontalFlex width="100%" alignItems="center">
-      <Button type="submit">Valider</Button>
-    </HorizontalFlex>
-  </>
-);
+        </Label>
+        <InputFile name="avatar" type="file" accept="image/png, image/jpeg, image/jpg, image.svg" id="image" onChange={changeImage} required />
+      </FlexColumn>
+      <HorizontalFlex width="100%" alignItems="center">
+
+        <FontAwesomeIcon icon={faUser} style={{ color: '#FFF' }} size="1x" />
+        <P>Informations personelles</P>
+      </HorizontalFlex>
+      <FlexColumn>
+        <FlexSpaceBetween>
+          <WhiteP>Prénom</WhiteP>
+          <Input name="firstName" placeholder="Jean" onChange={change} required />
+        </FlexSpaceBetween>
+        <FlexSpaceBetween>
+          <WhiteP>Nom</WhiteP>
+          <Input name="lastName" placeholder="Dupuis" onChange={change} required />
+        </FlexSpaceBetween>
+        <FlexSpaceBetween>
+          <WhiteP>Tél.</WhiteP>
+          <Input name="phoneNumber" type="tel" placeholder="0634256172" onChange={change} required />
+        </FlexSpaceBetween>
+        <FlexSpaceBetween>
+          <WhiteP>E-mail</WhiteP>
+          <Input name="email" type="email" placeholder="Jean.dupuis@link-value.fr" onChange={change} required />
+        </FlexSpaceBetween>
+      </FlexColumn>
+      <HorizontalFlex width="100%" alignItems="center">
+        <FontAwesomeIcon icon={faBriefcase} style={{ color: '#FFF' }} size="1x" />
+        <P>Informations professionnelles</P>
+      </HorizontalFlex>
+      <FlexColumn>
+        <FlexSpaceBetween>
+          <WhiteP>Métier</WhiteP>
+          <Input name="job" placeholder="Développeur" onChange={change} required />
+        </FlexSpaceBetween>
+        <FlexSpaceBetween>
+          <WhiteP>Exp.</WhiteP>
+          <InputNumber name="experience" placeholder="3 ans" type="number" min="0" onChange={change} required />
+        </FlexSpaceBetween>
+        <FlexSpaceBetween>
+          <WhiteP>Client</WhiteP>
+          <Select name="customer" onChange={(e) => change && setCustomer(e.target.value)} id="select">
+            {/* J'attends d'avoir les clients en bdd pour map */}
+            <option>Sélectionnez un client</option>
+            <option>FTV</option>
+            <option>M6</option>
+            <option>Sodexo</option>
+            <option>Keplr</option>
+            <option>Booster</option>
+          </Select>
+        </FlexSpaceBetween>
+        <FlexSpaceBetween>
+          {customer === 'Booster'
+            && (
+              <>
+                <WhiteP> Projet</WhiteP>
+                <Input name="project" placeholder="Mister Aslphalt" onChange={change} />
+              </>
+            )}
+        </FlexSpaceBetween>
+      </FlexColumn>
+      <HorizontalFlex width="100%" alignItems="center">
+        <Button type="submit">Valider</Button>
+      </HorizontalFlex>
+    </>
+)
+};
 
 Form.propTypes = {
   image: PropTypes.string,
