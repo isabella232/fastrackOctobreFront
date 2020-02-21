@@ -9,6 +9,7 @@ const ButtonASC = styled.div`
   height: 14px;
   top: 2.5rem;
   right: 40px;
+  cursor: pointer;
   ${tabletQuery`
   top: 6em;
   left: 80%
@@ -26,6 +27,7 @@ const ButtonDESC = styled.div`
   height: 14px;
   top: 2.5rem;
   right: 70px;
+  cursor: pointer;
   ${tabletQuery`
   top: 6em;
   left: 84%
@@ -47,10 +49,10 @@ const FiltredButton = ({ descClick, ascClick, icon1, icon2 }) => {
 
   return (
     <>
-      <ButtonASC onClick={ascClick}>
-        <Icon icon={icon1} size="1x" color="#fff" onClick={ascClick} />
+      <ButtonASC onClick={descClick}>
+        <Icon icon={icon1} size="1x" color="#fff" onClick={descClick} />
       </ButtonASC>
-      <ButtonDESC onClick={descClick}>
+      <ButtonDESC onClick={ascClick}>
         <Icon icon={icon2} size="1x" color="#fff" />
       </ButtonDESC>
     </>

@@ -144,8 +144,12 @@ const PartnerDetails = () => {
                         <P margin=".8rem 0 .8rem .3rem">{`${partner.customer}`}</P>
                       </HorizontalFlex>
                       <HorizontalFlex>
-                        <P fontWeight="bold" margin=".8rem 0 .8rem .3rem">Projet : </P>
-                        <P margin=".8rem 0 .8rem .3rem">{`${partner.project}`}</P>
+                        {partner.project !== null && (
+                          <>
+                            <P fontWeight="bold" margin=".8rem 0 .8rem .3rem">Projet : </P>
+                            <P margin=".8rem 0 .8rem .3rem">{`${partner.project}`}</P>
+                          </>
+                        )}
                       </HorizontalFlex>
                     </BoxHead>
                     <BoxGoals>

@@ -25,18 +25,20 @@ const Home = () => {
 
   const ascFilter = () => {
     setAsc(!asc);
+    setDesc(desc);
   };
 
   const descFilter = () => {
+    setAsc(asc);
     setDesc(!desc);
   };
 
   const getList = () => {
     if (asc === true && desc === false) {
-      filtredPartnerList('asc').then((res) => dispatch(addList(res.data)));
+      filtredPartnerList('asc').then((res) => dispatch(addList(res)));
     }
     else if (asc === false && desc === true) {
-      filtredPartnerList('desc').then((res) => dispatch(addList(res.data)));
+      filtredPartnerList('desc').then((res) => dispatch(addList(res)));
     }
     else {
       partnerList().then((res) => dispatch(addList(res.data)));
@@ -46,7 +48,7 @@ const Home = () => {
   useEffect(() => {
     dispatch(clearStoreList([]));
     return getList();
-  }, []);
+  }, [asc, desc]);
 
   return (
     <>

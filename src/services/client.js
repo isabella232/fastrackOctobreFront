@@ -68,7 +68,7 @@ export const partnerList = () => axios.get(`${baseUrl}/partner`,
     window.location.assign('https://fasttrack-octobre-front.herokuapp.com/login');
   });
 
-export const filtredPartnerList = (order, options = '') => axios.get(`${baseUrl}/partner/${options}/${order}`,
+export const filtredPartnerList = (order, options = 'null') => axios.get(`${baseUrl}/partner/${options}/${order}`,
   {
     headers: {
       Authorization: `Bearer ${getToken()}`,
